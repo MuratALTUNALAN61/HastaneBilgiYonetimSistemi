@@ -14,6 +14,7 @@ namespace HBYS
     {
         public FormSekreter()
         {
+            //test change
             InitializeComponent();
         }
 
