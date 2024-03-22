@@ -48,14 +48,27 @@
             textBoxAramaTc = new TextBox();
             label7 = new Label();
             tabPage3 = new TabPage();
-            tabPage4 = new TabPage();
+            buttonKayitSil = new Button();
+            maskedTextBoxGuncelleTel = new MaskedTextBox();
+            comboBoxGuncelleCinsiyet = new ComboBox();
+            label8 = new Label();
+            label9 = new Label();
+            dateTimePickerGuncelleDt = new DateTimePicker();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            textBoxGuncelleIsim = new TextBox();
+            textBoxGuncelleSoyisim = new TextBox();
+            buttonKayitGuncelle = new Button();
+            textBoxGuncelleTc = new TextBox();
             tabPage5 = new TabPage();
             tabPage6 = new TabPage();
             tabPage7 = new TabPage();
-            tabPage8 = new TabPage();
             tabControlSekreter.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
+            tabPage3.SuspendLayout();
             SuspendLayout();
             // 
             // buttonKayitEkle
@@ -159,16 +172,13 @@
             tabControlSekreter.Controls.Add(tabPage1);
             tabControlSekreter.Controls.Add(tabPage2);
             tabControlSekreter.Controls.Add(tabPage3);
-            tabControlSekreter.Controls.Add(tabPage4);
             tabControlSekreter.Controls.Add(tabPage5);
             tabControlSekreter.Controls.Add(tabPage6);
             tabControlSekreter.Controls.Add(tabPage7);
-            tabControlSekreter.Controls.Add(tabPage8);
             tabControlSekreter.Location = new Point(12, 12);
             tabControlSekreter.Name = "tabControlSekreter";
             tabControlSekreter.SelectedIndex = 0;
-            tabControlSekreter.Size = new Size(815, 371);
-            tabControlSekreter.SizeMode = TabSizeMode.Fixed;
+            tabControlSekreter.Size = new Size(864, 371);
             tabControlSekreter.TabIndex = 1;
             // 
             // tabPage1
@@ -189,7 +199,7 @@
             tabPage1.Location = new Point(4, 27);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(807, 340);
+            tabPage1.Size = new Size(856, 340);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Hasta Kaydı Oluşturma";
             tabPage1.UseVisualStyleBackColor = true;
@@ -219,7 +229,7 @@
             tabPage2.Location = new Point(4, 27);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(807, 340);
+            tabPage2.Size = new Size(856, 340);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Hasta Görüntüleme";
             tabPage2.UseVisualStyleBackColor = true;
@@ -253,30 +263,156 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(buttonKayitSil);
+            tabPage3.Controls.Add(maskedTextBoxGuncelleTel);
+            tabPage3.Controls.Add(comboBoxGuncelleCinsiyet);
+            tabPage3.Controls.Add(label8);
+            tabPage3.Controls.Add(label9);
+            tabPage3.Controls.Add(dateTimePickerGuncelleDt);
+            tabPage3.Controls.Add(label10);
+            tabPage3.Controls.Add(label11);
+            tabPage3.Controls.Add(label12);
+            tabPage3.Controls.Add(label13);
+            tabPage3.Controls.Add(textBoxGuncelleIsim);
+            tabPage3.Controls.Add(textBoxGuncelleSoyisim);
+            tabPage3.Controls.Add(buttonKayitGuncelle);
+            tabPage3.Controls.Add(textBoxGuncelleTc);
             tabPage3.Location = new Point(4, 27);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(807, 340);
+            tabPage3.Size = new Size(856, 340);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "Hasta Kaydı Güncelleme";
+            tabPage3.Text = "Hasta Kaydı Güncelleme - Silme";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
+            // buttonKayitSil
             // 
-            tabPage4.Location = new Point(4, 27);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(807, 340);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Hasta Kaydı Silme";
-            tabPage4.UseVisualStyleBackColor = true;
+            buttonKayitSil.Location = new Point(288, 256);
+            buttonKayitSil.Name = "buttonKayitSil";
+            buttonKayitSil.Size = new Size(75, 38);
+            buttonKayitSil.TabIndex = 30;
+            buttonKayitSil.Text = "KAYIT SİL";
+            buttonKayitSil.UseVisualStyleBackColor = true;
+            // 
+            // maskedTextBoxGuncelleTel
+            // 
+            maskedTextBoxGuncelleTel.Location = new Point(176, 227);
+            maskedTextBoxGuncelleTel.Mask = "(999) 000-0000";
+            maskedTextBoxGuncelleTel.Name = "maskedTextBoxGuncelleTel";
+            maskedTextBoxGuncelleTel.Size = new Size(187, 23);
+            maskedTextBoxGuncelleTel.TabIndex = 29;
+            // 
+            // comboBoxGuncelleCinsiyet
+            // 
+            comboBoxGuncelleCinsiyet.FormattingEnabled = true;
+            comboBoxGuncelleCinsiyet.Items.AddRange(new object[] { "Erkek", "Kadın" });
+            comboBoxGuncelleCinsiyet.Location = new Point(176, 198);
+            comboBoxGuncelleCinsiyet.Name = "comboBoxGuncelleCinsiyet";
+            comboBoxGuncelleCinsiyet.Size = new Size(187, 23);
+            comboBoxGuncelleCinsiyet.TabIndex = 28;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(123, 85);
+            label8.Name = "label8";
+            label8.Size = new Size(38, 15);
+            label8.TabIndex = 17;
+            label8.Text = "İsim : ";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(74, 172);
+            label9.Name = "label9";
+            label9.Size = new Size(87, 15);
+            label9.TabIndex = 22;
+            label9.Text = "Doğum Tarihi : ";
+            // 
+            // dateTimePickerGuncelleDt
+            // 
+            dateTimePickerGuncelleDt.Location = new Point(176, 166);
+            dateTimePickerGuncelleDt.Name = "dateTimePickerGuncelleDt";
+            dateTimePickerGuncelleDt.Size = new Size(187, 23);
+            dateTimePickerGuncelleDt.TabIndex = 24;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(103, 201);
+            label10.Name = "label10";
+            label10.Size = new Size(58, 15);
+            label10.TabIndex = 25;
+            label10.Text = "Cinsiyet : ";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(67, 143);
+            label11.Name = "label11";
+            label11.Size = new Size(94, 15);
+            label11.TabIndex = 20;
+            label11.Text = "T.C. Kimlik No :  ";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(88, 230);
+            label12.Name = "label12";
+            label12.Size = new Size(73, 15);
+            label12.TabIndex = 26;
+            label12.Text = "Telefon No : ";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(104, 114);
+            label13.Name = "label13";
+            label13.Size = new Size(57, 15);
+            label13.TabIndex = 18;
+            label13.Text = "Soyisim : ";
+            // 
+            // textBoxGuncelleIsim
+            // 
+            textBoxGuncelleIsim.Location = new Point(176, 77);
+            textBoxGuncelleIsim.Name = "textBoxGuncelleIsim";
+            textBoxGuncelleIsim.Size = new Size(187, 23);
+            textBoxGuncelleIsim.TabIndex = 19;
+            textBoxGuncelleIsim.KeyPress += textBoxGuncelleIsim_KeyPress;
+            // 
+            // textBoxGuncelleSoyisim
+            // 
+            textBoxGuncelleSoyisim.Location = new Point(176, 106);
+            textBoxGuncelleSoyisim.Name = "textBoxGuncelleSoyisim";
+            textBoxGuncelleSoyisim.Size = new Size(187, 23);
+            textBoxGuncelleSoyisim.TabIndex = 21;
+            textBoxGuncelleSoyisim.TextChanged += textBoxGuncelleSoyisim_TextChanged;
+            textBoxGuncelleSoyisim.KeyPress += textBoxGuncelleSoyisim_KeyPress;
+            // 
+            // buttonKayitGuncelle
+            // 
+            buttonKayitGuncelle.Location = new Point(176, 256);
+            buttonKayitGuncelle.Name = "buttonKayitGuncelle";
+            buttonKayitGuncelle.Size = new Size(75, 38);
+            buttonKayitGuncelle.TabIndex = 27;
+            buttonKayitGuncelle.Text = "KAYIT GÜNCELLE";
+            buttonKayitGuncelle.UseVisualStyleBackColor = true;
+            // 
+            // textBoxGuncelleTc
+            // 
+            textBoxGuncelleTc.Location = new Point(176, 135);
+            textBoxGuncelleTc.MaxLength = 11;
+            textBoxGuncelleTc.Name = "textBoxGuncelleTc";
+            textBoxGuncelleTc.Size = new Size(187, 23);
+            textBoxGuncelleTc.TabIndex = 23;
+            textBoxGuncelleTc.KeyPress += textBoxGuncelleTc_KeyPress;
             // 
             // tabPage5
             // 
             tabPage5.Location = new Point(4, 27);
             tabPage5.Name = "tabPage5";
             tabPage5.Padding = new Padding(3);
-            tabPage5.Size = new Size(807, 340);
+            tabPage5.Size = new Size(856, 340);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Randevu Oluşturma";
             tabPage5.UseVisualStyleBackColor = true;
@@ -286,7 +422,7 @@
             tabPage6.Location = new Point(4, 27);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new Padding(3);
-            tabPage6.Size = new Size(807, 340);
+            tabPage6.Size = new Size(856, 340);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "Randevu Görüntüleme";
             tabPage6.UseVisualStyleBackColor = true;
@@ -296,20 +432,10 @@
             tabPage7.Location = new Point(4, 27);
             tabPage7.Name = "tabPage7";
             tabPage7.Padding = new Padding(3);
-            tabPage7.Size = new Size(807, 340);
+            tabPage7.Size = new Size(856, 340);
             tabPage7.TabIndex = 6;
-            tabPage7.Text = "Randevu Güncelleme";
+            tabPage7.Text = "Randevu Güncelleme - Silme";
             tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // tabPage8
-            // 
-            tabPage8.Location = new Point(4, 27);
-            tabPage8.Name = "tabPage8";
-            tabPage8.Padding = new Padding(3);
-            tabPage8.Size = new Size(807, 340);
-            tabPage8.TabIndex = 7;
-            tabPage8.Text = "Randevu Silme";
-            tabPage8.UseVisualStyleBackColor = true;
             // 
             // FormSekreter
             // 
@@ -325,6 +451,8 @@
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -353,16 +481,24 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TabPage tabPage3;
-        private TabPage tabPage4;
         private TabPage tabPage5;
         private TabPage tabPage6;
         private TabPage tabPage7;
-        private TabPage tabPage8;
         private ComboBox comboBoxCinsiyet;
         private MaskedTextBox maskedTextBoxHtel;
         private ComboBox comboBoxHcinsiyet;
         private DateTimePicker dateTimePickerHDogunT;
         private TextBox textBoxAramaTc;
         private Label label7;
+        private MaskedTextBox maskedTextBoxGuncelleTel;
+        private ComboBox comboBoxGuncelleCinsiyet;
+        private DateTimePicker dateTimePickerGuncelleDt;
+        private Label label12;
+        private Label label13;
+        private TextBox textBoxGuncelleIsim;
+        private TextBox textBoxGuncelleSoyisim;
+        private Button buttonKayitGuncelle;
+        private TextBox textBoxGuncelleTc;
+        private Button buttonKayitSil;
     }
 }
