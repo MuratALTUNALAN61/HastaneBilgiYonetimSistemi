@@ -44,15 +44,15 @@
             maskedTextBoxHtel = new MaskedTextBox();
             comboBoxHcinsiyet = new ComboBox();
             tabPage2 = new TabPage();
+            buttonKayitAra = new Button();
+            textBoxAramaTc = new TextBox();
+            label7 = new Label();
             tabPage3 = new TabPage();
             tabPage4 = new TabPage();
             tabPage5 = new TabPage();
             tabPage6 = new TabPage();
             tabPage7 = new TabPage();
             tabPage8 = new TabPage();
-            label7 = new Label();
-            textBoxAramaTc = new TextBox();
-            buttonKayitAra = new Button();
             tabControlSekreter.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -224,6 +224,33 @@
             tabPage2.Text = "Hasta Görüntüleme";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // buttonKayitAra
+            // 
+            buttonKayitAra.Location = new Point(292, 51);
+            buttonKayitAra.Name = "buttonKayitAra";
+            buttonKayitAra.Size = new Size(75, 23);
+            buttonKayitAra.TabIndex = 2;
+            buttonKayitAra.Text = "KAYIT ARA";
+            buttonKayitAra.UseVisualStyleBackColor = true;
+            // 
+            // textBoxAramaTc
+            // 
+            textBoxAramaTc.Location = new Point(156, 52);
+            textBoxAramaTc.MaxLength = 11;
+            textBoxAramaTc.Name = "textBoxAramaTc";
+            textBoxAramaTc.Size = new Size(100, 23);
+            textBoxAramaTc.TabIndex = 1;
+            textBoxAramaTc.KeyPress += textBoxAramaTc_KeyPress;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(36, 55);
+            label7.Name = "label7";
+            label7.Size = new Size(91, 15);
+            label7.TabIndex = 0;
+            label7.Text = "T.C. Kimlik No : ";
+            // 
             // tabPage3
             // 
             tabPage3.Location = new Point(4, 27);
@@ -283,31 +310,6 @@
             tabPage8.TabIndex = 7;
             tabPage8.Text = "Randevu Silme";
             tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(36, 55);
-            label7.Name = "label7";
-            label7.Size = new Size(91, 15);
-            label7.TabIndex = 0;
-            label7.Text = "T.C. Kimlik No : ";
-            // 
-            // textBoxAramaTc
-            // 
-            textBoxAramaTc.Location = new Point(156, 52);
-            textBoxAramaTc.Name = "textBoxAramaTc";
-            textBoxAramaTc.Size = new Size(100, 23);
-            textBoxAramaTc.TabIndex = 1;
-            // 
-            // buttonKayitAra
-            // 
-            buttonKayitAra.Location = new Point(292, 51);
-            buttonKayitAra.Name = "buttonKayitAra";
-            buttonKayitAra.Size = new Size(75, 23);
-            buttonKayitAra.TabIndex = 2;
-            buttonKayitAra.Text = "KAYIT ARA";
-            buttonKayitAra.UseVisualStyleBackColor = true;
             // 
             // FormSekreter
             // 
