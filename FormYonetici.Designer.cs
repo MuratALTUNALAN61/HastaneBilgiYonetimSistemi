@@ -57,7 +57,7 @@
             label15 = new Label();
             textBoxP_TcArama = new TextBox();
             buttonKayitAra = new Button();
-            radioButton1 = new RadioButton();
+            comboBoxHcinsiyet = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -172,56 +172,56 @@
             // 
             textBoxP_Isim.Location = new Point(200, 79);
             textBoxP_Isim.Name = "textBoxP_Isim";
-            textBoxP_Isim.Size = new Size(152, 23);
+            textBoxP_Isim.Size = new Size(187, 23);
             textBoxP_Isim.TabIndex = 12;
             // 
             // textBoxP_Soyisim
             // 
             textBoxP_Soyisim.Location = new Point(200, 108);
             textBoxP_Soyisim.Name = "textBoxP_Soyisim";
-            textBoxP_Soyisim.Size = new Size(152, 23);
+            textBoxP_Soyisim.Size = new Size(187, 23);
             textBoxP_Soyisim.TabIndex = 13;
             // 
             // textBoxP_Tc
             // 
             textBoxP_Tc.Location = new Point(200, 137);
             textBoxP_Tc.Name = "textBoxP_Tc";
-            textBoxP_Tc.Size = new Size(152, 23);
+            textBoxP_Tc.Size = new Size(187, 23);
             textBoxP_Tc.TabIndex = 14;
             // 
             // textBoxP_Gorev
             // 
             textBoxP_Gorev.Location = new Point(200, 166);
             textBoxP_Gorev.Name = "textBoxP_Gorev";
-            textBoxP_Gorev.Size = new Size(152, 23);
+            textBoxP_Gorev.Size = new Size(187, 23);
             textBoxP_Gorev.TabIndex = 15;
             // 
             // textBoxP_DogumTarihi
             // 
             textBoxP_DogumTarihi.Location = new Point(200, 224);
             textBoxP_DogumTarihi.Name = "textBoxP_DogumTarihi";
-            textBoxP_DogumTarihi.Size = new Size(152, 23);
+            textBoxP_DogumTarihi.Size = new Size(187, 23);
             textBoxP_DogumTarihi.TabIndex = 17;
             // 
             // textBoxP_Telefon
             // 
             textBoxP_Telefon.Location = new Point(200, 253);
             textBoxP_Telefon.Name = "textBoxP_Telefon";
-            textBoxP_Telefon.Size = new Size(152, 23);
+            textBoxP_Telefon.Size = new Size(187, 23);
             textBoxP_Telefon.TabIndex = 18;
             // 
             // textBoxP_Polikinlik
             // 
             textBoxP_Polikinlik.Location = new Point(200, 311);
             textBoxP_Polikinlik.Name = "textBoxP_Polikinlik";
-            textBoxP_Polikinlik.Size = new Size(152, 23);
+            textBoxP_Polikinlik.Size = new Size(187, 23);
             textBoxP_Polikinlik.TabIndex = 20;
             // 
             // textBoxP_Adres
             // 
             textBoxP_Adres.Location = new Point(200, 340);
             textBoxP_Adres.Name = "textBoxP_Adres";
-            textBoxP_Adres.Size = new Size(152, 23);
+            textBoxP_Adres.Size = new Size(187, 23);
             textBoxP_Adres.TabIndex = 21;
             // 
             // buttonKayitEkle
@@ -237,7 +237,7 @@
             // 
             textBoxP_Mail.Location = new Point(200, 195);
             textBoxP_Mail.Name = "textBoxP_Mail";
-            textBoxP_Mail.Size = new Size(152, 23);
+            textBoxP_Mail.Size = new Size(187, 23);
             textBoxP_Mail.TabIndex = 23;
             // 
             // textBoxP_TcSilme
@@ -299,23 +299,21 @@
             buttonKayitAra.Text = "KAYIT ARA";
             buttonKayitAra.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // comboBoxHcinsiyet
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(203, 285);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(94, 19);
-            radioButton1.TabIndex = 31;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "radioButton1";
-            radioButton1.UseVisualStyleBackColor = true;
+            comboBoxHcinsiyet.FormattingEnabled = true;
+            comboBoxHcinsiyet.Items.AddRange(new object[] { "Erkek", "Kadın" });
+            comboBoxHcinsiyet.Location = new Point(200, 282);
+            comboBoxHcinsiyet.Name = "comboBoxHcinsiyet";
+            comboBoxHcinsiyet.Size = new Size(187, 23);
+            comboBoxHcinsiyet.TabIndex = 31;
             // 
             // FormYonetici
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(894, 501);
-            Controls.Add(radioButton1);
+            Controls.Add(comboBoxHcinsiyet);
             Controls.Add(buttonKayitAra);
             Controls.Add(textBoxP_TcArama);
             Controls.Add(label15);
@@ -384,6 +382,6 @@
         private Label label15;
         private TextBox textBoxP_TcArama;
         private Button buttonKayitAra;
-        private RadioButton radioButton1;
+        private ComboBox comboBoxHcinsiyet;
     }
 }
