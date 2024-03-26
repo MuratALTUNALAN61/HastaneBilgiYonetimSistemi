@@ -113,6 +113,7 @@
             Name = "FormDoktor";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
+            Load += FormDoktor_Load;
             ResumeLayout(false);
             PerformLayout();
         }

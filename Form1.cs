@@ -13,21 +13,21 @@ namespace HBYS
 
         private void buttonGirisYap_Click(object sender, EventArgs e)
         {
-            string parola;
             baglanti.Open();
-            SqlCommand komut1 = new SqlCommand("select kullanici_id from Kullanici where kullaniciAdi=@isim and sifre=@sifre", baglanti);
-            komut1.Parameters.AddWithValue("@isim",textBoxKullaniciAdi.Text);
-            komut1.Parameters.AddWithValue("sifre", textBoxSifre.Text);
-            SqlDataReader dr = komut1.ExecuteReader();
+            SqlCommand komutKullaniciId = new SqlCommand("select kullanici_id from Kullanici where kullaniciAdi=@isim and sifre=@sifre", baglanti);
+            komutKullaniciId.Parameters.AddWithValue("@isim",textBoxKullaniciAdi.Text);
+            komutKullaniciId.Parameters.AddWithValue("sifre", textBoxSifre.Text);
+            SqlDataReader dr = komutKullaniciId.ExecuteReader();
             dr.Read();
             int id = (int)dr["kullanici_id"];
             dr.Close();
 
-            SqlCommand komut2 = new SqlCommand("select Yetki.yetki from Yetki join Kullanici_yetki on Yetki.yetki_id=Kullanici_yetki.y_id where Kullanici_yetki.k_id=@id",baglanti);
-            komut2.Parameters.AddWithValue("@id", id);
-            SqlDataReader dr2= komut2.ExecuteReader();
+            SqlCommand komutYetki = new SqlCommand("select Yetki.yetki from Yetki join Kullanici_yetki on Yetki.yetki_id=Kullanici_yetki.y_id where Kullanici_yetki.k_id=@id",baglanti);
+            komutYetki.Parameters.AddWithValue("@id", id);
+            SqlDataReader dr2= komutYetki.ExecuteReader();
             dr2.Read();
             string yetki = (string)dr2["yetki"];
+            dr2.Close();
             baglanti.Close();
 
             switch (yetki)
