@@ -48,6 +48,9 @@
             textBoxAramaTc = new TextBox();
             label7 = new Label();
             tabPage3 = new TabPage();
+            button1 = new Button();
+            textBox1 = new TextBox();
+            label14 = new Label();
             buttonKayitSil = new Button();
             maskedTextBoxGuncelleTel = new MaskedTextBox();
             comboBoxGuncelleCinsiyet = new ComboBox();
@@ -63,12 +66,21 @@
             buttonKayitGuncelle = new Button();
             textBoxGuncelleTc = new TextBox();
             tabPage5 = new TabPage();
+            comboBoxRandevuDoktor = new ComboBox();
+            comboBoxRandevuPolikinlik = new ComboBox();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
+            buttonRandevuOlustur = new Button();
+            textBoxRandevuTc = new TextBox();
             tabPage6 = new TabPage();
             tabPage7 = new TabPage();
             tabControlSekreter.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
+            tabPage5.SuspendLayout();
             SuspendLayout();
             // 
             // buttonKayitEkle
@@ -236,7 +248,7 @@
             // 
             // buttonKayitAra
             // 
-            buttonKayitAra.Location = new Point(292, 51);
+            buttonKayitAra.Location = new Point(335, 51);
             buttonKayitAra.Name = "buttonKayitAra";
             buttonKayitAra.Size = new Size(75, 23);
             buttonKayitAra.TabIndex = 2;
@@ -248,7 +260,7 @@
             textBoxAramaTc.Location = new Point(156, 52);
             textBoxAramaTc.MaxLength = 11;
             textBoxAramaTc.Name = "textBoxAramaTc";
-            textBoxAramaTc.Size = new Size(100, 23);
+            textBoxAramaTc.Size = new Size(141, 23);
             textBoxAramaTc.TabIndex = 1;
             textBoxAramaTc.KeyPress += textBoxAramaTc_KeyPress;
             // 
@@ -263,6 +275,9 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(button1);
+            tabPage3.Controls.Add(textBox1);
+            tabPage3.Controls.Add(label14);
             tabPage3.Controls.Add(buttonKayitSil);
             tabPage3.Controls.Add(maskedTextBoxGuncelleTel);
             tabPage3.Controls.Add(comboBoxGuncelleCinsiyet);
@@ -284,6 +299,32 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Hasta Kaydı Güncelleme - Silme";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(365, 33);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 33;
+            button1.Text = "KAYIT ARA";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(186, 34);
+            textBox1.MaxLength = 11;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(141, 23);
+            textBox1.TabIndex = 32;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(66, 37);
+            label14.Name = "label14";
+            label14.Size = new Size(91, 15);
+            label14.TabIndex = 31;
+            label14.Text = "T.C. Kimlik No : ";
             // 
             // buttonKayitSil
             // 
@@ -409,6 +450,14 @@
             // 
             // tabPage5
             // 
+            tabPage5.Controls.Add(comboBoxRandevuDoktor);
+            tabPage5.Controls.Add(comboBoxRandevuPolikinlik);
+            tabPage5.Controls.Add(label16);
+            tabPage5.Controls.Add(label17);
+            tabPage5.Controls.Add(label18);
+            tabPage5.Controls.Add(label19);
+            tabPage5.Controls.Add(buttonRandevuOlustur);
+            tabPage5.Controls.Add(textBoxRandevuTc);
             tabPage5.Location = new Point(4, 27);
             tabPage5.Name = "tabPage5";
             tabPage5.Padding = new Padding(3);
@@ -416,6 +465,75 @@
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Randevu Oluşturma";
             tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxRandevuDoktor
+            // 
+            comboBoxRandevuDoktor.FormattingEnabled = true;
+            comboBoxRandevuDoktor.Location = new Point(173, 146);
+            comboBoxRandevuDoktor.Name = "comboBoxRandevuDoktor";
+            comboBoxRandevuDoktor.Size = new Size(187, 23);
+            comboBoxRandevuDoktor.TabIndex = 31;
+            // 
+            // comboBoxRandevuPolikinlik
+            // 
+            comboBoxRandevuPolikinlik.FormattingEnabled = true;
+            comboBoxRandevuPolikinlik.Location = new Point(173, 117);
+            comboBoxRandevuPolikinlik.Name = "comboBoxRandevuPolikinlik";
+            comboBoxRandevuPolikinlik.Size = new Size(187, 23);
+            comboBoxRandevuPolikinlik.TabIndex = 30;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(71, 91);
+            label16.Name = "label16";
+            label16.Size = new Size(87, 15);
+            label16.TabIndex = 22;
+            label16.Text = "Doğum Tarihi : ";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(100, 120);
+            label17.Name = "label17";
+            label17.Size = new Size(64, 15);
+            label17.TabIndex = 25;
+            label17.Text = "Polikinlik : ";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(64, 62);
+            label18.Name = "label18";
+            label18.Size = new Size(94, 15);
+            label18.TabIndex = 20;
+            label18.Text = "T.C. Kimlik No :  ";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(85, 149);
+            label19.Name = "label19";
+            label19.Size = new Size(52, 15);
+            label19.TabIndex = 26;
+            label19.Text = "Doktor : ";
+            // 
+            // buttonRandevuOlustur
+            // 
+            buttonRandevuOlustur.Location = new Point(216, 185);
+            buttonRandevuOlustur.Name = "buttonRandevuOlustur";
+            buttonRandevuOlustur.Size = new Size(100, 39);
+            buttonRandevuOlustur.TabIndex = 27;
+            buttonRandevuOlustur.Text = "RANDEVU OLUŞTUR";
+            buttonRandevuOlustur.UseVisualStyleBackColor = true;
+            // 
+            // textBoxRandevuTc
+            // 
+            textBoxRandevuTc.Location = new Point(173, 54);
+            textBoxRandevuTc.MaxLength = 11;
+            textBoxRandevuTc.Name = "textBoxRandevuTc";
+            textBoxRandevuTc.Size = new Size(187, 23);
+            textBoxRandevuTc.TabIndex = 23;
             // 
             // tabPage6
             // 
@@ -453,6 +571,8 @@
             tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+            tabPage5.ResumeLayout(false);
+            tabPage5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -500,5 +620,21 @@
         private Button buttonKayitGuncelle;
         private TextBox textBoxGuncelleTc;
         private Button buttonKayitSil;
+        private Button button1;
+        private TextBox textBox1;
+        private Label label14;
+        private ComboBox comboBoxRandevuPolikinlik;
+        private Label label15;
+        private Label label16;
+        private DateTimePicker dateTimePicker1;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label20;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private Button buttonRandevuOlustur;
+        private TextBox textBoxRandevuTc;
+        private ComboBox comboBoxRandevuDoktor;
     }
 }
