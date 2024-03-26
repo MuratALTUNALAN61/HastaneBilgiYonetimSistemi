@@ -66,6 +66,7 @@
             buttonKayitGuncelle = new Button();
             textBoxGuncelleTc = new TextBox();
             tabPage5 = new TabPage();
+            dateTimePickerRancevuTarih = new DateTimePicker();
             comboBoxRandevuDoktor = new ComboBox();
             comboBoxRandevuPolikinlik = new ComboBox();
             label16 = new Label();
@@ -75,17 +76,33 @@
             buttonRandevuOlustur = new Button();
             textBoxRandevuTc = new TextBox();
             tabPage6 = new TabPage();
+            button2 = new Button();
+            textBoxRandevuAraTc = new TextBox();
+            label15 = new Label();
             tabPage7 = new TabPage();
+            buttonRandevuSil = new Button();
+            buttonRandevuGuncelleAra = new Button();
+            textBoxRandevuGuncelleTc = new TextBox();
+            label24 = new Label();
+            dateTimePickerRandevuGuncelle = new DateTimePicker();
+            comboBoxRandevuGuncelleDoktor = new ComboBox();
+            comboBoxRandevuGuncellePolikinlik = new ComboBox();
+            label20 = new Label();
+            label21 = new Label();
+            label23 = new Label();
+            buttonRandevuGuncelle = new Button();
             tabControlSekreter.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
             tabPage5.SuspendLayout();
+            tabPage6.SuspendLayout();
+            tabPage7.SuspendLayout();
             SuspendLayout();
             // 
             // buttonKayitEkle
             // 
-            buttonKayitEkle.Location = new Point(184, 202);
+            buttonKayitEkle.Location = new Point(399, 258);
             buttonKayitEkle.Name = "buttonKayitEkle";
             buttonKayitEkle.Size = new Size(100, 32);
             buttonKayitEkle.TabIndex = 14;
@@ -94,7 +111,7 @@
             // 
             // textBoxHtc
             // 
-            textBoxHtc.Location = new Point(141, 71);
+            textBoxHtc.Location = new Point(356, 127);
             textBoxHtc.MaxLength = 11;
             textBoxHtc.Name = "textBoxHtc";
             textBoxHtc.Size = new Size(187, 23);
@@ -103,7 +120,7 @@
             // 
             // textBoxHsoyisim
             // 
-            textBoxHsoyisim.Location = new Point(141, 42);
+            textBoxHsoyisim.Location = new Point(356, 98);
             textBoxHsoyisim.Name = "textBoxHsoyisim";
             textBoxHsoyisim.Size = new Size(187, 23);
             textBoxHsoyisim.TabIndex = 2;
@@ -111,7 +128,7 @@
             // 
             // textBoxHisim
             // 
-            textBoxHisim.Location = new Point(141, 13);
+            textBoxHisim.Location = new Point(356, 69);
             textBoxHisim.Name = "textBoxHisim";
             textBoxHisim.Size = new Size(187, 23);
             textBoxHisim.TabIndex = 1;
@@ -120,7 +137,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(53, 166);
+            label6.Location = new Point(268, 222);
             label6.Name = "label6";
             label6.Size = new Size(73, 15);
             label6.TabIndex = 5;
@@ -129,7 +146,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(68, 137);
+            label5.Location = new Point(283, 193);
             label5.Name = "label5";
             label5.Size = new Size(58, 15);
             label5.TabIndex = 4;
@@ -138,7 +155,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(39, 108);
+            label4.Location = new Point(254, 164);
             label4.Name = "label4";
             label4.Size = new Size(87, 15);
             label4.TabIndex = 3;
@@ -147,7 +164,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(32, 79);
+            label3.Location = new Point(247, 135);
             label3.Name = "label3";
             label3.Size = new Size(94, 15);
             label3.TabIndex = 2;
@@ -156,7 +173,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(69, 50);
+            label2.Location = new Point(284, 106);
             label2.Name = "label2";
             label2.Size = new Size(57, 15);
             label2.TabIndex = 1;
@@ -165,7 +182,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(88, 21);
+            label1.Location = new Point(303, 77);
             label1.Name = "label1";
             label1.Size = new Size(38, 15);
             label1.TabIndex = 0;
@@ -173,7 +190,7 @@
             // 
             // dateTimePickerHDogunT
             // 
-            dateTimePickerHDogunT.Location = new Point(141, 102);
+            dateTimePickerHDogunT.Location = new Point(356, 158);
             dateTimePickerHDogunT.Name = "dateTimePickerHDogunT";
             dateTimePickerHDogunT.Size = new Size(187, 23);
             dateTimePickerHDogunT.TabIndex = 4;
@@ -218,7 +235,7 @@
             // 
             // maskedTextBoxHtel
             // 
-            maskedTextBoxHtel.Location = new Point(141, 163);
+            maskedTextBoxHtel.Location = new Point(356, 219);
             maskedTextBoxHtel.Mask = "(999) 000-0000";
             maskedTextBoxHtel.Name = "maskedTextBoxHtel";
             maskedTextBoxHtel.Size = new Size(187, 23);
@@ -228,7 +245,7 @@
             // 
             comboBoxHcinsiyet.FormattingEnabled = true;
             comboBoxHcinsiyet.Items.AddRange(new object[] { "Erkek", "Kadın" });
-            comboBoxHcinsiyet.Location = new Point(141, 134);
+            comboBoxHcinsiyet.Location = new Point(356, 190);
             comboBoxHcinsiyet.Name = "comboBoxHcinsiyet";
             comboBoxHcinsiyet.Size = new Size(187, 23);
             comboBoxHcinsiyet.TabIndex = 15;
@@ -450,6 +467,7 @@
             // 
             // tabPage5
             // 
+            tabPage5.Controls.Add(dateTimePickerRancevuTarih);
             tabPage5.Controls.Add(comboBoxRandevuDoktor);
             tabPage5.Controls.Add(comboBoxRandevuPolikinlik);
             tabPage5.Controls.Add(label16);
@@ -466,10 +484,20 @@
             tabPage5.Text = "Randevu Oluşturma";
             tabPage5.UseVisualStyleBackColor = true;
             // 
+            // dateTimePickerRancevuTarih
+            // 
+            dateTimePickerRancevuTarih.CustomFormat = "dd/MM/yyyy HH:mm";
+            dateTimePickerRancevuTarih.Format = DateTimePickerFormat.Custom;
+            dateTimePickerRancevuTarih.Location = new Point(357, 128);
+            dateTimePickerRancevuTarih.Name = "dateTimePickerRancevuTarih";
+            dateTimePickerRancevuTarih.Size = new Size(187, 23);
+            dateTimePickerRancevuTarih.TabIndex = 32;
+            dateTimePickerRancevuTarih.Value = new DateTime(2024, 3, 26, 12, 31, 0, 0);
+            // 
             // comboBoxRandevuDoktor
             // 
             comboBoxRandevuDoktor.FormattingEnabled = true;
-            comboBoxRandevuDoktor.Location = new Point(173, 146);
+            comboBoxRandevuDoktor.Location = new Point(357, 189);
             comboBoxRandevuDoktor.Name = "comboBoxRandevuDoktor";
             comboBoxRandevuDoktor.Size = new Size(187, 23);
             comboBoxRandevuDoktor.TabIndex = 31;
@@ -477,7 +505,7 @@
             // comboBoxRandevuPolikinlik
             // 
             comboBoxRandevuPolikinlik.FormattingEnabled = true;
-            comboBoxRandevuPolikinlik.Location = new Point(173, 117);
+            comboBoxRandevuPolikinlik.Location = new Point(357, 160);
             comboBoxRandevuPolikinlik.Name = "comboBoxRandevuPolikinlik";
             comboBoxRandevuPolikinlik.Size = new Size(187, 23);
             comboBoxRandevuPolikinlik.TabIndex = 30;
@@ -485,7 +513,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(71, 91);
+            label16.Location = new Point(255, 134);
             label16.Name = "label16";
             label16.Size = new Size(87, 15);
             label16.TabIndex = 22;
@@ -494,7 +522,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(100, 120);
+            label17.Location = new Point(278, 163);
             label17.Name = "label17";
             label17.Size = new Size(64, 15);
             label17.TabIndex = 25;
@@ -503,7 +531,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(64, 62);
+            label18.Location = new Point(248, 105);
             label18.Name = "label18";
             label18.Size = new Size(94, 15);
             label18.TabIndex = 20;
@@ -512,7 +540,7 @@
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(85, 149);
+            label19.Location = new Point(290, 192);
             label19.Name = "label19";
             label19.Size = new Size(52, 15);
             label19.TabIndex = 26;
@@ -520,7 +548,7 @@
             // 
             // buttonRandevuOlustur
             // 
-            buttonRandevuOlustur.Location = new Point(216, 185);
+            buttonRandevuOlustur.Location = new Point(400, 228);
             buttonRandevuOlustur.Name = "buttonRandevuOlustur";
             buttonRandevuOlustur.Size = new Size(100, 39);
             buttonRandevuOlustur.TabIndex = 27;
@@ -529,7 +557,7 @@
             // 
             // textBoxRandevuTc
             // 
-            textBoxRandevuTc.Location = new Point(173, 54);
+            textBoxRandevuTc.Location = new Point(357, 97);
             textBoxRandevuTc.MaxLength = 11;
             textBoxRandevuTc.Name = "textBoxRandevuTc";
             textBoxRandevuTc.Size = new Size(187, 23);
@@ -537,6 +565,9 @@
             // 
             // tabPage6
             // 
+            tabPage6.Controls.Add(button2);
+            tabPage6.Controls.Add(textBoxRandevuAraTc);
+            tabPage6.Controls.Add(label15);
             tabPage6.Location = new Point(4, 27);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new Padding(3);
@@ -545,8 +576,45 @@
             tabPage6.Text = "Randevu Görüntüleme";
             tabPage6.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            button2.Location = new Point(349, 53);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 40);
+            button2.TabIndex = 5;
+            button2.Text = "RANDEVU ARA";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // textBoxRandevuAraTc
+            // 
+            textBoxRandevuAraTc.Location = new Point(170, 63);
+            textBoxRandevuAraTc.MaxLength = 11;
+            textBoxRandevuAraTc.Name = "textBoxRandevuAraTc";
+            textBoxRandevuAraTc.Size = new Size(141, 23);
+            textBoxRandevuAraTc.TabIndex = 4;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(50, 66);
+            label15.Name = "label15";
+            label15.Size = new Size(91, 15);
+            label15.TabIndex = 3;
+            label15.Text = "T.C. Kimlik No : ";
+            // 
             // tabPage7
             // 
+            tabPage7.Controls.Add(buttonRandevuSil);
+            tabPage7.Controls.Add(buttonRandevuGuncelleAra);
+            tabPage7.Controls.Add(textBoxRandevuGuncelleTc);
+            tabPage7.Controls.Add(label24);
+            tabPage7.Controls.Add(dateTimePickerRandevuGuncelle);
+            tabPage7.Controls.Add(comboBoxRandevuGuncelleDoktor);
+            tabPage7.Controls.Add(comboBoxRandevuGuncellePolikinlik);
+            tabPage7.Controls.Add(label20);
+            tabPage7.Controls.Add(label21);
+            tabPage7.Controls.Add(label23);
+            tabPage7.Controls.Add(buttonRandevuGuncelle);
             tabPage7.Location = new Point(4, 27);
             tabPage7.Name = "tabPage7";
             tabPage7.Padding = new Padding(3);
@@ -554,6 +622,103 @@
             tabPage7.TabIndex = 6;
             tabPage7.Text = "Randevu Güncelleme - Silme";
             tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // buttonRandevuSil
+            // 
+            buttonRandevuSil.Location = new Point(486, 217);
+            buttonRandevuSil.Name = "buttonRandevuSil";
+            buttonRandevuSil.Size = new Size(91, 39);
+            buttonRandevuSil.TabIndex = 45;
+            buttonRandevuSil.Text = "RANDEVU SİL";
+            buttonRandevuSil.UseVisualStyleBackColor = true;
+            // 
+            // buttonRandevuGuncelleAra
+            // 
+            buttonRandevuGuncelleAra.Location = new Point(587, 37);
+            buttonRandevuGuncelleAra.Name = "buttonRandevuGuncelleAra";
+            buttonRandevuGuncelleAra.Size = new Size(75, 40);
+            buttonRandevuGuncelleAra.TabIndex = 44;
+            buttonRandevuGuncelleAra.Text = "RANDEVU ARA";
+            buttonRandevuGuncelleAra.UseVisualStyleBackColor = true;
+            // 
+            // textBoxRandevuGuncelleTc
+            // 
+            textBoxRandevuGuncelleTc.Location = new Point(408, 47);
+            textBoxRandevuGuncelleTc.MaxLength = 11;
+            textBoxRandevuGuncelleTc.Name = "textBoxRandevuGuncelleTc";
+            textBoxRandevuGuncelleTc.Size = new Size(141, 23);
+            textBoxRandevuGuncelleTc.TabIndex = 43;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Location = new Point(288, 50);
+            label24.Name = "label24";
+            label24.Size = new Size(91, 15);
+            label24.TabIndex = 42;
+            label24.Text = "T.C. Kimlik No : ";
+            // 
+            // dateTimePickerRandevuGuncelle
+            // 
+            dateTimePickerRandevuGuncelle.CustomFormat = "dd/MM/yyyy HH:mm";
+            dateTimePickerRandevuGuncelle.Format = DateTimePickerFormat.Custom;
+            dateTimePickerRandevuGuncelle.Location = new Point(389, 116);
+            dateTimePickerRandevuGuncelle.Name = "dateTimePickerRandevuGuncelle";
+            dateTimePickerRandevuGuncelle.Size = new Size(187, 23);
+            dateTimePickerRandevuGuncelle.TabIndex = 41;
+            dateTimePickerRandevuGuncelle.Value = new DateTime(2024, 3, 26, 12, 31, 0, 0);
+            // 
+            // comboBoxRandevuGuncelleDoktor
+            // 
+            comboBoxRandevuGuncelleDoktor.FormattingEnabled = true;
+            comboBoxRandevuGuncelleDoktor.Location = new Point(389, 177);
+            comboBoxRandevuGuncelleDoktor.Name = "comboBoxRandevuGuncelleDoktor";
+            comboBoxRandevuGuncelleDoktor.Size = new Size(187, 23);
+            comboBoxRandevuGuncelleDoktor.TabIndex = 40;
+            // 
+            // comboBoxRandevuGuncellePolikinlik
+            // 
+            comboBoxRandevuGuncellePolikinlik.FormattingEnabled = true;
+            comboBoxRandevuGuncellePolikinlik.Location = new Point(389, 148);
+            comboBoxRandevuGuncellePolikinlik.Name = "comboBoxRandevuGuncellePolikinlik";
+            comboBoxRandevuGuncellePolikinlik.Size = new Size(187, 23);
+            comboBoxRandevuGuncellePolikinlik.TabIndex = 39;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(287, 122);
+            label20.Name = "label20";
+            label20.Size = new Size(87, 15);
+            label20.TabIndex = 34;
+            label20.Text = "Doğum Tarihi : ";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(310, 151);
+            label21.Name = "label21";
+            label21.Size = new Size(64, 15);
+            label21.TabIndex = 36;
+            label21.Text = "Polikinlik : ";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(322, 180);
+            label23.Name = "label23";
+            label23.Size = new Size(52, 15);
+            label23.TabIndex = 37;
+            label23.Text = "Doktor : ";
+            // 
+            // buttonRandevuGuncelle
+            // 
+            buttonRandevuGuncelle.Location = new Point(389, 217);
+            buttonRandevuGuncelle.Name = "buttonRandevuGuncelle";
+            buttonRandevuGuncelle.Size = new Size(91, 39);
+            buttonRandevuGuncelle.TabIndex = 38;
+            buttonRandevuGuncelle.Text = "RANDEVU GÜNCELLE";
+            buttonRandevuGuncelle.UseVisualStyleBackColor = true;
             // 
             // FormSekreter
             // 
@@ -573,6 +738,10 @@
             tabPage3.PerformLayout();
             tabPage5.ResumeLayout(false);
             tabPage5.PerformLayout();
+            tabPage6.ResumeLayout(false);
+            tabPage6.PerformLayout();
+            tabPage7.ResumeLayout(false);
+            tabPage7.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -624,17 +793,29 @@
         private TextBox textBox1;
         private Label label14;
         private ComboBox comboBoxRandevuPolikinlik;
-        private Label label15;
         private Label label16;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePickerRancevuTarih;
         private Label label17;
         private Label label18;
         private Label label19;
-        private Label label20;
         private TextBox textBox2;
         private TextBox textBox3;
         private Button buttonRandevuOlustur;
         private TextBox textBoxRandevuTc;
         private ComboBox comboBoxRandevuDoktor;
+        private Button button2;
+        private TextBox textBoxRandevuAraTc;
+        private Label label15;
+        private Button buttonRandevuGuncelleAra;
+        private TextBox textBoxRandevuGuncelleTc;
+        private Label label24;
+        private DateTimePicker dateTimePickerRandevuGuncelle;
+        private ComboBox comboBoxRandevuGuncelleDoktor;
+        private ComboBox comboBoxRandevuGuncellePolikinlik;
+        private Label label20;
+        private Label label21;
+        private Label label23;
+        private Button buttonRandevuGuncelle;
+        private Button buttonRandevuSil;
     }
 }
