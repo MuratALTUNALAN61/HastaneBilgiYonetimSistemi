@@ -28,23 +28,36 @@ namespace HBYS
             SqlDataReader dr2= komut2.ExecuteReader();
             dr2.Read();
             string yetki = (string)dr2["yetki"];
-            
-            
+            baglanti.Close();
 
-            FormSekreter yeniSekreter = new FormSekreter();
-            yeniSekreter.Show();
-            this.Hide();
+            switch (yetki)
+            {
+                case "yönetici":
+                    FormYonetici yeniYonetici = new FormYonetici();
+                    yeniYonetici.Show();
+                    this.Hide();
+                    break;
+
+                case "doktor":
+                    FormDoktor yeniDoktor = new FormDoktor();
+                    yeniDoktor.Show();
+                    this.Hide();
+                    break;
+
+                case "sekreter":
+                    FormSekreter yeniSekreter = new FormSekreter();
+                    yeniSekreter.Show();
+                    this.Hide();
+                    break;
+                default:
+                    MessageBox.Show("Kullanýcý adý veya þifre hatalý!");
+                    break;
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                DialogResult result = MessageBox.Show("Uygulamayý kapatmak istediðinizden emin misiniz?",
-                                                      "Uyarý",
-                                                      MessageBoxButtons.YesNo,
-                                                      MessageBoxIcon.Question);
-            }
+
         }
     }
 }
