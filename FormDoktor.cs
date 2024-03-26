@@ -12,9 +12,16 @@ namespace HBYS
 {
     public partial class FormDoktor : Form
     {
-        public FormDoktor()
+        int id;
+        public FormDoktor(int id)
         {
             InitializeComponent();
+            this.id = id;
+        }
+
+        private void buttonMuayeneKaydet_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

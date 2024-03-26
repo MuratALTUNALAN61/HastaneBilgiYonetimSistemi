@@ -96,6 +96,7 @@
             buttonMuayeneKaydet.TabIndex = 6;
             buttonMuayeneKaydet.Text = "Kaydet";
             buttonMuayeneKaydet.UseVisualStyleBackColor = true;
+            buttonMuayeneKaydet.Click += buttonMuayeneKaydet_Click;
             // 
             // FormDoktor
             // 

@@ -39,7 +39,7 @@ namespace HBYS
                     break;
 
                 case "doktor":
-                    FormDoktor yeniDoktor = new FormDoktor();
+                    FormDoktor yeniDoktor = new FormDoktor(id);
                     yeniDoktor.Show();
                     this.Hide();
                     break;
