@@ -55,6 +55,23 @@ namespace HBYS
         private void buttonKayitEkle_Click(object sender, EventArgs e)
         {
             baglantiSekreter.Open();
+            SqlCommand hastaKaydet = new SqlCommand("insert into Hasta(h_isim,h_soyisim,h_tc,h_dogumTarihi,h_tel,h_cinsiyet) values(@h_isim,@h_soyisim,@h_tc,@h_dogumTarihi,@h_tel,@h_cinsiyet)", baglantiSekreter);
+            hastaKaydet.Parameters.AddWithValue("@h_isim", textBoxHisim.Text);
+            hastaKaydet.Parameters.AddWithValue("@h_soyisim", textBoxHsoyisim.Text);
+            hastaKaydet.Parameters.AddWithValue("@h_tc", textBoxHtc.Text);
+            hastaKaydet.Parameters.AddWithValue("@h_dogumTarihi", dateTimePickerHDogunT.Value);
+            hastaKaydet.Parameters.AddWithValue("@h_tel", maskedTextBoxHtel.Text);
+            hastaKaydet.Parameters.AddWithValue("@h_cinsiyet", comboBoxHcinsiyet.Text);
+            int eklenenSatirlar = hastaKaydet.ExecuteNonQuery();
+            if (eklenenSatirlar > 0)
+            {
+                MessageBox.Show("hasta kaydedildi");
+            }
+            else
+            {
+                MessageBox.Show("hata oluştu");
+            }
+            baglantiSekreter.Close();
         }
 
         private void textBoxGuncelleSoyisim_TextChanged(object sender, EventArgs e)
@@ -62,6 +79,9 @@ namespace HBYS
 
         }
 
-        
+        private void buttonKayitAra_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

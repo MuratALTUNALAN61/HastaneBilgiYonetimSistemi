@@ -91,6 +91,7 @@
             label21 = new Label();
             label23 = new Label();
             buttonRandevuGuncelle = new Button();
+            dataGridView1 = new DataGridView();
             tabControlSekreter.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -98,6 +99,7 @@
             tabPage5.SuspendLayout();
             tabPage6.SuspendLayout();
             tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // buttonKayitEkle
@@ -253,6 +255,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(dataGridView1);
             tabPage2.Controls.Add(buttonKayitAra);
             tabPage2.Controls.Add(textBoxAramaTc);
             tabPage2.Controls.Add(label7);
@@ -272,6 +275,7 @@
             buttonKayitAra.TabIndex = 2;
             buttonKayitAra.Text = "KAYIT ARA";
             buttonKayitAra.UseVisualStyleBackColor = true;
+            buttonKayitAra.Click += buttonKayitAra_Click;
             // 
             // textBoxAramaTc
             // 
@@ -721,6 +725,14 @@
             buttonRandevuGuncelle.Text = "RANDEVU GÜNCELLE";
             buttonRandevuGuncelle.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(36, 169);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(647, 150);
+            dataGridView1.TabIndex = 3;
+            // 
             // FormSekreter
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -743,6 +755,7 @@
             tabPage6.PerformLayout();
             tabPage7.ResumeLayout(false);
             tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -818,5 +831,6 @@
         private Label label23;
         private Button buttonRandevuGuncelle;
         private Button buttonRandevuSil;
+        private DataGridView dataGridView1;
     }
 }
