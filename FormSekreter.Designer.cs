@@ -44,6 +44,8 @@
             maskedTextBoxHtel = new MaskedTextBox();
             comboBoxHcinsiyet = new ComboBox();
             tabPage2 = new TabPage();
+            buttonHepsiniGöster = new Button();
+            dataGridView1 = new DataGridView();
             buttonKayitAra = new Button();
             textBoxAramaTc = new TextBox();
             label7 = new Label();
@@ -91,15 +93,14 @@
             label21 = new Label();
             label23 = new Label();
             buttonRandevuGuncelle = new Button();
-            dataGridView1 = new DataGridView();
             tabControlSekreter.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabPage3.SuspendLayout();
             tabPage5.SuspendLayout();
             tabPage6.SuspendLayout();
             tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // buttonKayitEkle
@@ -255,6 +256,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(buttonHepsiniGöster);
             tabPage2.Controls.Add(dataGridView1);
             tabPage2.Controls.Add(buttonKayitAra);
             tabPage2.Controls.Add(textBoxAramaTc);
@@ -266,6 +268,25 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Hasta Görüntüleme";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // buttonHepsiniGöster
+            // 
+            buttonHepsiniGöster.Location = new Point(438, 51);
+            buttonHepsiniGöster.Name = "buttonHepsiniGöster";
+            buttonHepsiniGöster.Size = new Size(112, 23);
+            buttonHepsiniGöster.TabIndex = 4;
+            buttonHepsiniGöster.Text = "HEPSİNİ GÖSTER";
+            buttonHepsiniGöster.UseVisualStyleBackColor = true;
+            buttonHepsiniGöster.Click += buttonHepsiniGöster_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.BackgroundColor = SystemColors.Window;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(3, 106);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(747, 228);
+            dataGridView1.TabIndex = 3;
             // 
             // buttonKayitAra
             // 
@@ -279,11 +300,12 @@
             // 
             // textBoxAramaTc
             // 
-            textBoxAramaTc.Location = new Point(156, 52);
+            textBoxAramaTc.Location = new Point(153, 52);
             textBoxAramaTc.MaxLength = 11;
             textBoxAramaTc.Name = "textBoxAramaTc";
             textBoxAramaTc.Size = new Size(141, 23);
             textBoxAramaTc.TabIndex = 1;
+            textBoxAramaTc.TextChanged += textBoxAramaTc_TextChanged;
             textBoxAramaTc.KeyPress += textBoxAramaTc_KeyPress;
             // 
             // label7
@@ -725,14 +747,6 @@
             buttonRandevuGuncelle.Text = "RANDEVU GÜNCELLE";
             buttonRandevuGuncelle.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(36, 169);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(647, 150);
-            dataGridView1.TabIndex = 3;
-            // 
             // FormSekreter
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -742,11 +756,13 @@
             Name = "FormSekreter";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
+            Load += FormSekreter_Load;
             tabControlSekreter.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
             tabPage5.ResumeLayout(false);
@@ -755,7 +771,6 @@
             tabPage6.PerformLayout();
             tabPage7.ResumeLayout(false);
             tabPage7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -832,5 +847,6 @@
         private Button buttonRandevuGuncelle;
         private Button buttonRandevuSil;
         private DataGridView dataGridView1;
+        private Button buttonHepsiniGöster;
     }
 }

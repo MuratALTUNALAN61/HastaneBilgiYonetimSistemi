@@ -13,11 +13,12 @@ namespace HBYS
 {
     public partial class FormSekreter : Form
     {
+        SqlConnection baglantiSekreter = new SqlConnection("Data Source=DESKTOP-8J8VAOJ\\SQLEXPRESS03;Initial Catalog=HBYS;Integrated Security=SSPI");
+
         public FormSekreter()
         {
             InitializeComponent();
         }
-        SqlConnection baglantiSekreter = new SqlConnection("Data Source=DESKTOP-8J8VAOJ\\SQLEXPRESS03;Initial Catalog=HBYS;Integrated Security=SSPI");
 
         private void textBoxHisim_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -73,13 +74,39 @@ namespace HBYS
             }
             baglantiSekreter.Close();
         }
-
-        private void textBoxGuncelleSoyisim_TextChanged(object sender, EventArgs e)
+        public void kayitGöster(string kayit)
         {
+            SqlDataAdapter da = new SqlDataAdapter(kayit, baglantiSekreter);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
 
+            dataGridView1.DataSource = ds.Tables[0];
+        }
+        private void buttonKayitAra_Click(object sender, EventArgs e)
+        {
+            kayitGöster("select * from Hasta where h_tc=" + textBoxAramaTc.Text);
+        }
+        private void buttonHepsiniGöster_Click(object sender, EventArgs e)
+        {
+            kayitGöster("select * from Hasta");
+        }
+        private void FormSekreter_Load(object sender, EventArgs e)
+        {
+            buttonKayitAra.Enabled = false;
         }
 
-        private void buttonKayitAra_Click(object sender, EventArgs e)
+        private void textBoxAramaTc_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxAramaTc.Text.Length == 11)
+            {
+                buttonKayitAra.Enabled = true;
+            }
+            else
+            {
+                buttonKayitAra.Enabled=false;
+            }
+        }
+        private void textBoxGuncelleSoyisim_TextChanged(object sender, EventArgs e)
         {
 
         }
