@@ -103,12 +103,32 @@ namespace HBYS
             }
             else
             {
-                buttonKayitAra.Enabled=false;
+                buttonKayitAra.Enabled = false;
             }
         }
         private void textBoxGuncelleSoyisim_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonKayitSill_Click(object sender, EventArgs e)
+        {
+            int[] dizi = new int[dataGridView1.SelectedRows.Count];
+
+            for(int i = 0;i<dataGridView1.SelectedRows.Count;i++)
+            {
+                DataGridViewRow row = dataGridView1.SelectedRows[i];
+                dizi[i] = (int)row.Cells[0].Value;
+            }
+            baglantiSekreter.Open();
+            for(int i = 0;i<dizi.Length;i++)
+            {
+                SqlCommand kayitSil=new SqlCommand("delete from Hasta where h_id=@id",baglantiSekreter);
+                kayitSil.Parameters.AddWithValue("@id", dizi[i]);
+                kayitSil.ExecuteScalar();
+            }
+            baglantiSekreter.Close();
+            kayitGöster("select * from Hasta");
         }
     }
 }

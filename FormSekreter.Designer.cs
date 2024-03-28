@@ -44,6 +44,8 @@
             maskedTextBoxHtel = new MaskedTextBox();
             comboBoxHcinsiyet = new ComboBox();
             tabPage2 = new TabPage();
+            buttonKayitSill = new Button();
+            button4 = new Button();
             buttonHepsiniGöster = new Button();
             dataGridView1 = new DataGridView();
             buttonKayitAra = new Button();
@@ -256,6 +258,8 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(buttonKayitSill);
+            tabPage2.Controls.Add(button4);
             tabPage2.Controls.Add(buttonHepsiniGöster);
             tabPage2.Controls.Add(dataGridView1);
             tabPage2.Controls.Add(buttonKayitAra);
@@ -268,6 +272,25 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Hasta Görüntüleme";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // buttonKayitSill
+            // 
+            buttonKayitSill.Location = new Point(706, 43);
+            buttonKayitSill.Name = "buttonKayitSill";
+            buttonKayitSill.Size = new Size(75, 38);
+            buttonKayitSill.TabIndex = 32;
+            buttonKayitSill.Text = "KAYIT SİL";
+            buttonKayitSill.UseVisualStyleBackColor = true;
+            buttonKayitSill.Click += buttonKayitSill_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(594, 43);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 38);
+            button4.TabIndex = 31;
+            button4.Text = "KAYIT GÜNCELLE";
+            button4.UseVisualStyleBackColor = true;
             // 
             // buttonHepsiniGöster
             // 
@@ -848,5 +871,7 @@
         private Button buttonRandevuSil;
         private DataGridView dataGridView1;
         private Button buttonHepsiniGöster;
+        private Button buttonKayitSill;
+        private Button button4;
     }
 }
