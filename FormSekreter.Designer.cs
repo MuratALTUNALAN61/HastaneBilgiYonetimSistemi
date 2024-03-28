@@ -108,6 +108,7 @@
             buttonKayitEkle.TabIndex = 14;
             buttonKayitEkle.Text = "KAYIT EKLE";
             buttonKayitEkle.UseVisualStyleBackColor = true;
+            buttonKayitEkle.Click += buttonKayitEkle_Click;
             // 
             // textBoxHtc
             // 
@@ -137,7 +138,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(268, 222);
+            label6.Location = new Point(268, 190);
             label6.Name = "label6";
             label6.Size = new Size(73, 15);
             label6.TabIndex = 5;
@@ -146,7 +147,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(283, 193);
+            label5.Location = new Point(283, 219);
             label5.Name = "label5";
             label5.Size = new Size(58, 15);
             label5.TabIndex = 4;
@@ -235,7 +236,7 @@
             // 
             // maskedTextBoxHtel
             // 
-            maskedTextBoxHtel.Location = new Point(356, 219);
+            maskedTextBoxHtel.Location = new Point(356, 187);
             maskedTextBoxHtel.Mask = "(999) 000-0000";
             maskedTextBoxHtel.Name = "maskedTextBoxHtel";
             maskedTextBoxHtel.Size = new Size(187, 23);
@@ -245,7 +246,7 @@
             // 
             comboBoxHcinsiyet.FormattingEnabled = true;
             comboBoxHcinsiyet.Items.AddRange(new object[] { "Erkek", "Kadın" });
-            comboBoxHcinsiyet.Location = new Point(356, 190);
+            comboBoxHcinsiyet.Location = new Point(356, 216);
             comboBoxHcinsiyet.Name = "comboBoxHcinsiyet";
             comboBoxHcinsiyet.Size = new Size(187, 23);
             comboBoxHcinsiyet.TabIndex = 15;
