@@ -90,7 +90,6 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
-            FormClosing += Form1_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

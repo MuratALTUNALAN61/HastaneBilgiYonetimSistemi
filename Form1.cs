@@ -83,10 +83,5 @@ namespace HBYS
             dr2.Close();
             return yetki;
         }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
     }
 }

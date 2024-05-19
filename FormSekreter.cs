@@ -149,20 +149,6 @@ namespace HBYS
             kayitSil.Parameters.AddWithValue("@id", id);
             kayitSil.ExecuteScalar();
         }
-        
-        private void hastaGuncelle(DataGridViewRow row)
-        {
-            SqlCommand guncelle = new SqlCommand("update from Hasta set h_isim=@h_isim,h_soyisim=@h_soyisim,h_tc=@h_tc,h_dogumTarihi=@h_dogumTarihi,h_tel=@h_tel,h_cinsiyet=@h_cinsiyet where h_id=@id", baglantiSekreter);
-            guncelle.Parameters.AddWithValue("@id", row.Cells[0].Value);
-            guncelle.Parameters.AddWithValue("@h_isim", row.Cells[1].Value);
-            guncelle.Parameters.AddWithValue("@h_soyisim", row.Cells[2].Value);
-            guncelle.Parameters.AddWithValue("@h_tc", row.Cells[3].Value);
-            guncelle.Parameters.AddWithValue("@h_dogumTarihi", row.Cells[4].Value);
-            guncelle.Parameters.AddWithValue("@h_tel", row.Cells[5].Value);
-            guncelle.Parameters.AddWithValue("@h_cinsiyet", row.Cells[6].Value);
-            guncelle.ExecuteScalar();
-        }
-
         private void buttonKayitGuncelle_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -174,7 +160,24 @@ namespace HBYS
                     hastaGuncelle(row);
                 }
                 baglantiSekreter.Close();
+                MessageBox.Show(dataGridView1.SelectedRows.Count + " Kayıt güncellenmiştir.");
             }
+            else
+            {
+                MessageBox.Show("Güncellemek istediğiniz kayıtları seçiniz.");
+            }
+        }
+        private void hastaGuncelle(DataGridViewRow row)
+        {
+            SqlCommand guncelle = new SqlCommand("update Hasta set h_isim=@h_isim,h_soyisim=@h_soyisim,h_tc=@h_tc,h_dogumTarihi=@h_dogumTarihi,h_tel=@h_tel,h_cinsiyet=@h_cinsiyet where h_id=@id", baglantiSekreter);
+            guncelle.Parameters.AddWithValue("@id", row.Cells[0].Value);
+            guncelle.Parameters.AddWithValue("@h_isim", row.Cells[1].Value);
+            guncelle.Parameters.AddWithValue("@h_soyisim", row.Cells[2].Value);
+            guncelle.Parameters.AddWithValue("@h_tc", row.Cells[3].Value);
+            guncelle.Parameters.AddWithValue("@h_dogumTarihi", row.Cells[4].Value);
+            guncelle.Parameters.AddWithValue("@h_tel", row.Cells[5].Value);
+            guncelle.Parameters.AddWithValue("@h_cinsiyet", row.Cells[6].Value);
+            guncelle.ExecuteScalar();
         }
     }
 }

@@ -33,11 +33,5 @@ namespace HBYS
             drDoktorId.Close();
             baglantiDoktor.Close();
         }
-        private void buttonMuayeneKaydet_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
     }
 }
