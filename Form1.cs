@@ -14,24 +14,13 @@ namespace HBYS
         private void buttonGirisYap_Click(object sender, EventArgs e)
         {
             baglanti.Open();
-            SqlCommand komutKullaniciId = new SqlCommand("select kullanici_id from Kullanici where kullaniciAdi=@isim and sifre=@sifre", baglanti);
-            komutKullaniciId.Parameters.AddWithValue("@isim",textBoxKullaniciAdi.Text);
-            komutKullaniciId.Parameters.AddWithValue("sifre", textBoxSifre.Text);
-            SqlDataReader dr = komutKullaniciId.ExecuteReader();
             
-            if (dr.Read())
-            {
-                int id = (int)dr["kullanici_id"];
-                
-                SqlCommand komutYetki = new SqlCommand("select Yetki.yetki from Yetki join Kullanici_yetki on Yetki.yetki_id=Kullanici_yetki.y_id where Kullanici_yetki.k_id=@id", baglanti);
-                komutYetki.Parameters.AddWithValue("@id", id);
-                SqlDataReader dr2 = komutYetki.ExecuteReader();
-                
-
-                if (dr2.Read())
+            int id=getirId(textBoxKullaniciAdi.Text, textBoxSifre.Text);
+            if (id!=0)
+            {   
+                string yetki=getirYetki(id);
+                if (yetki!=null)
                 {
-                    string yetki = (string)dr2["yetki"];
-                    
                     switch (yetki)
                     {
                         case "yönetici":
@@ -60,14 +49,39 @@ namespace HBYS
                 {
                     MessageBox.Show("Kullanýcý yetkilendirmeniz bulunmamaktadýr. Yöneticiniz ile iletiþime geçiniz.");
                 }
-                dr2.Close();
             }
             else
             {
                 MessageBox.Show("Kullanýcý adý veya þifre hatalý!");
             }
-            dr.Close();
             baglanti.Close();
+        }
+        private int getirId(string kullaniciAdi,string kullaniciSifre)
+        {
+            int id = 0;
+            SqlCommand komutKullaniciId = new SqlCommand("select kullanici_id from Kullanici where kullaniciAdi=@isim and sifre=@sifre", baglanti);
+            komutKullaniciId.Parameters.AddWithValue("@isim", kullaniciAdi);
+            komutKullaniciId.Parameters.AddWithValue("sifre", kullaniciSifre);
+            SqlDataReader dr = komutKullaniciId.ExecuteReader();
+            if(dr.Read())
+            {
+                id = (int)dr["kullanici_id"];
+            }
+            dr.Close();
+            return id;
+        }
+        private string getirYetki(int id)
+        {
+            string yetki = null;
+            SqlCommand komutYetki = new SqlCommand("select Yetki.yetki from Yetki join Kullanici_yetki on Yetki.yetki_id=Kullanici_yetki.y_id where Kullanici_yetki.k_id=@id", baglanti);
+            komutYetki.Parameters.AddWithValue("@id", id);
+            SqlDataReader dr2 = komutYetki.ExecuteReader();
+            if (dr2.Read())
+            {
+                yetki = (string)dr2["yetki"];
+            }
+            dr2.Close();
+            return yetki;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
