@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,7 @@ namespace HBYS
         {
             InitializeComponent();
         }
+        // Hasta
 
         private void textBoxHisim_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -104,7 +106,17 @@ namespace HBYS
         }
         private void FormSekreter_Load(object sender, EventArgs e)
         {
+            buttonRandevuOlustur.Enabled = false;
+            dateTimePickerRancevuTarih.Enabled = false;
+            groupBoxRandevu.Enabled = false;
+            baglantiSekreter.Open();
             buttonKayitAra.Enabled = false;
+            ArrayList polikinlikler = polikinlikGetir();
+            for (int i = 0; i < polikinlikler.Count; i++)
+            {
+                comboBoxRandevuPolikinlik.Items.Add(polikinlikler[i]);
+            }
+            baglantiSekreter.Close();
         }
 
         private void textBoxAramaTc_TextChanged(object sender, EventArgs e)
@@ -178,6 +190,169 @@ namespace HBYS
             guncelle.Parameters.AddWithValue("@h_tel", row.Cells[5].Value);
             guncelle.Parameters.AddWithValue("@h_cinsiyet", row.Cells[6].Value);
             guncelle.ExecuteScalar();
+        }
+
+        // Randevu
+
+        private ArrayList polikinlikGetir()
+        {
+            SqlCommand polikinlik = new SqlCommand("select * from Polikinlik", baglantiSekreter);
+            SqlDataReader drpolikinlik = polikinlik.ExecuteReader();
+            ArrayList polikinlikListesi = new ArrayList();
+            while (drpolikinlik.Read())
+            {
+                polikinlikListesi.Add(drpolikinlik["polikinlik_ad"]);
+            }
+            drpolikinlik.Close();
+            return polikinlikListesi;
+        }
+        private void comboBoxRandevuPolikinlik_SelectedValueChanged(object sender, EventArgs e)
+        {
+            baglantiSekreter.Open();
+            ArrayList doktorlar = doktorGetir();
+            for (int i = 0; i < doktorlar.Count; i++)
+            {
+                comboBoxRandevuDoktor.Items.Add(doktorlar[i]);
+            }
+            baglantiSekreter.Close();
+        }
+        private ArrayList doktorGetir()
+        {
+            SqlCommand doktor = new SqlCommand("select doktor_ad from Doktorlar join Polikinlik on Doktorlar.polikinlik_id=Polikinlik.polikinlik_id where Polikinlik.polikinlik_ad=@polikinlik_ad", baglantiSekreter);
+            doktor.Parameters.AddWithValue("@polikinlik_ad", comboBoxRandevuPolikinlik.SelectedItem);
+            SqlDataReader drdoktor = doktor.ExecuteReader();
+            ArrayList doktorListesi = new ArrayList();
+            while (drdoktor.Read())
+            {
+                doktorListesi.Add(drdoktor["doktor_ad"]);
+            }
+            drdoktor.Close();
+            return doktorListesi;
+        }
+        private void comboBoxRandevuDoktor_SelectedValueChanged(object sender, EventArgs e)
+        {
+            dateTimePickerRancevuTarih.Enabled = true;
+        }
+
+        private void dateTimePickerRancevuTarih_ValueChanged(object sender, EventArgs e)
+        {
+            baglantiSekreter.Open();
+            doktorRandevu();
+            baglantiSekreter.Close();
+            groupBoxRandevu.Enabled = true;
+        }
+        private void doktorRandevu()
+        {
+            SqlCommand tarih = new SqlCommand("select * from Randevu join Doktorlar on Randevu.d_id=Doktorlar.doktor_id where tarih between @ilk_tarih and @son_tarih", baglantiSekreter);
+            tarih.Parameters.AddWithValue("@ilk_tarih", dateTimePickerRancevuTarih.Value);
+            tarih.Parameters.AddWithValue("@son_tarih", dateTimePickerRancevuTarih.Value.AddDays(1));
+            SqlDataReader drtarih = tarih.ExecuteReader();
+            while (drtarih.Read())
+            {
+
+            }
+            drtarih.Close();
+        }
+
+        private void buttonRandevuOlustur_Click(object sender, EventArgs e)
+        {
+            baglantiSekreter.Open();
+            int hId = getirHastaId();
+            if (hId > 0)
+            {
+                int dId = getirDoktorId();
+                if (dId > 0)
+                {
+                    DateTime randevuTarihi = dateTimePickerRancevuTarih.Value.AddHours(getirSaat());
+                    SqlCommand randevu = new SqlCommand("insert into Randevu(h_id,d_id,tarih) values(@h_id,@d_id,@tarih)", baglantiSekreter);
+                    randevu.Parameters.AddWithValue("@h_id", hId);
+                    randevu.Parameters.AddWithValue("@d_id", dId);
+                    randevu.Parameters.AddWithValue("@tarih", randevuTarihi);
+                    int eklenenSatirlar = randevu.ExecuteNonQuery();
+                    if (eklenenSatirlar > 0)
+                    {
+                        MessageBox.Show("Randevu kaydedildi");
+                    }
+                    else
+                    {
+                        MessageBox.Show("hata oluştu");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Doktor bulunamadı.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tc kimlik numarasını kontrol ediniz.");
+            }
+            baglantiSekreter.Close();
+        }
+        private int getirHastaId()
+        {
+            int hId = 0;
+            SqlCommand hastaId = new SqlCommand("select h_id from Hasta where h_tc=@h_tc", baglantiSekreter);
+            hastaId.Parameters.AddWithValue("@h_tc", textBoxRandevuTc.Text);
+            SqlDataReader drId = hastaId.ExecuteReader();
+            if (drId.Read())
+            {
+                hId = drId.GetInt32(0);
+            }
+            drId.Close();
+            return hId;
+        }
+        private int getirDoktorId()
+        {
+            int dId = 0;
+            SqlCommand doktorId = new SqlCommand("select doktor_id from Doktorlar where doktor_ad=@doktor_ad", baglantiSekreter);
+            doktorId.Parameters.AddWithValue("@doktor_ad", comboBoxRandevuDoktor.SelectedItem);
+            SqlDataReader drId = doktorId.ExecuteReader();
+            if (drId.Read())
+            {
+                dId = drId.GetInt32(0);
+            }
+            drId.Close();
+            return dId;
+        }
+        private int getirSaat()
+        {
+            if (radioButton1.Checked)
+            {
+                return 9;
+            }
+            else if (radioButton2.Checked)
+            {
+                return 10;
+            }
+            else if (radioButton3.Checked)
+            {
+                return 11;
+            }
+            else if (radioButton4.Checked)
+            {
+                return 13;
+            }
+            else if (radioButton5.Checked)
+            {
+                return 14;
+            }
+            else if (radioButton6.Checked)
+            {
+                return 15;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked || radioButton2.Checked || radioButton3.Checked || radioButton4.Checked || radioButton5.Checked || radioButton6.Checked) 
+            {
+                buttonRandevuOlustur.Enabled=true;
+            }
         }
     }
 }
