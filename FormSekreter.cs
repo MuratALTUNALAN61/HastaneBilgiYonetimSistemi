@@ -78,10 +78,10 @@ namespace HBYS
             hastaKaydet.Parameters.AddWithValue("@h_cinsiyet", comboBoxHcinsiyet.Text);
             return hastaKaydet.ExecuteNonQuery();
         }
-        
+
         private void buttonKayitAra_Click(object sender, EventArgs e)
         {
-            SqlCommand kayitAra = new SqlCommand("select * from Hasta where h_tc=@h_tc", baglantiSekreter); 
+            SqlCommand kayitAra = new SqlCommand("select * from Hasta where h_tc=@h_tc", baglantiSekreter);
             kayitAra.Parameters.AddWithValue("@h_tc", textBoxAramaTc.Text);
             kayitGösterTablo(kayitAra);
         }
@@ -121,10 +121,10 @@ namespace HBYS
 
         private void buttonKayitSill_Click(object sender, EventArgs e)
         {
-            
+
             baglantiSekreter.Open();
-            int[] dizi=getirSeciliKayitIdListesi();
-            for(int i = 0;i<dizi.Length;i++)
+            int[] dizi = getirSeciliKayitIdListesi();
+            for (int i = 0; i < dizi.Length; i++)
             {
                 kayitSil(dizi[i]);
             }
@@ -149,9 +149,32 @@ namespace HBYS
             kayitSil.Parameters.AddWithValue("@id", id);
             kayitSil.ExecuteScalar();
         }
-        private void textBoxGuncelleSoyisim_TextChanged(object sender, EventArgs e)
+        
+        private void hastaGuncelle(DataGridViewRow row)
         {
+            SqlCommand guncelle = new SqlCommand("update from Hasta set h_isim=@h_isim,h_soyisim=@h_soyisim,h_tc=@h_tc,h_dogumTarihi=@h_dogumTarihi,h_tel=@h_tel,h_cinsiyet=@h_cinsiyet where h_id=@id", baglantiSekreter);
+            guncelle.Parameters.AddWithValue("@id", row.Cells[0].Value);
+            guncelle.Parameters.AddWithValue("@h_isim", row.Cells[1].Value);
+            guncelle.Parameters.AddWithValue("@h_soyisim", row.Cells[2].Value);
+            guncelle.Parameters.AddWithValue("@h_tc", row.Cells[3].Value);
+            guncelle.Parameters.AddWithValue("@h_dogumTarihi", row.Cells[4].Value);
+            guncelle.Parameters.AddWithValue("@h_tel", row.Cells[5].Value);
+            guncelle.Parameters.AddWithValue("@h_cinsiyet", row.Cells[6].Value);
+            guncelle.ExecuteScalar();
+        }
 
+        private void buttonKayitGuncelle_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                baglantiSekreter.Open();
+                for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+                {
+                    DataGridViewRow row = dataGridView1.SelectedRows[i];
+                    hastaGuncelle(row);
+                }
+                baglantiSekreter.Close();
+            }
         }
     }
 }

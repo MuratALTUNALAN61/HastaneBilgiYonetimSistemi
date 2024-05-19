@@ -45,7 +45,7 @@
             comboBoxHcinsiyet = new ComboBox();
             tabPage2 = new TabPage();
             buttonKayitSill = new Button();
-            button4 = new Button();
+            buttonKayıtGuncelle = new Button();
             buttonHepsiniGöster = new Button();
             dataGridView1 = new DataGridView();
             buttonKayitAra = new Button();
@@ -259,7 +259,7 @@
             // tabPage2
             // 
             tabPage2.Controls.Add(buttonKayitSill);
-            tabPage2.Controls.Add(button4);
+            tabPage2.Controls.Add(buttonKayıtGuncelle);
             tabPage2.Controls.Add(buttonHepsiniGöster);
             tabPage2.Controls.Add(dataGridView1);
             tabPage2.Controls.Add(buttonKayitAra);
@@ -283,14 +283,15 @@
             buttonKayitSill.UseVisualStyleBackColor = true;
             buttonKayitSill.Click += buttonKayitSill_Click;
             // 
-            // button4
+            // buttonKayıtGuncelle
             // 
-            button4.Location = new Point(594, 43);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 38);
-            button4.TabIndex = 31;
-            button4.Text = "KAYIT GÜNCELLE";
-            button4.UseVisualStyleBackColor = true;
+            buttonKayıtGuncelle.Location = new Point(594, 43);
+            buttonKayıtGuncelle.Name = "buttonKayıtGuncelle";
+            buttonKayıtGuncelle.Size = new Size(75, 38);
+            buttonKayıtGuncelle.TabIndex = 31;
+            buttonKayıtGuncelle.Text = "KAYIT GÜNCELLE";
+            buttonKayıtGuncelle.UseVisualStyleBackColor = true;
+            buttonKayıtGuncelle.Click += buttonKayitGuncelle_Click;
             // 
             // buttonHepsiniGöster
             // 
@@ -494,7 +495,6 @@
             textBoxGuncelleSoyisim.Name = "textBoxGuncelleSoyisim";
             textBoxGuncelleSoyisim.Size = new Size(187, 23);
             textBoxGuncelleSoyisim.TabIndex = 21;
-            textBoxGuncelleSoyisim.TextChanged += textBoxGuncelleSoyisim_TextChanged;
             textBoxGuncelleSoyisim.KeyPress += textBoxGuncelleSoyisim_KeyPress;
             // 
             // buttonKayitGuncelle
@@ -872,6 +872,6 @@
         private DataGridView dataGridView1;
         private Button buttonHepsiniGöster;
         private Button buttonKayitSill;
-        private Button button4;
+        private Button buttonKayıtGuncelle;
     }
 }
