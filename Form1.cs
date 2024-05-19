@@ -18,41 +18,56 @@ namespace HBYS
             komutKullaniciId.Parameters.AddWithValue("@isim",textBoxKullaniciAdi.Text);
             komutKullaniciId.Parameters.AddWithValue("sifre", textBoxSifre.Text);
             SqlDataReader dr = komutKullaniciId.ExecuteReader();
-            dr.Read();
-            int id = (int)dr["kullanici_id"];
-            dr.Close();
-
-            SqlCommand komutYetki = new SqlCommand("select Yetki.yetki from Yetki join Kullanici_yetki on Yetki.yetki_id=Kullanici_yetki.y_id where Kullanici_yetki.k_id=@id",baglanti);
-            komutYetki.Parameters.AddWithValue("@id", id);
-            SqlDataReader dr2= komutYetki.ExecuteReader();
-            dr2.Read();
-            string yetki = (string)dr2["yetki"];
-            dr2.Close();
-            baglanti.Close();
-
-            switch (yetki)
+            
+            if (dr.Read())
             {
-                case "yönetici":
-                    FormYonetici yeniYonetici = new FormYonetici();
-                    yeniYonetici.Show();
-                    this.Hide();
-                    break;
+                int id = (int)dr["kullanici_id"];
+                
+                SqlCommand komutYetki = new SqlCommand("select Yetki.yetki from Yetki join Kullanici_yetki on Yetki.yetki_id=Kullanici_yetki.y_id where Kullanici_yetki.k_id=@id", baglanti);
+                komutYetki.Parameters.AddWithValue("@id", id);
+                SqlDataReader dr2 = komutYetki.ExecuteReader();
+                
 
-                case "doktor":
-                    FormDoktor yeniDoktor = new FormDoktor(id);
-                    yeniDoktor.Show();
-                    this.Hide();
-                    break;
+                if (dr2.Read())
+                {
+                    string yetki = (string)dr2["yetki"];
+                    
+                    switch (yetki)
+                    {
+                        case "yönetici":
+                            FormYonetici yeniYonetici = new FormYonetici();
+                            yeniYonetici.Show();
+                            this.Hide();
+                            break;
 
-                case "sekreter":
-                    FormSekreter yeniSekreter = new FormSekreter();
-                    yeniSekreter.Show();
-                    this.Hide();
-                    break;
-                default:
-                    MessageBox.Show("Kullanýcý adý veya þifre hatalý!");
-                    break;
+                        case "doktor":
+                            FormDoktor yeniDoktor = new FormDoktor(id);
+                            yeniDoktor.Show();
+                            this.Hide();
+                            break;
+
+                        case "sekreter":
+                            FormSekreter yeniSekreter = new FormSekreter();
+                            yeniSekreter.Show();
+                            this.Hide();
+                            break;
+                        default:
+                            MessageBox.Show("Kullanýcý adý veya þifre hatalý!");
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Kullanýcý yetkilendirmeniz bulunmamaktadýr. Yöneticiniz ile iletiþime geçiniz.");
+                }
+                dr2.Close();
             }
+            else
+            {
+                MessageBox.Show("Kullanýcý adý veya þifre hatalý!");
+            }
+            dr.Close();
+            baglanti.Close();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

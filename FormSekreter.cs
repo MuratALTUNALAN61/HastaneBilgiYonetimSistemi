@@ -106,10 +106,6 @@ namespace HBYS
                 buttonKayitAra.Enabled = false;
             }
         }
-        private void textBoxGuncelleSoyisim_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void buttonKayitSill_Click(object sender, EventArgs e)
         {
@@ -129,6 +125,13 @@ namespace HBYS
             }
             baglantiSekreter.Close();
             kayitGöster("select * from Hasta");
+        }
+
+
+
+        private void textBoxGuncelleSoyisim_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
