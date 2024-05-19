@@ -56,14 +56,7 @@ namespace HBYS
         private void buttonKayitEkle_Click(object sender, EventArgs e)
         {
             baglantiSekreter.Open();
-            SqlCommand hastaKaydet = new SqlCommand("insert into Hasta(h_isim,h_soyisim,h_tc,h_dogumTarihi,h_tel,h_cinsiyet) values(@h_isim,@h_soyisim,@h_tc,@h_dogumTarihi,@h_tel,@h_cinsiyet)", baglantiSekreter);
-            hastaKaydet.Parameters.AddWithValue("@h_isim", textBoxHisim.Text);
-            hastaKaydet.Parameters.AddWithValue("@h_soyisim", textBoxHsoyisim.Text);
-            hastaKaydet.Parameters.AddWithValue("@h_tc", textBoxHtc.Text);
-            hastaKaydet.Parameters.AddWithValue("@h_dogumTarihi", dateTimePickerHDogunT.Value);
-            hastaKaydet.Parameters.AddWithValue("@h_tel", maskedTextBoxHtel.Text);
-            hastaKaydet.Parameters.AddWithValue("@h_cinsiyet", comboBoxHcinsiyet.Text);
-            int eklenenSatirlar = hastaKaydet.ExecuteNonQuery();
+            int eklenenSatirlar = hastaKaydet();
             if (eklenenSatirlar > 0)
             {
                 MessageBox.Show("hasta kaydedildi");
@@ -74,21 +67,40 @@ namespace HBYS
             }
             baglantiSekreter.Close();
         }
-        public void kayitGöster(string kayit)
+        public int hastaKaydet()
         {
-            SqlDataAdapter da = new SqlDataAdapter(kayit, baglantiSekreter);
+            SqlCommand hastaKaydet = new SqlCommand("insert into Hasta(h_isim,h_soyisim,h_tc,h_dogumTarihi,h_tel,h_cinsiyet) values(@h_isim,@h_soyisim,@h_tc,@h_dogumTarihi,@h_tel,@h_cinsiyet)", baglantiSekreter);
+            hastaKaydet.Parameters.AddWithValue("@h_isim", textBoxHisim.Text);
+            hastaKaydet.Parameters.AddWithValue("@h_soyisim", textBoxHsoyisim.Text);
+            hastaKaydet.Parameters.AddWithValue("@h_tc", textBoxHtc.Text);
+            hastaKaydet.Parameters.AddWithValue("@h_dogumTarihi", dateTimePickerHDogunT.Value);
+            hastaKaydet.Parameters.AddWithValue("@h_tel", maskedTextBoxHtel.Text);
+            hastaKaydet.Parameters.AddWithValue("@h_cinsiyet", comboBoxHcinsiyet.Text);
+            return hastaKaydet.ExecuteNonQuery();
+        }
+        
+        private void buttonKayitAra_Click(object sender, EventArgs e)
+        {
+            SqlCommand kayitAra = new SqlCommand("select * from Hasta where h_tc=@h_tc", baglantiSekreter); 
+            kayitAra.Parameters.AddWithValue("@h_tc", textBoxAramaTc.Text);
+            kayitGösterTablo(kayitAra);
+        }
+        private void buttonHepsiniGöster_Click(object sender, EventArgs e)
+        {
+            tumKayitlariGoster();
+        }
+        private void tumKayitlariGoster()
+        {
+            SqlCommand hepsiniGoster = new SqlCommand("select * from Hasta", baglantiSekreter);
+            kayitGösterTablo(hepsiniGoster);
+        }
+        public void kayitGösterTablo(SqlCommand sqlCommand)
+        {
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
             DataSet ds = new DataSet();
             da.Fill(ds);
 
             dataGridView1.DataSource = ds.Tables[0];
-        }
-        private void buttonKayitAra_Click(object sender, EventArgs e)
-        {
-            kayitGöster("select * from Hasta where h_tc=" + textBoxAramaTc.Text);
-        }
-        private void buttonHepsiniGöster_Click(object sender, EventArgs e)
-        {
-            kayitGöster("select * from Hasta");
         }
         private void FormSekreter_Load(object sender, EventArgs e)
         {
@@ -109,26 +121,34 @@ namespace HBYS
 
         private void buttonKayitSill_Click(object sender, EventArgs e)
         {
+            
+            baglantiSekreter.Open();
+            int[] dizi=getirSeciliKayitIdListesi();
+            for(int i = 0;i<dizi.Length;i++)
+            {
+                kayitSil(dizi[i]);
+            }
+            baglantiSekreter.Close();
+
+            tumKayitlariGoster();
+        }
+        private int[] getirSeciliKayitIdListesi()
+        {
             int[] dizi = new int[dataGridView1.SelectedRows.Count];
 
-            for(int i = 0;i<dataGridView1.SelectedRows.Count;i++)
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
             {
                 DataGridViewRow row = dataGridView1.SelectedRows[i];
                 dizi[i] = (int)row.Cells[0].Value;
             }
-            baglantiSekreter.Open();
-            for(int i = 0;i<dizi.Length;i++)
-            {
-                SqlCommand kayitSil=new SqlCommand("delete from Hasta where h_id=@id",baglantiSekreter);
-                kayitSil.Parameters.AddWithValue("@id", dizi[i]);
-                kayitSil.ExecuteScalar();
-            }
-            baglantiSekreter.Close();
-            kayitGöster("select * from Hasta");
+            return dizi;
         }
-
-
-
+        private void kayitSil(int id)
+        {
+            SqlCommand kayitSil = new SqlCommand("delete from Hasta where h_id=@id", baglantiSekreter);
+            kayitSil.Parameters.AddWithValue("@id", id);
+            kayitSil.ExecuteScalar();
+        }
         private void textBoxGuncelleSoyisim_TextChanged(object sender, EventArgs e)
         {
 
