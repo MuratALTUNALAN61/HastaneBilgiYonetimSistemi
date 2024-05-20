@@ -20,8 +20,6 @@ namespace HBYS
         {
             InitializeComponent();
         }
-        // Hasta
-
         private void textBoxHisim_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar);
@@ -55,6 +53,9 @@ namespace HBYS
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+
+        // Hasta kayıt ekleme
+
         private void buttonKayitEkle_Click(object sender, EventArgs e)
         {
             baglantiSekreter.Open();
@@ -81,6 +82,8 @@ namespace HBYS
             return hastaKaydet.ExecuteNonQuery();
         }
 
+        // hasta kayıt arama
+
         private void buttonKayitAra_Click(object sender, EventArgs e)
         {
             SqlCommand kayitAra = new SqlCommand("select * from Hasta where h_tc=@h_tc", baglantiSekreter);
@@ -104,6 +107,20 @@ namespace HBYS
 
             dataGridView1.DataSource = ds.Tables[0];
         }
+        private void textBoxAramaTc_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxAramaTc.Text.Length == 11)
+            {
+                buttonKayitAra.Enabled = true;
+            }
+            else
+            {
+                buttonKayitAra.Enabled = false;
+            }
+        }
+
+        //form yükleme
+
         private void FormSekreter_Load(object sender, EventArgs e)
         {
             buttonRandevuOlustur.Enabled = false;
@@ -119,21 +136,10 @@ namespace HBYS
             baglantiSekreter.Close();
         }
 
-        private void textBoxAramaTc_TextChanged(object sender, EventArgs e)
-        {
-            if (textBoxAramaTc.Text.Length == 11)
-            {
-                buttonKayitAra.Enabled = true;
-            }
-            else
-            {
-                buttonKayitAra.Enabled = false;
-            }
-        }
+        // hasta kayıt silme
 
         private void buttonKayitSill_Click(object sender, EventArgs e)
         {
-
             baglantiSekreter.Open();
             int[] dizi = getirSeciliKayitIdListesi();
             for (int i = 0; i < dizi.Length; i++)
@@ -161,6 +167,9 @@ namespace HBYS
             kayitSil.Parameters.AddWithValue("@id", id);
             kayitSil.ExecuteScalar();
         }
+
+        // hasta kayıt güncelle
+
         private void buttonKayitGuncelle_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -192,7 +201,7 @@ namespace HBYS
             guncelle.ExecuteScalar();
         }
 
-        // Randevu
+        // Randevu oluşturma
 
         private ArrayList polikinlikGetir()
         {
@@ -412,5 +421,9 @@ namespace HBYS
                 buttonRandevuOlustur.Enabled = true;
             }
         }
+
+        // randevu kayıt arama
+
+
     }
 }

@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             tabPage6 = new TabPage();
-            button2 = new Button();
-            textBoxRandevuAraTc = new TextBox();
-            label15 = new Label();
             tabPage5 = new TabPage();
             groupBoxRandevu = new GroupBox();
             radioButton1 = new RadioButton();
@@ -72,6 +69,13 @@
             textBoxHtc = new TextBox();
             buttonKayitEkle = new Button();
             tabControlSekreter = new TabControl();
+            buttonRandevuSil = new Button();
+            buttonRandevuGuncelle = new Button();
+            buttonRandevuHepsiniAra = new Button();
+            dataGridViewRandevu = new DataGridView();
+            buttonRandevuAra = new Button();
+            textBoxRandevuAraTc = new TextBox();
+            label8 = new Label();
             tabPage6.SuspendLayout();
             tabPage5.SuspendLayout();
             groupBoxRandevu.SuspendLayout();
@@ -79,13 +83,18 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabPage1.SuspendLayout();
             tabControlSekreter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewRandevu).BeginInit();
             SuspendLayout();
             // 
             // tabPage6
             // 
-            tabPage6.Controls.Add(button2);
+            tabPage6.Controls.Add(buttonRandevuSil);
+            tabPage6.Controls.Add(buttonRandevuGuncelle);
+            tabPage6.Controls.Add(buttonRandevuHepsiniAra);
+            tabPage6.Controls.Add(dataGridViewRandevu);
+            tabPage6.Controls.Add(buttonRandevuAra);
             tabPage6.Controls.Add(textBoxRandevuAraTc);
-            tabPage6.Controls.Add(label15);
+            tabPage6.Controls.Add(label8);
             tabPage6.Location = new Point(4, 27);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new Padding(3);
@@ -93,32 +102,6 @@
             tabPage6.TabIndex = 5;
             tabPage6.Text = "Randevu Görüntüleme - Güncelleme - Silme";
             tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(349, 53);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 40);
-            button2.TabIndex = 5;
-            button2.Text = "RANDEVU ARA";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // textBoxRandevuAraTc
-            // 
-            textBoxRandevuAraTc.Location = new Point(170, 63);
-            textBoxRandevuAraTc.MaxLength = 11;
-            textBoxRandevuAraTc.Name = "textBoxRandevuAraTc";
-            textBoxRandevuAraTc.Size = new Size(141, 23);
-            textBoxRandevuAraTc.TabIndex = 4;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(50, 66);
-            label15.Name = "label15";
-            label15.Size = new Size(91, 15);
-            label15.TabIndex = 3;
-            label15.Text = "T.C. Kimlik No : ";
             // 
             // tabPage5
             // 
@@ -329,9 +312,9 @@
             // 
             // buttonKayitSill
             // 
-            buttonKayitSill.Location = new Point(706, 43);
+            buttonKayitSill.Location = new Point(665, 42);
             buttonKayitSill.Name = "buttonKayitSill";
-            buttonKayitSill.Size = new Size(75, 38);
+            buttonKayitSill.Size = new Size(75, 42);
             buttonKayitSill.TabIndex = 32;
             buttonKayitSill.Text = "KAYIT SİL";
             buttonKayitSill.UseVisualStyleBackColor = true;
@@ -339,9 +322,9 @@
             // 
             // buttonKayıtGuncelle
             // 
-            buttonKayıtGuncelle.Location = new Point(594, 43);
+            buttonKayıtGuncelle.Location = new Point(541, 41);
             buttonKayıtGuncelle.Name = "buttonKayıtGuncelle";
-            buttonKayıtGuncelle.Size = new Size(75, 38);
+            buttonKayıtGuncelle.Size = new Size(75, 42);
             buttonKayıtGuncelle.TabIndex = 31;
             buttonKayıtGuncelle.Text = "KAYIT GÜNCELLE";
             buttonKayıtGuncelle.UseVisualStyleBackColor = true;
@@ -349,9 +332,9 @@
             // 
             // buttonHepsiniGöster
             // 
-            buttonHepsiniGöster.Location = new Point(438, 51);
+            buttonHepsiniGöster.Location = new Point(424, 41);
             buttonHepsiniGöster.Name = "buttonHepsiniGöster";
-            buttonHepsiniGöster.Size = new Size(112, 23);
+            buttonHepsiniGöster.Size = new Size(75, 42);
             buttonHepsiniGöster.TabIndex = 4;
             buttonHepsiniGöster.Text = "HEPSİNİ GÖSTER";
             buttonHepsiniGöster.UseVisualStyleBackColor = true;
@@ -368,9 +351,9 @@
             // 
             // buttonKayitAra
             // 
-            buttonKayitAra.Location = new Point(335, 51);
+            buttonKayitAra.Location = new Point(325, 41);
             buttonKayitAra.Name = "buttonKayitAra";
-            buttonKayitAra.Size = new Size(75, 23);
+            buttonKayitAra.Size = new Size(75, 41);
             buttonKayitAra.TabIndex = 2;
             buttonKayitAra.Text = "KAYIT ARA";
             buttonKayitAra.UseVisualStyleBackColor = true;
@@ -544,6 +527,68 @@
             tabControlSekreter.Size = new Size(864, 371);
             tabControlSekreter.TabIndex = 1;
             // 
+            // buttonRandevuSil
+            // 
+            buttonRandevuSil.Location = new Point(717, 25);
+            buttonRandevuSil.Name = "buttonRandevuSil";
+            buttonRandevuSil.Size = new Size(75, 42);
+            buttonRandevuSil.TabIndex = 39;
+            buttonRandevuSil.Text = "KAYIT SİL";
+            buttonRandevuSil.UseVisualStyleBackColor = true;
+            // 
+            // buttonRandevuGuncelle
+            // 
+            buttonRandevuGuncelle.Location = new Point(593, 24);
+            buttonRandevuGuncelle.Name = "buttonRandevuGuncelle";
+            buttonRandevuGuncelle.Size = new Size(75, 42);
+            buttonRandevuGuncelle.TabIndex = 38;
+            buttonRandevuGuncelle.Text = "KAYIT GÜNCELLE";
+            buttonRandevuGuncelle.UseVisualStyleBackColor = true;
+            // 
+            // buttonRandevuHepsiniAra
+            // 
+            buttonRandevuHepsiniAra.Location = new Point(476, 24);
+            buttonRandevuHepsiniAra.Name = "buttonRandevuHepsiniAra";
+            buttonRandevuHepsiniAra.Size = new Size(75, 42);
+            buttonRandevuHepsiniAra.TabIndex = 37;
+            buttonRandevuHepsiniAra.Text = "HEPSİNİ GÖSTER";
+            buttonRandevuHepsiniAra.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewRandevu
+            // 
+            dataGridViewRandevu.BackgroundColor = SystemColors.Window;
+            dataGridViewRandevu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewRandevu.Location = new Point(55, 89);
+            dataGridViewRandevu.Name = "dataGridViewRandevu";
+            dataGridViewRandevu.Size = new Size(747, 228);
+            dataGridViewRandevu.TabIndex = 36;
+            // 
+            // buttonRandevuAra
+            // 
+            buttonRandevuAra.Location = new Point(377, 24);
+            buttonRandevuAra.Name = "buttonRandevuAra";
+            buttonRandevuAra.Size = new Size(75, 41);
+            buttonRandevuAra.TabIndex = 35;
+            buttonRandevuAra.Text = "RANDEVU ARA";
+            buttonRandevuAra.UseVisualStyleBackColor = true;
+            // 
+            // textBoxRandevuAraTc
+            // 
+            textBoxRandevuAraTc.Location = new Point(205, 35);
+            textBoxRandevuAraTc.MaxLength = 11;
+            textBoxRandevuAraTc.Name = "textBoxRandevuAraTc";
+            textBoxRandevuAraTc.Size = new Size(141, 23);
+            textBoxRandevuAraTc.TabIndex = 34;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(88, 38);
+            label8.Name = "label8";
+            label8.Size = new Size(91, 15);
+            label8.TabIndex = 33;
+            label8.Text = "T.C. Kimlik No : ";
+            // 
             // FormSekreter
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -566,6 +611,7 @@
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             tabControlSekreter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewRandevu).EndInit();
             ResumeLayout(false);
         }
 
@@ -579,9 +625,6 @@
         private TextBox textBox2;
         private TextBox textBox3;
         private TabPage tabPage6;
-        private Button button2;
-        private TextBox textBoxRandevuAraTc;
-        private Label label15;
         private TabPage tabPage5;
         private DateTimePicker dateTimePickerRancevuTarih;
         private ComboBox comboBoxRandevuDoktor;
@@ -622,5 +665,12 @@
         private RadioButton radioButton5;
         private RadioButton radioButton3;
         private RadioButton radioButton4;
+        private Button buttonRandevuSil;
+        private Button buttonRandevuGuncelle;
+        private Button buttonRandevuHepsiniAra;
+        private DataGridView dataGridViewRandevu;
+        private Button buttonRandevuAra;
+        private TextBox textBoxRandevuAraTc;
+        private Label label8;
     }
 }
