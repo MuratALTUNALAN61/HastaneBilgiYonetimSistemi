@@ -25,3 +25,8 @@ C:\Users\Murat Altunalan\Desktop\HBYS\HBYS\HBYS\bin\Debug\net8.0-windows\runtime
 C:\Users\Murat Altunalan\Desktop\HBYS\HBYS\HBYS\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Murat Altunalan\Desktop\HBYS\HBYS\HBYS\obj\Debug\net8.0-windows\HBYS.csproj.AssemblyReference.cache
 C:\Users\Murat Altunalan\Desktop\HBYS\HBYS\HBYS\obj\Debug\net8.0-windows\HBYS.csproj.Up2Date
+C:\Users\Murat Altunalan\Desktop\HBYS\HBYS\HBYS\bin\Debug\net8.0-windows\Interop.WMPLib.dll
+C:\Users\Murat Altunalan\Desktop\HBYS\HBYS\HBYS\bin\Debug\net8.0-windows\AxInterop.WMPLib.dll
+C:\Users\Murat Altunalan\Desktop\HBYS\HBYS\HBYS\obj\Debug\net8.0-windows\Interop.WMPLib.dll
+C:\Users\Murat Altunalan\Desktop\HBYS\HBYS\HBYS\obj\Debug\net8.0-windows\AxInterop.WMPLib.dll
+C:\Users\Murat Altunalan\Desktop\HBYS\HBYS\HBYS\obj\Debug\net8.0-windows\HBYS.csproj.ResolveComReference.cache

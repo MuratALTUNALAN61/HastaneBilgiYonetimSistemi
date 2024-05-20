@@ -5,7 +5,7 @@ namespace HBYS
     public partial class Form1 : Form
     {
         public Form1()
-        { 
+        {
             InitializeComponent();
         }
 
@@ -14,12 +14,12 @@ namespace HBYS
         private void buttonGirisYap_Click(object sender, EventArgs e)
         {
             baglanti.Open();
-            
-            int id=getirId(textBoxKullaniciAdi.Text, textBoxSifre.Text);
-            if (id!=0)
-            {   
-                string yetki=getirYetki(id);
-                if (yetki!=null)
+
+            int id = getirId(textBoxKullaniciAdi.Text, textBoxSifre.Text);
+            if (id != 0)
+            {
+                string yetki = getirYetki(id);
+                if (yetki != null)
                 {
                     switch (yetki)
                     {
@@ -56,14 +56,14 @@ namespace HBYS
             }
             baglanti.Close();
         }
-        private int getirId(string kullaniciAdi,string kullaniciSifre)
+        private int getirId(string kullaniciAdi, string kullaniciSifre)
         {
             int id = 0;
             SqlCommand komutKullaniciId = new SqlCommand("select kullanici_id from Kullanici where kullaniciAdi=@isim and sifre=@sifre", baglanti);
             komutKullaniciId.Parameters.AddWithValue("@isim", kullaniciAdi);
             komutKullaniciId.Parameters.AddWithValue("sifre", kullaniciSifre);
             SqlDataReader dr = komutKullaniciId.ExecuteReader();
-            if(dr.Read())
+            if (dr.Read())
             {
                 id = (int)dr["kullanici_id"];
             }

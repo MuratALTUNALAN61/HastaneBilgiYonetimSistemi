@@ -35,12 +35,15 @@
             label3 = new Label();
             richTextBoxRecete = new RichTextBox();
             buttonMuayeneKaydet = new Button();
+            dataGridViewDoktor = new DataGridView();
+            buttonHastaBilgi = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDoktor).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(151, 210);
+            label1.Location = new Point(195, 244);
             label1.Name = "label1";
             label1.Size = new Size(89, 15);
             label1.TabIndex = 0;
@@ -48,7 +51,7 @@
             // 
             // richTextBoxSikayet
             // 
-            richTextBoxSikayet.Location = new Point(127, 238);
+            richTextBoxSikayet.Location = new Point(171, 272);
             richTextBoxSikayet.Name = "richTextBoxSikayet";
             richTextBoxSikayet.Size = new Size(136, 87);
             richTextBoxSikayet.TabIndex = 1;
@@ -56,7 +59,7 @@
             // 
             // richTextBoxTeshis
             // 
-            richTextBoxTeshis.Location = new Point(313, 238);
+            richTextBoxTeshis.Location = new Point(357, 272);
             richTextBoxTeshis.Name = "richTextBoxTeshis";
             richTextBoxTeshis.Size = new Size(136, 87);
             richTextBoxTeshis.TabIndex = 2;
@@ -65,7 +68,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(337, 210);
+            label2.Location = new Point(381, 244);
             label2.Name = "label2";
             label2.Size = new Size(89, 15);
             label2.TabIndex = 3;
@@ -74,7 +77,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(542, 210);
+            label3.Location = new Point(586, 244);
             label3.Name = "label3";
             label3.Size = new Size(51, 15);
             label3.TabIndex = 4;
@@ -82,7 +85,7 @@
             // 
             // richTextBoxRecete
             // 
-            richTextBoxRecete.Location = new Point(499, 238);
+            richTextBoxRecete.Location = new Point(543, 272);
             richTextBoxRecete.Name = "richTextBoxRecete";
             richTextBoxRecete.Size = new Size(136, 87);
             richTextBoxRecete.TabIndex = 5;
@@ -90,18 +93,40 @@
             // 
             // buttonMuayeneKaydet
             // 
-            buttonMuayeneKaydet.Location = new Point(337, 353);
+            buttonMuayeneKaydet.Location = new Point(381, 387);
             buttonMuayeneKaydet.Name = "buttonMuayeneKaydet";
             buttonMuayeneKaydet.Size = new Size(89, 30);
             buttonMuayeneKaydet.TabIndex = 6;
             buttonMuayeneKaydet.Text = "Kaydet";
             buttonMuayeneKaydet.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewDoktor
+            // 
+            dataGridViewDoktor.BackgroundColor = SystemColors.Control;
+            dataGridViewDoktor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDoktor.Location = new Point(12, 34);
+            dataGridViewDoktor.Name = "dataGridViewDoktor";
+            dataGridViewDoktor.Size = new Size(965, 188);
+            dataGridViewDoktor.TabIndex = 7;
+            // 
+            // buttonHastaBilgi
+            // 
+            buttonHastaBilgi.Location = new Point(171, 387);
+            buttonHastaBilgi.Name = "buttonHastaBilgi";
+            buttonHastaBilgi.Size = new Size(110, 46);
+            buttonHastaBilgi.TabIndex = 8;
+            buttonHastaBilgi.Text = "SIRADAKİ HASTA";
+            buttonHastaBilgi.UseVisualStyleBackColor = true;
+            buttonHastaBilgi.Click += buttonHastaBilgi_Click;
+            // 
             // FormDoktor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1190, 585);
+            Controls.Add(buttonHastaBilgi);
+            Controls.Add(dataGridViewDoktor);
             Controls.Add(buttonMuayeneKaydet);
             Controls.Add(richTextBoxRecete);
             Controls.Add(label3);
@@ -113,6 +138,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
             Load += FormDoktor_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDoktor).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -126,5 +152,7 @@
         private Label label3;
         private RichTextBox richTextBoxRecete;
         private Button buttonMuayeneKaydet;
+        private DataGridView dataGridViewDoktor;
+        private Button buttonHastaBilgi;
     }
 }
