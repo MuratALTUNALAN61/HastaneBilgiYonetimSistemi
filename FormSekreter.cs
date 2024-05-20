@@ -232,24 +232,68 @@ namespace HBYS
         private void comboBoxRandevuDoktor_SelectedValueChanged(object sender, EventArgs e)
         {
             dateTimePickerRancevuTarih.Enabled = true;
+            buttonRandevuOlustur.Enabled = false;
+            groupBoxRandevu.Enabled = false;
         }
 
         private void dateTimePickerRancevuTarih_ValueChanged(object sender, EventArgs e)
         {
+            buttonRandevuOlustur.Enabled = false;
+            groupBoxRandevu.Enabled = true;
+            radioButton1.Checked=false;
+            radioButton2.Checked=false;
+            radioButton3.Checked=false;
+            radioButton4.Checked=false;
+            radioButton5.Checked=false;
+            radioButton6.Checked=false;
+
+            radioButton1.Enabled=true;
+            radioButton2.Enabled=true;
+            radioButton3.Enabled=true;
+            radioButton4.Enabled=true;
+            radioButton5.Enabled=true;
+            radioButton6.Enabled=true;
+
+
             baglantiSekreter.Open();
             doktorRandevu();
             baglantiSekreter.Close();
-            groupBoxRandevu.Enabled = true;
         }
         private void doktorRandevu()
         {
-            SqlCommand tarih = new SqlCommand("select * from Randevu join Doktorlar on Randevu.d_id=Doktorlar.doktor_id where tarih between @ilk_tarih and @son_tarih", baglantiSekreter);
+            SqlCommand tarih = new SqlCommand("select tarih from Randevu where d_id=@d_id and tarih between @ilk_tarih and @son_tarih", baglantiSekreter);
             tarih.Parameters.AddWithValue("@ilk_tarih", dateTimePickerRancevuTarih.Value);
             tarih.Parameters.AddWithValue("@son_tarih", dateTimePickerRancevuTarih.Value.AddDays(1));
+            tarih.Parameters.AddWithValue("@d_id", getirDoktorId());
             SqlDataReader drtarih = tarih.ExecuteReader();
             while (drtarih.Read())
             {
-
+                DateTime tarihSaat = drtarih.GetDateTime(0);
+                int saat = tarihSaat.Hour;
+                if (saat == 9)
+                {
+                    radioButton1.Enabled = false;
+                }
+                else if (saat == 10)
+                {
+                    radioButton2.Enabled = false;
+                }
+                else if (saat == 11)
+                {
+                    radioButton3.Enabled = false;
+                }
+                else if (saat == 13)
+                {
+                    radioButton4.Enabled = false;
+                }
+                else if (saat == 14)
+                {
+                    radioButton5.Enabled = false;
+                }
+                else if (saat == 15)
+                {
+                    radioButton6.Enabled = false;
+                }
             }
             drtarih.Close();
         }
@@ -288,6 +332,20 @@ namespace HBYS
                 MessageBox.Show("Tc kimlik numarasını kontrol ediniz.");
             }
             baglantiSekreter.Close();
+
+            textBoxRandevuTc.Clear();
+            comboBoxRandevuPolikinlik.Text = "";
+            comboBoxRandevuDoktor.Text = "";
+            comboBoxRandevuDoktor.Items.Clear();
+            groupBoxRandevu.Enabled = false;
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            radioButton3.Checked = false;
+            radioButton4.Checked = false;
+            radioButton5.Checked = false;
+            radioButton6.Checked = false;
+            buttonRandevuOlustur.Enabled = false;
+            dateTimePickerRancevuTarih.Enabled = false;
         }
         private int getirHastaId()
         {
@@ -349,9 +407,9 @@ namespace HBYS
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton1.Checked || radioButton2.Checked || radioButton3.Checked || radioButton4.Checked || radioButton5.Checked || radioButton6.Checked) 
+            if (radioButton1.Checked || radioButton2.Checked || radioButton3.Checked || radioButton4.Checked || radioButton5.Checked || radioButton6.Checked)
             {
-                buttonRandevuOlustur.Enabled=true;
+                buttonRandevuOlustur.Enabled = true;
             }
         }
     }
