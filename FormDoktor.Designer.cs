@@ -106,7 +106,7 @@
             dataGridViewDoktor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewDoktor.Location = new Point(12, 34);
             dataGridViewDoktor.Name = "dataGridViewDoktor";
-            dataGridViewDoktor.Size = new Size(965, 188);
+            dataGridViewDoktor.Size = new Size(944, 188);
             dataGridViewDoktor.TabIndex = 7;
             // 
             // buttonHastaBilgi

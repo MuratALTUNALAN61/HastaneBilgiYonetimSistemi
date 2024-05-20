@@ -435,6 +435,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.BackColor = SystemColors.ActiveCaption;
             tabPage1.Controls.Add(maskedTextBoxHtel);
             tabPage1.Controls.Add(comboBoxHcinsiyet);
             tabPage1.Controls.Add(label1);
@@ -454,7 +455,6 @@
             tabPage1.Size = new Size(856, 340);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Hasta Kaydı Oluşturma";
-            tabPage1.UseVisualStyleBackColor = true;
             // 
             // maskedTextBoxHtel
             // 
@@ -586,6 +586,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1247, 602);
             Controls.Add(tabControlSekreter);
