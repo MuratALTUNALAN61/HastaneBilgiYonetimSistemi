@@ -106,7 +106,7 @@ namespace HBYS
         {
             SqlCommand kayitAra = new SqlCommand("select * from Hasta where h_tc=@h_tc", baglantiSekreter);
             kayitAra.Parameters.AddWithValue("@h_tc", textBoxAramaTc.Text);
-            kayitGösterTablo(kayitAra);
+            kayitGösterTablo(kayitAra, dataGridView1);
         }
         private void buttonHepsiniGöster_Click(object sender, EventArgs e)
         {
@@ -115,15 +115,15 @@ namespace HBYS
         private void tumKayitlariGoster()
         {
             SqlCommand hepsiniGoster = new SqlCommand("select * from Hasta", baglantiSekreter);
-            kayitGösterTablo(hepsiniGoster);
+            kayitGösterTablo(hepsiniGoster, dataGridView1);
         }
-        public void kayitGösterTablo(SqlCommand sqlCommand)
+        public void kayitGösterTablo(SqlCommand sqlCommand, DataGridView dataGridView)
         {
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
             DataSet ds = new DataSet();
             da.Fill(ds);
 
-            dataGridView1.DataSource = ds.Tables[0];
+            dataGridView.DataSource = ds.Tables[0];
         }
         private void textBoxAramaTc_TextChanged(object sender, EventArgs e)
         {
@@ -440,18 +440,10 @@ namespace HBYS
         {
             SqlCommand randevuAra = new SqlCommand("select Randevu.h_id,Randevu.d_id,Randevu.randevu_id,Randevu.tarih,Hasta.h_isim,Hasta.h_soyisim from Randevu join Hasta on Hasta.h_id=Randevu.h_id where h_tc=@h_tc", baglantiSekreter);
             randevuAra.Parameters.AddWithValue("@h_tc", textBoxRandevuAraTc.Text);
-            DataSet ds = KayitGosterTablo(randevuAra);
-            dataGridViewRandevu.DataSource = ds.Tables[0];
+            kayitGösterTablo(randevuAra, dataGridViewRandevu);
 
         }
-        public DataSet KayitGosterTablo(SqlCommand sqlCommand)
-        {
-            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            return ds;
 
-        }
         private void buttonRandevuHepsiniAra_Click(object sender, EventArgs e)
         {
             tumRandevularilariGoster();
@@ -459,43 +451,46 @@ namespace HBYS
         private void tumRandevularilariGoster()
         {
             SqlCommand hepsiniGoster = new SqlCommand("select * from Randevu", baglantiSekreter);
-            DataSet ds= KayitGosterTablo(hepsiniGoster);
-            dataGridViewRandevu.DataSource= ds.Tables[0];
+            kayitGösterTablo(hepsiniGoster, dataGridViewRandevu);
         }
 
+        // randevu kaydı silme
 
-        //
-
-        /*
-         * private void buttonKayitSill_Click(object sender, EventArgs e)
+        private void buttonRandevuSil_Click(object sender, EventArgs e)
         {
             baglantiSekreter.Open();
-            int[] dizi = getirSeciliKayitIdListesi();
+            int[] dizi = getirSeciliRandevuIdListesi();
             for (int i = 0; i < dizi.Length; i++)
             {
-                kayitSil(dizi[i]);
+                randevuSil(dizi[i]);
             }
             baglantiSekreter.Close();
 
-            tumKayitlariGoster();
+            tumRandevularilariGoster();
         }
-        private int[] getirSeciliKayitIdListesi()
+        private int[] getirSeciliRandevuIdListesi()
         {
-            int[] dizi = new int[dataGridView1.SelectedRows.Count];
+            int[] dizi = new int[dataGridViewRandevu.SelectedRows.Count];
 
-            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+            for (int i = 0; i < dataGridViewRandevu.SelectedRows.Count; i++)
             {
-                DataGridViewRow row = dataGridView1.SelectedRows[i];
-                dizi[i] = (int)row.Cells[0].Value;
+                DataGridViewRow row = dataGridViewRandevu.SelectedRows[i];
+                dizi[i] = (int)row.Cells[2].Value;
             }
             return dizi;
         }
-        private void kayitSil(int id)
+        private void randevuSil(int id)
         {
-            SqlCommand kayitSil = new SqlCommand("delete from Hasta where h_id=@id", baglantiSekreter);
-            kayitSil.Parameters.AddWithValue("@id", id);
-            kayitSil.ExecuteScalar();
+            SqlCommand randevuSil = new SqlCommand("delete from Randevu where randevu_id=@randevu_id", baglantiSekreter);
+            randevuSil.Parameters.AddWithValue("@randevu_id", id);
+            randevuSil.ExecuteScalar();
         }
-        */
+
+        // randevu güncelle
+
+        private void buttonRandevuGuncelle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

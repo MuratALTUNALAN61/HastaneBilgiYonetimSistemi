@@ -111,6 +111,7 @@
             buttonRandevuSil.TabIndex = 39;
             buttonRandevuSil.Text = "KAYIT SİL";
             buttonRandevuSil.UseVisualStyleBackColor = true;
+            buttonRandevuSil.Click += buttonRandevuSil_Click;
             // 
             // buttonRandevuGuncelle
             // 
@@ -120,6 +121,7 @@
             buttonRandevuGuncelle.TabIndex = 38;
             buttonRandevuGuncelle.Text = "KAYIT GÜNCELLE";
             buttonRandevuGuncelle.UseVisualStyleBackColor = true;
+            buttonRandevuGuncelle.Click += buttonRandevuGuncelle_Click;
             // 
             // buttonRandevuHepsiniAra
             // 
