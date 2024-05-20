@@ -98,7 +98,7 @@
             tabPage6.Padding = new Padding(3);
             tabPage6.Size = new Size(856, 340);
             tabPage6.TabIndex = 5;
-            tabPage6.Text = "Randevu Görüntüleme - Güncelleme - Silme";
+            tabPage6.Text = "Randevu Görüntüleme - Silme";
             tabPage6.UseVisualStyleBackColor = true;
             // 
             // buttonRandevuSil
@@ -127,7 +127,7 @@
             dataGridViewRandevu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewRandevu.Location = new Point(55, 89);
             dataGridViewRandevu.Name = "dataGridViewRandevu";
-            dataGridViewRandevu.Size = new Size(661, 228);
+            dataGridViewRandevu.Size = new Size(653, 217);
             dataGridViewRandevu.TabIndex = 36;
             // 
             // buttonRandevuAra
@@ -186,7 +186,7 @@
             groupBoxRandevu.Controls.Add(radioButton5);
             groupBoxRandevu.Controls.Add(radioButton3);
             groupBoxRandevu.Controls.Add(radioButton4);
-            groupBoxRandevu.Location = new Point(497, 73);
+            groupBoxRandevu.Location = new Point(496, 92);
             groupBoxRandevu.Name = "groupBoxRandevu";
             groupBoxRandevu.Size = new Size(268, 129);
             groupBoxRandevu.TabIndex = 39;
@@ -367,7 +367,7 @@
             // 
             // buttonKayitSill
             // 
-            buttonKayitSill.Location = new Point(527, 40);
+            buttonKayitSill.Location = new Point(547, 20);
             buttonKayitSill.Name = "buttonKayitSill";
             buttonKayitSill.Size = new Size(75, 42);
             buttonKayitSill.TabIndex = 32;
@@ -377,7 +377,7 @@
             // 
             // buttonKayıtGuncelle
             // 
-            buttonKayıtGuncelle.Location = new Point(623, 41);
+            buttonKayıtGuncelle.Location = new Point(643, 21);
             buttonKayıtGuncelle.Name = "buttonKayıtGuncelle";
             buttonKayıtGuncelle.Size = new Size(75, 42);
             buttonKayıtGuncelle.TabIndex = 31;
@@ -387,7 +387,7 @@
             // 
             // buttonHepsiniGöster
             // 
-            buttonHepsiniGöster.Location = new Point(424, 41);
+            buttonHepsiniGöster.Location = new Point(444, 21);
             buttonHepsiniGöster.Name = "buttonHepsiniGöster";
             buttonHepsiniGöster.Size = new Size(75, 42);
             buttonHepsiniGöster.TabIndex = 4;
@@ -399,14 +399,14 @@
             // 
             dataGridView1.BackgroundColor = SystemColors.Window;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 106);
+            dataGridView1.Location = new Point(23, 86);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(747, 228);
             dataGridView1.TabIndex = 3;
             // 
             // buttonKayitAra
             // 
-            buttonKayitAra.Location = new Point(325, 41);
+            buttonKayitAra.Location = new Point(345, 21);
             buttonKayitAra.Name = "buttonKayitAra";
             buttonKayitAra.Size = new Size(75, 41);
             buttonKayitAra.TabIndex = 2;
@@ -416,7 +416,7 @@
             // 
             // textBoxAramaTc
             // 
-            textBoxAramaTc.Location = new Point(153, 52);
+            textBoxAramaTc.Location = new Point(173, 32);
             textBoxAramaTc.MaxLength = 11;
             textBoxAramaTc.Name = "textBoxAramaTc";
             textBoxAramaTc.Size = new Size(141, 23);
@@ -427,7 +427,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(36, 55);
+            label7.Location = new Point(56, 35);
             label7.Name = "label7";
             label7.Size = new Size(91, 15);
             label7.TabIndex = 0;
