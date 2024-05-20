@@ -485,12 +485,5 @@ namespace HBYS
             randevuSil.Parameters.AddWithValue("@randevu_id", id);
             randevuSil.ExecuteScalar();
         }
-
-        // randevu güncelle
-
-        private void buttonRandevuGuncelle_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

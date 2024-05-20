@@ -30,7 +30,6 @@
         {
             tabPage6 = new TabPage();
             buttonRandevuSil = new Button();
-            buttonRandevuGuncelle = new Button();
             buttonRandevuHepsiniAra = new Button();
             dataGridViewRandevu = new DataGridView();
             buttonRandevuAra = new Button();
@@ -89,7 +88,6 @@
             // tabPage6
             // 
             tabPage6.Controls.Add(buttonRandevuSil);
-            tabPage6.Controls.Add(buttonRandevuGuncelle);
             tabPage6.Controls.Add(buttonRandevuHepsiniAra);
             tabPage6.Controls.Add(dataGridViewRandevu);
             tabPage6.Controls.Add(buttonRandevuAra);
@@ -105,23 +103,13 @@
             // 
             // buttonRandevuSil
             // 
-            buttonRandevuSil.Location = new Point(717, 25);
+            buttonRandevuSil.Location = new Point(591, 23);
             buttonRandevuSil.Name = "buttonRandevuSil";
             buttonRandevuSil.Size = new Size(75, 42);
             buttonRandevuSil.TabIndex = 39;
             buttonRandevuSil.Text = "KAYIT SİL";
             buttonRandevuSil.UseVisualStyleBackColor = true;
             buttonRandevuSil.Click += buttonRandevuSil_Click;
-            // 
-            // buttonRandevuGuncelle
-            // 
-            buttonRandevuGuncelle.Location = new Point(593, 24);
-            buttonRandevuGuncelle.Name = "buttonRandevuGuncelle";
-            buttonRandevuGuncelle.Size = new Size(75, 42);
-            buttonRandevuGuncelle.TabIndex = 38;
-            buttonRandevuGuncelle.Text = "KAYIT GÜNCELLE";
-            buttonRandevuGuncelle.UseVisualStyleBackColor = true;
-            buttonRandevuGuncelle.Click += buttonRandevuGuncelle_Click;
             // 
             // buttonRandevuHepsiniAra
             // 
@@ -379,7 +367,7 @@
             // 
             // buttonKayitSill
             // 
-            buttonKayitSill.Location = new Point(665, 42);
+            buttonKayitSill.Location = new Point(527, 40);
             buttonKayitSill.Name = "buttonKayitSill";
             buttonKayitSill.Size = new Size(75, 42);
             buttonKayitSill.TabIndex = 32;
@@ -389,7 +377,7 @@
             // 
             // buttonKayıtGuncelle
             // 
-            buttonKayıtGuncelle.Location = new Point(541, 41);
+            buttonKayıtGuncelle.Location = new Point(623, 41);
             buttonKayıtGuncelle.Name = "buttonKayıtGuncelle";
             buttonKayıtGuncelle.Size = new Size(75, 42);
             buttonKayıtGuncelle.TabIndex = 31;
@@ -671,7 +659,6 @@
         private RadioButton radioButton3;
         private RadioButton radioButton4;
         private Button buttonRandevuSil;
-        private Button buttonRandevuGuncelle;
         private Button buttonRandevuHepsiniAra;
         private DataGridView dataGridViewRandevu;
         private Button buttonRandevuAra;
