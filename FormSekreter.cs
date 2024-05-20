@@ -54,6 +54,24 @@ namespace HBYS
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
+        //form yükleme
+
+        private void FormSekreter_Load(object sender, EventArgs e)
+        {
+            buttonRandevuOlustur.Enabled = false;
+            dateTimePickerRancevuTarih.Enabled = false;
+            groupBoxRandevu.Enabled = false;
+            baglantiSekreter.Open();
+            buttonKayitAra.Enabled = false;
+            buttonRandevuAra.Enabled = false;
+            ArrayList polikinlikler = polikinlikGetir();
+            for (int i = 0; i < polikinlikler.Count; i++)
+            {
+                comboBoxRandevuPolikinlik.Items.Add(polikinlikler[i]);
+            }
+            baglantiSekreter.Close();
+        }
+
         // Hasta kayıt ekleme
 
         private void buttonKayitEkle_Click(object sender, EventArgs e)
@@ -117,23 +135,6 @@ namespace HBYS
             {
                 buttonKayitAra.Enabled = false;
             }
-        }
-
-        //form yükleme
-
-        private void FormSekreter_Load(object sender, EventArgs e)
-        {
-            buttonRandevuOlustur.Enabled = false;
-            dateTimePickerRancevuTarih.Enabled = false;
-            groupBoxRandevu.Enabled = false;
-            baglantiSekreter.Open();
-            buttonKayitAra.Enabled = false;
-            ArrayList polikinlikler = polikinlikGetir();
-            for (int i = 0; i < polikinlikler.Count; i++)
-            {
-                comboBoxRandevuPolikinlik.Items.Add(polikinlikler[i]);
-            }
-            baglantiSekreter.Close();
         }
 
         // hasta kayıt silme
@@ -249,19 +250,19 @@ namespace HBYS
         {
             buttonRandevuOlustur.Enabled = false;
             groupBoxRandevu.Enabled = true;
-            radioButton1.Checked=false;
-            radioButton2.Checked=false;
-            radioButton3.Checked=false;
-            radioButton4.Checked=false;
-            radioButton5.Checked=false;
-            radioButton6.Checked=false;
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            radioButton3.Checked = false;
+            radioButton4.Checked = false;
+            radioButton5.Checked = false;
+            radioButton6.Checked = false;
 
-            radioButton1.Enabled=true;
-            radioButton2.Enabled=true;
-            radioButton3.Enabled=true;
-            radioButton4.Enabled=true;
-            radioButton5.Enabled=true;
-            radioButton6.Enabled=true;
+            radioButton1.Enabled = true;
+            radioButton2.Enabled = true;
+            radioButton3.Enabled = true;
+            radioButton4.Enabled = true;
+            radioButton5.Enabled = true;
+            radioButton6.Enabled = true;
 
 
             baglantiSekreter.Open();
@@ -424,6 +425,77 @@ namespace HBYS
 
         // randevu kayıt arama
 
+        private void textBoxRandevuAraTc_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxRandevuAraTc.Text.Length == 11)
+            {
+                buttonRandevuAra.Enabled = true;
+            }
+            else
+            {
+                buttonRandevuAra.Enabled = false;
+            }
+        }
+        private void buttonRandevuAra_Click(object sender, EventArgs e)
+        {
+            SqlCommand randevuAra = new SqlCommand("select Randevu.h_id,Randevu.d_id,Randevu.randevu_id,Randevu.tarih,Hasta.h_isim,Hasta.h_soyisim from Randevu join Hasta on Hasta.h_id=Randevu.h_id where h_tc=@h_tc", baglantiSekreter);
+            randevuAra.Parameters.AddWithValue("@h_tc", textBoxRandevuAraTc.Text);
+            DataSet ds = KayitGosterTablo(randevuAra);
+            dataGridViewRandevu.DataSource = ds.Tables[0];
 
+        }
+        public DataSet KayitGosterTablo(SqlCommand sqlCommand)
+        {
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+
+        }
+        private void buttonRandevuHepsiniAra_Click(object sender, EventArgs e)
+        {
+            tumRandevularilariGoster();
+        }
+        private void tumRandevularilariGoster()
+        {
+            SqlCommand hepsiniGoster = new SqlCommand("select * from Randevu", baglantiSekreter);
+            DataSet ds= KayitGosterTablo(hepsiniGoster);
+            dataGridViewRandevu.DataSource= ds.Tables[0];
+        }
+
+
+        //
+
+        /*
+         * private void buttonKayitSill_Click(object sender, EventArgs e)
+        {
+            baglantiSekreter.Open();
+            int[] dizi = getirSeciliKayitIdListesi();
+            for (int i = 0; i < dizi.Length; i++)
+            {
+                kayitSil(dizi[i]);
+            }
+            baglantiSekreter.Close();
+
+            tumKayitlariGoster();
+        }
+        private int[] getirSeciliKayitIdListesi()
+        {
+            int[] dizi = new int[dataGridView1.SelectedRows.Count];
+
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+            {
+                DataGridViewRow row = dataGridView1.SelectedRows[i];
+                dizi[i] = (int)row.Cells[0].Value;
+            }
+            return dizi;
+        }
+        private void kayitSil(int id)
+        {
+            SqlCommand kayitSil = new SqlCommand("delete from Hasta where h_id=@id", baglantiSekreter);
+            kayitSil.Parameters.AddWithValue("@id", id);
+            kayitSil.ExecuteScalar();
+        }
+        */
     }
 }
