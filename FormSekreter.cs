@@ -450,7 +450,7 @@ namespace HBYS
         }
         private void tumRandevularilariGoster()
         {
-            SqlCommand hepsiniGoster = new SqlCommand("select * from Randevu", baglantiSekreter);
+            SqlCommand hepsiniGoster = new SqlCommand("select * from Randevu order by Randevu.tarih", baglantiSekreter);
             kayitGösterTablo(hepsiniGoster, dataGridViewRandevu);
         }
 
