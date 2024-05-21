@@ -73,6 +73,10 @@ namespace HBYS
                 labelHastaSoyad.Text = (string)drSiradaki["h_soyisim"];
                 randevuId = (int)drSiradaki["randevu_id"];
             }
+            else
+            {
+                MessageBox.Show("gelecek randevu yok");
+            }
             drSiradaki.Close();
         }
         private DateTime getirRandevuTarih()
@@ -109,6 +113,10 @@ namespace HBYS
                 labelHastaAd.Text = (string)drSiradaki["h_isim"];
                 labelHastaSoyad.Text = (string)drSiradaki["h_soyisim"];
                 randevuId = (int)drSiradaki["randevu_id"];
+            }
+            else
+            {
+                MessageBox.Show("geçmiş randevu yok");
             }
             drSiradaki.Close();
         }
