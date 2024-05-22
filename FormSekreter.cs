@@ -228,7 +228,7 @@ namespace HBYS
         }
         private ArrayList doktorGetir()
         {
-            SqlCommand doktor = new SqlCommand("select doktor_ad from Doktorlar join Polikinlik on Doktorlar.polikinlik_id=Polikinlik.polikinlik_id where Polikinlik.polikinlik_ad=@polikinlik_ad", baglantiSekreter);
+            SqlCommand doktor = new SqlCommand("select doktor_ad from Doktorlar join Polikinlik on Doktorlar.polikinlik_id=Polikinlik.polikinlik_id join Personel on Doktorlar.p_id=Personel.p_id where Polikinlik.polikinlik_ad=@polikinlik_ad and Personel.p_durumu='çalışıyor'", baglantiSekreter);
             doktor.Parameters.AddWithValue("@polikinlik_ad", comboBoxRandevuPolikinlik.SelectedItem);
             SqlDataReader drdoktor = doktor.ExecuteReader();
             ArrayList doktorListesi = new ArrayList();

@@ -175,7 +175,7 @@ namespace HBYS
         }
         private void personelSil() 
         {
-            SqlCommand personelSil=new SqlCommand("delete from Personel where p_tc=@p_tc",baglantiYonetici);
+            SqlCommand personelSil=new SqlCommand("update Personel set p_durumu='ayrıldı' where p_tc=@p_tc",baglantiYonetici);
             personelSil.Parameters.AddWithValue("@p_tc",textBoxP_TcArama.Text);
             personelSil.ExecuteScalar();
         }
