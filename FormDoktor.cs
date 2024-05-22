@@ -16,6 +16,7 @@ namespace HBYS
     {
         int id;
         int randevuId;
+        int hastaId;
         public FormDoktor(int id)
         {
             InitializeComponent();
@@ -48,23 +49,18 @@ namespace HBYS
             baglantiDoktor.Open();
             getirSonrakiHastaBilgi();
             baglantiDoktor.Close();
-            /*
-            FormSekreter formSekreter = new FormSekreter();
-            formSekreter.kayitGösterTablo(siradakiHasta, dataGridViewDoktor);
-            
-            */
         }
         private void getirSonrakiHastaBilgi()
         {
             DateTime randevununTarihi = DateTime.Now.AddHours(-1);
-            if(randevuId>0)
+            if (randevuId > 0)
             {
                 randevununTarihi = getirRandevuTarih();
-                
+
             }
             SqlCommand siradakiHasta = new SqlCommand("select Hasta.h_id,Hasta.h_isim,Hasta.h_soyisim,Hasta.h_tc,Hasta.h_dogumTarihi,Hasta.h_tel,Hasta.h_cinsiyet,Randevu.randevu_id,Randevu.tarih from Hasta join Randevu on Hasta.h_id=Randevu.h_id where Randevu.d_id=@d_id and Randevu.tarih between @tarih and @tarih2 order by Randevu.tarih", baglantiDoktor);
             siradakiHasta.Parameters.AddWithValue("@d_id", getirDoktorId(id));
-            siradakiHasta.Parameters.AddWithValue("@tarih", randevununTarihi.AddMinutes(11));
+            siradakiHasta.Parameters.AddWithValue("@tarih", randevununTarihi.AddMinutes(1));
             siradakiHasta.Parameters.AddWithValue("@tarih2", DateTime.Now.AddHours(12));
             SqlDataReader drSiradaki = siradakiHasta.ExecuteReader();
             if (drSiradaki.Read())
@@ -72,16 +68,18 @@ namespace HBYS
                 labelHastaAd.Text = (string)drSiradaki["h_isim"];
                 labelHastaSoyad.Text = (string)drSiradaki["h_soyisim"];
                 randevuId = (int)drSiradaki["randevu_id"];
+                hastaId = (int)drSiradaki["h_id"];
             }
             else
             {
                 MessageBox.Show("gelecek randevu yok");
             }
             drSiradaki.Close();
+            getirMuayeneKayıt();
         }
         private DateTime getirRandevuTarih()
         {
-            DateTime randevuTarih=DateTime.Now;
+            DateTime randevuTarih = DateTime.Now;
             SqlCommand tarih = new SqlCommand("select tarih from Randevu where randevu_id=@randevu_id", baglantiDoktor);
             tarih.Parameters.AddWithValue("@randevu_id", randevuId);
             SqlDataReader drTarih = tarih.ExecuteReader();
@@ -92,6 +90,7 @@ namespace HBYS
             drTarih.Close();
             return randevuTarih;
         }
+
         // Önceki hasta bilgilerini getirme
 
         private void buttonOncekiHastaBilgi_Click(object sender, EventArgs e)
@@ -105,7 +104,7 @@ namespace HBYS
             DateTime randevununTarihi = getirRandevuTarih();
             SqlCommand siradakiHasta = new SqlCommand("select Hasta.h_id,Hasta.h_isim,Hasta.h_soyisim,Hasta.h_tc,Hasta.h_dogumTarihi,Hasta.h_tel,Hasta.h_cinsiyet,Randevu.randevu_id,Randevu.tarih from Hasta join Randevu on Hasta.h_id=Randevu.h_id where Randevu.d_id=@d_id and Randevu.tarih between @tarih2 and @tarih order by Randevu.tarih DESC", baglantiDoktor);
             siradakiHasta.Parameters.AddWithValue("@d_id", getirDoktorId(id));
-            siradakiHasta.Parameters.AddWithValue("@tarih", randevununTarihi.AddMinutes(-11));
+            siradakiHasta.Parameters.AddWithValue("@tarih", randevununTarihi.AddMinutes(-1));
             siradakiHasta.Parameters.AddWithValue("@tarih2", randevununTarihi.AddHours(-12));
             SqlDataReader drSiradaki = siradakiHasta.ExecuteReader();
             if (drSiradaki.Read())
@@ -113,12 +112,65 @@ namespace HBYS
                 labelHastaAd.Text = (string)drSiradaki["h_isim"];
                 labelHastaSoyad.Text = (string)drSiradaki["h_soyisim"];
                 randevuId = (int)drSiradaki["randevu_id"];
+                hastaId = (int)drSiradaki["h_id"];
             }
             else
             {
                 MessageBox.Show("geçmiş randevu yok");
             }
             drSiradaki.Close();
+            getirMuayeneKayıt();
+        }
+
+        // Muayene kaydı ekleme
+
+        private void buttonMuayeneKaydet_Click(object sender, EventArgs e)
+        {
+            baglantiDoktor.Open();
+            int eklenenMuayene = muayeneKaydet();
+            if( eklenenMuayene > 0 )
+            {
+                MessageBox.Show("Muayene kaydı eklendi");
+            }
+            else
+            {
+                MessageBox.Show("Muayene kaydı oluşturulurken hata oluştu");
+            }
+            getirMuayeneKayıt();
+            baglantiDoktor.Close();
+            richTextBoxSikayet.Text = "";
+            richTextBoxTeshis.Text = "";
+            richTextBoxRecete.Text = "";
+        }
+        private int muayeneKaydet()
+        {
+            SqlCommand muayene = new SqlCommand("insert into Muayene(d_id,hasta_id,sikayet,teshis,recete,r_id)" +
+                "values(@d_id,@hasta_id,@sikayet,@teshis,@recete,@r_id)",baglantiDoktor);
+            muayene.Parameters.AddWithValue("@d_id",getirDoktorId(id));
+            muayene.Parameters.AddWithValue("@hasta_id",hastaId);
+            muayene.Parameters.AddWithValue("@sikayet",richTextBoxSikayet.Text);
+            muayene.Parameters.AddWithValue("@teshis",richTextBoxTeshis.Text);
+            muayene.Parameters.AddWithValue("@recete",richTextBoxRecete.Text);
+            muayene.Parameters.AddWithValue("@r_id",randevuId);
+            return muayene.ExecuteNonQuery();
+        }
+
+        // Hastanın geçmiş muayenelerini görüntüleme
+
+        private void getirMuayeneKayıt()
+        {
+            FormSekreter tabloAlma=new FormSekreter();
+            SqlCommand muayeneKaydi = new SqlCommand("select * from Muayene where hasta_id=@hasta_id",baglantiDoktor);
+            muayeneKaydi.Parameters.AddWithValue("@hasta_id", hastaId);
+            tabloAlma.kayitGösterTablo(muayeneKaydi,dataGridViewDoktor);
+
+
+
+            /*
+            FormSekreter formSekreter = new FormSekreter();
+            formSekreter.kayitGösterTablo(siradakiHasta, dataGridViewDoktor);
+            
+            */
         }
     }
 }
