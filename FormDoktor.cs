@@ -27,6 +27,7 @@ namespace HBYS
 
         private void FormDoktor_Load(object sender, EventArgs e)
         {
+            buttonMuayeneKaydet.Enabled = false;
             baglantiDoktor.Open();
             getirSonrakiHastaBilgi();
             baglantiDoktor.Close();
@@ -49,6 +50,7 @@ namespace HBYS
             baglantiDoktor.Open();
             getirSonrakiHastaBilgi();
             baglantiDoktor.Close();
+            sifirlama();
         }
         private void getirSonrakiHastaBilgi()
         {
@@ -98,6 +100,7 @@ namespace HBYS
             baglantiDoktor.Open();
             getirOncekiHastaBilgi();
             baglantiDoktor.Close();
+            sifirlama();
         }
         private void getirOncekiHastaBilgi()
         {
@@ -128,7 +131,7 @@ namespace HBYS
         {
             baglantiDoktor.Open();
             int eklenenMuayene = muayeneKaydet();
-            if( eklenenMuayene > 0 )
+            if (eklenenMuayene > 0)
             {
                 MessageBox.Show("Muayene kaydı eklendi");
             }
@@ -145,13 +148,13 @@ namespace HBYS
         private int muayeneKaydet()
         {
             SqlCommand muayene = new SqlCommand("insert into Muayene(d_id,hasta_id,sikayet,teshis,recete,r_id)" +
-                "values(@d_id,@hasta_id,@sikayet,@teshis,@recete,@r_id)",baglantiDoktor);
-            muayene.Parameters.AddWithValue("@d_id",getirDoktorId(id));
-            muayene.Parameters.AddWithValue("@hasta_id",hastaId);
-            muayene.Parameters.AddWithValue("@sikayet",richTextBoxSikayet.Text);
-            muayene.Parameters.AddWithValue("@teshis",richTextBoxTeshis.Text);
-            muayene.Parameters.AddWithValue("@recete",richTextBoxRecete.Text);
-            muayene.Parameters.AddWithValue("@r_id",randevuId);
+                "values(@d_id,@hasta_id,@sikayet,@teshis,@recete,@r_id)", baglantiDoktor);
+            muayene.Parameters.AddWithValue("@d_id", getirDoktorId(id));
+            muayene.Parameters.AddWithValue("@hasta_id", hastaId);
+            muayene.Parameters.AddWithValue("@sikayet", richTextBoxSikayet.Text);
+            muayene.Parameters.AddWithValue("@teshis", richTextBoxTeshis.Text);
+            muayene.Parameters.AddWithValue("@recete", richTextBoxRecete.Text);
+            muayene.Parameters.AddWithValue("@r_id", randevuId);
             return muayene.ExecuteNonQuery();
         }
 
@@ -159,18 +162,41 @@ namespace HBYS
 
         private void getirMuayeneKayıt()
         {
-            FormSekreter tabloAlma=new FormSekreter();
-            SqlCommand muayeneKaydi = new SqlCommand("select * from Muayene where hasta_id=@hasta_id",baglantiDoktor);
+            FormSekreter tabloAlma = new FormSekreter();
+            SqlCommand muayeneKaydi = new SqlCommand("select * from Muayene where hasta_id=@hasta_id", baglantiDoktor);
             muayeneKaydi.Parameters.AddWithValue("@hasta_id", hastaId);
-            tabloAlma.kayitGösterTablo(muayeneKaydi,dataGridViewDoktor);
+            tabloAlma.kayitGösterTablo(muayeneKaydi, dataGridViewDoktor);
+        }
 
+        private void richTextBoxSikayet_TextChanged(object sender, EventArgs e)
+        {
+            if (richTextBoxSikayet.Text.Length > 0 && richTextBoxTeshis.Text.Length > 0)
+            {
+                buttonMuayeneKaydet.Enabled = true;
+            }
+            else
+            {
+                buttonMuayeneKaydet.Enabled = false;
+            }
+        }
 
-
-            /*
-            FormSekreter formSekreter = new FormSekreter();
-            formSekreter.kayitGösterTablo(siradakiHasta, dataGridViewDoktor);
-            
-            */
+        private void richTextBoxTeshis_TextChanged(object sender, EventArgs e)
+        {
+            if (richTextBoxSikayet.Text.Length > 0 && richTextBoxTeshis.Text.Length > 0)
+            {
+                buttonMuayeneKaydet.Enabled = true;
+            }
+            else
+            {
+                buttonMuayeneKaydet.Enabled = false;
+            }
+        }
+        private void sifirlama()
+        {
+            richTextBoxSikayet.Text = "";
+            richTextBoxTeshis.Text = "";
+            richTextBoxRecete.Text = "";
+            buttonMuayeneKaydet.Enabled=false;
         }
     }
 }

@@ -48,7 +48,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(195, 322);
+            label1.Location = new Point(62, 322);
             label1.Name = "label1";
             label1.Size = new Size(89, 15);
             label1.TabIndex = 0;
@@ -56,24 +56,26 @@
             // 
             // richTextBoxSikayet
             // 
-            richTextBoxSikayet.Location = new Point(171, 350);
+            richTextBoxSikayet.Location = new Point(172, 319);
             richTextBoxSikayet.Name = "richTextBoxSikayet";
-            richTextBoxSikayet.Size = new Size(136, 87);
+            richTextBoxSikayet.Size = new Size(202, 37);
             richTextBoxSikayet.TabIndex = 1;
             richTextBoxSikayet.Text = "";
+            richTextBoxSikayet.TextChanged += richTextBoxSikayet_TextChanged;
             // 
             // richTextBoxTeshis
             // 
-            richTextBoxTeshis.Location = new Point(357, 350);
+            richTextBoxTeshis.Location = new Point(172, 362);
             richTextBoxTeshis.Name = "richTextBoxTeshis";
-            richTextBoxTeshis.Size = new Size(136, 87);
+            richTextBoxTeshis.Size = new Size(202, 37);
             richTextBoxTeshis.TabIndex = 2;
             richTextBoxTeshis.Text = "";
+            richTextBoxTeshis.TextChanged += richTextBoxTeshis_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(381, 322);
+            label2.Location = new Point(62, 365);
             label2.Name = "label2";
             label2.Size = new Size(89, 15);
             label2.TabIndex = 3;
@@ -82,7 +84,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(586, 322);
+            label3.Location = new Point(62, 408);
             label3.Name = "label3";
             label3.Size = new Size(51, 15);
             label3.TabIndex = 4;
@@ -90,17 +92,17 @@
             // 
             // richTextBoxRecete
             // 
-            richTextBoxRecete.Location = new Point(543, 350);
+            richTextBoxRecete.Location = new Point(172, 405);
             richTextBoxRecete.Name = "richTextBoxRecete";
-            richTextBoxRecete.Size = new Size(136, 87);
+            richTextBoxRecete.Size = new Size(202, 37);
             richTextBoxRecete.TabIndex = 5;
             richTextBoxRecete.Text = "";
             // 
             // buttonMuayeneKaydet
             // 
-            buttonMuayeneKaydet.Location = new Point(1012, 254);
+            buttonMuayeneKaydet.Location = new Point(527, 362);
             buttonMuayeneKaydet.Name = "buttonMuayeneKaydet";
-            buttonMuayeneKaydet.Size = new Size(110, 46);
+            buttonMuayeneKaydet.Size = new Size(110, 37);
             buttonMuayeneKaydet.TabIndex = 6;
             buttonMuayeneKaydet.Text = "Kaydet";
             buttonMuayeneKaydet.UseVisualStyleBackColor = true;
@@ -117,7 +119,7 @@
             // 
             // buttonHastaBilgi
             // 
-            buttonHastaBilgi.Location = new Point(1012, 164);
+            buttonHastaBilgi.Location = new Point(1012, 254);
             buttonHastaBilgi.Name = "buttonHastaBilgi";
             buttonHastaBilgi.Size = new Size(110, 46);
             buttonHastaBilgi.TabIndex = 8;
