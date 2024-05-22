@@ -42,10 +42,8 @@
             textBoxP_Isim = new TextBox();
             textBoxP_Soyisim = new TextBox();
             textBoxP_Tc = new TextBox();
-            textBoxP_Gorev = new TextBox();
             textBoxP_DogumTarihi = new TextBox();
             textBoxP_Telefon = new TextBox();
-            textBoxP_Polikinlik = new TextBox();
             textBoxP_Adres = new TextBox();
             buttonKayitEkle = new Button();
             textBoxP_Mail = new TextBox();
@@ -54,6 +52,8 @@
             buttonKayitSil = new Button();
             buttonKayitAra = new Button();
             comboBoxHcinsiyet = new ComboBox();
+            comboBoxGorev = new ComboBox();
+            comboBoxPolikinlik = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -176,13 +176,6 @@
             textBoxP_Tc.Size = new Size(187, 23);
             textBoxP_Tc.TabIndex = 14;
             // 
-            // textBoxP_Gorev
-            // 
-            textBoxP_Gorev.Location = new Point(122, 138);
-            textBoxP_Gorev.Name = "textBoxP_Gorev";
-            textBoxP_Gorev.Size = new Size(187, 23);
-            textBoxP_Gorev.TabIndex = 15;
-            // 
             // textBoxP_DogumTarihi
             // 
             textBoxP_DogumTarihi.Location = new Point(122, 196);
@@ -196,13 +189,6 @@
             textBoxP_Telefon.Name = "textBoxP_Telefon";
             textBoxP_Telefon.Size = new Size(187, 23);
             textBoxP_Telefon.TabIndex = 18;
-            // 
-            // textBoxP_Polikinlik
-            // 
-            textBoxP_Polikinlik.Location = new Point(122, 283);
-            textBoxP_Polikinlik.Name = "textBoxP_Polikinlik";
-            textBoxP_Polikinlik.Size = new Size(187, 23);
-            textBoxP_Polikinlik.TabIndex = 20;
             // 
             // textBoxP_Adres
             // 
@@ -270,12 +256,32 @@
             comboBoxHcinsiyet.Size = new Size(187, 23);
             comboBoxHcinsiyet.TabIndex = 31;
             // 
+            // comboBoxGorev
+            // 
+            comboBoxGorev.FormattingEnabled = true;
+            comboBoxGorev.Items.AddRange(new object[] { "Yönetici", "Doktor", "Sekreter" });
+            comboBoxGorev.Location = new Point(122, 138);
+            comboBoxGorev.Name = "comboBoxGorev";
+            comboBoxGorev.Size = new Size(187, 23);
+            comboBoxGorev.TabIndex = 32;
+            comboBoxGorev.SelectedIndexChanged += comboBoxGorev_SelectedIndexChanged;
+            // 
+            // comboBoxPolikinlik
+            // 
+            comboBoxPolikinlik.FormattingEnabled = true;
+            comboBoxPolikinlik.Location = new Point(122, 283);
+            comboBoxPolikinlik.Name = "comboBoxPolikinlik";
+            comboBoxPolikinlik.Size = new Size(187, 23);
+            comboBoxPolikinlik.TabIndex = 33;
+            // 
             // FormYonetici
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(894, 501);
+            Controls.Add(comboBoxPolikinlik);
+            Controls.Add(comboBoxGorev);
             Controls.Add(comboBoxHcinsiyet);
             Controls.Add(buttonKayitAra);
             Controls.Add(buttonKayitSil);
@@ -284,10 +290,8 @@
             Controls.Add(textBoxP_Mail);
             Controls.Add(buttonKayitEkle);
             Controls.Add(textBoxP_Adres);
-            Controls.Add(textBoxP_Polikinlik);
             Controls.Add(textBoxP_Telefon);
             Controls.Add(textBoxP_DogumTarihi);
-            Controls.Add(textBoxP_Gorev);
             Controls.Add(textBoxP_Tc);
             Controls.Add(textBoxP_Soyisim);
             Controls.Add(textBoxP_Isim);
@@ -326,10 +330,8 @@
         private TextBox textBoxP_Isim;
         private TextBox textBoxP_Soyisim;
         private TextBox textBoxP_Tc;
-        private TextBox textBoxP_Gorev;
         private TextBox textBoxP_DogumTarihi;
         private TextBox textBoxP_Telefon;
-        private TextBox textBoxP_Polikinlik;
         private TextBox textBoxP_Adres;
         private Button buttonKayitEkle;
         private TextBox textBoxP_Mail;
@@ -338,5 +340,7 @@
         private TextBox textBoxP_TcArama;
         private Button buttonKayitAra;
         private ComboBox comboBoxHcinsiyet;
+        private ComboBox comboBoxGorev;
+        private ComboBox comboBoxPolikinlik;
     }
 }
