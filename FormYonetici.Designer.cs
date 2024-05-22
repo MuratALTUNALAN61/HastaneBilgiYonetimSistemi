@@ -42,7 +42,6 @@
             textBoxP_Isim = new TextBox();
             textBoxP_Soyisim = new TextBox();
             textBoxP_Tc = new TextBox();
-            textBoxP_DogumTarihi = new TextBox();
             textBoxP_Telefon = new TextBox();
             textBoxP_Adres = new TextBox();
             buttonKayitEkle = new Button();
@@ -54,12 +53,16 @@
             comboBoxHcinsiyet = new ComboBox();
             comboBoxGorev = new ComboBox();
             comboBoxPolikinlik = new ComboBox();
+            dateTimePickerP_DogumTarihi = new DateTimePicker();
+            dataGridViewPersonel = new DataGridView();
+            buttonButunPersoneller = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewPersonel).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(66, 9);
+            label1.Location = new Point(67, 9);
             label1.Name = "label1";
             label1.Size = new Size(170, 15);
             label1.TabIndex = 0;
@@ -68,7 +71,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(66, 54);
+            label3.Location = new Point(67, 30);
             label3.Name = "label3";
             label3.Size = new Size(38, 15);
             label3.TabIndex = 2;
@@ -77,7 +80,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(47, 83);
+            label4.Location = new Point(48, 59);
             label4.Name = "label4";
             label4.Size = new Size(57, 15);
             label4.TabIndex = 3;
@@ -86,7 +89,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(13, 112);
+            label5.Location = new Point(14, 88);
             label5.Name = "label5";
             label5.Size = new Size(91, 15);
             label5.TabIndex = 4;
@@ -95,7 +98,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(54, 141);
+            label6.Location = new Point(55, 117);
             label6.Name = "label6";
             label6.Size = new Size(50, 15);
             label6.TabIndex = 5;
@@ -104,7 +107,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(54, 170);
+            label7.Location = new Point(55, 146);
             label7.Name = "label7";
             label7.Size = new Size(50, 15);
             label7.TabIndex = 6;
@@ -113,7 +116,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(17, 199);
+            label8.Location = new Point(18, 175);
             label8.Name = "label8";
             label8.Size = new Size(87, 15);
             label8.TabIndex = 7;
@@ -122,7 +125,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(31, 228);
+            label9.Location = new Point(32, 204);
             label9.Name = "label9";
             label9.Size = new Size(73, 15);
             label9.TabIndex = 8;
@@ -131,7 +134,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(46, 257);
+            label10.Location = new Point(47, 233);
             label10.Name = "label10";
             label10.Size = new Size(58, 15);
             label10.TabIndex = 9;
@@ -140,7 +143,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(58, 315);
+            label11.Location = new Point(59, 291);
             label11.Name = "label11";
             label11.Size = new Size(46, 15);
             label11.TabIndex = 10;
@@ -149,7 +152,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(40, 286);
+            label12.Location = new Point(41, 262);
             label12.Name = "label12";
             label12.Size = new Size(64, 15);
             label12.TabIndex = 11;
@@ -157,65 +160,59 @@
             // 
             // textBoxP_Isim
             // 
-            textBoxP_Isim.Location = new Point(122, 51);
+            textBoxP_Isim.Location = new Point(123, 27);
             textBoxP_Isim.Name = "textBoxP_Isim";
             textBoxP_Isim.Size = new Size(187, 23);
             textBoxP_Isim.TabIndex = 12;
             // 
             // textBoxP_Soyisim
             // 
-            textBoxP_Soyisim.Location = new Point(122, 80);
+            textBoxP_Soyisim.Location = new Point(123, 56);
             textBoxP_Soyisim.Name = "textBoxP_Soyisim";
             textBoxP_Soyisim.Size = new Size(187, 23);
             textBoxP_Soyisim.TabIndex = 13;
             // 
             // textBoxP_Tc
             // 
-            textBoxP_Tc.Location = new Point(122, 109);
+            textBoxP_Tc.Location = new Point(123, 85);
             textBoxP_Tc.Name = "textBoxP_Tc";
             textBoxP_Tc.Size = new Size(187, 23);
             textBoxP_Tc.TabIndex = 14;
             // 
-            // textBoxP_DogumTarihi
-            // 
-            textBoxP_DogumTarihi.Location = new Point(122, 196);
-            textBoxP_DogumTarihi.Name = "textBoxP_DogumTarihi";
-            textBoxP_DogumTarihi.Size = new Size(187, 23);
-            textBoxP_DogumTarihi.TabIndex = 17;
-            // 
             // textBoxP_Telefon
             // 
-            textBoxP_Telefon.Location = new Point(122, 225);
+            textBoxP_Telefon.Location = new Point(123, 201);
             textBoxP_Telefon.Name = "textBoxP_Telefon";
             textBoxP_Telefon.Size = new Size(187, 23);
             textBoxP_Telefon.TabIndex = 18;
             // 
             // textBoxP_Adres
             // 
-            textBoxP_Adres.Location = new Point(122, 312);
+            textBoxP_Adres.Location = new Point(123, 288);
             textBoxP_Adres.Name = "textBoxP_Adres";
             textBoxP_Adres.Size = new Size(187, 23);
             textBoxP_Adres.TabIndex = 21;
             // 
             // buttonKayitEkle
             // 
-            buttonKayitEkle.Location = new Point(161, 341);
+            buttonKayitEkle.Location = new Point(162, 317);
             buttonKayitEkle.Name = "buttonKayitEkle";
             buttonKayitEkle.Size = new Size(75, 39);
             buttonKayitEkle.TabIndex = 22;
             buttonKayitEkle.Text = "PERSONEL EKLE";
             buttonKayitEkle.UseVisualStyleBackColor = true;
+            buttonKayitEkle.Click += buttonKayitEkle_Click;
             // 
             // textBoxP_Mail
             // 
-            textBoxP_Mail.Location = new Point(122, 167);
+            textBoxP_Mail.Location = new Point(123, 143);
             textBoxP_Mail.Name = "textBoxP_Mail";
             textBoxP_Mail.Size = new Size(187, 23);
             textBoxP_Mail.TabIndex = 23;
             // 
             // textBoxP_TcArama
             // 
-            textBoxP_TcArama.Location = new Point(426, 51);
+            textBoxP_TcArama.Location = new Point(162, 471);
             textBoxP_TcArama.Name = "textBoxP_TcArama";
             textBoxP_TcArama.Size = new Size(152, 23);
             textBoxP_TcArama.TabIndex = 24;
@@ -223,7 +220,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(329, 54);
+            label13.Location = new Point(65, 474);
             label13.Name = "label13";
             label13.Size = new Size(91, 15);
             label13.TabIndex = 25;
@@ -231,27 +228,29 @@
             // 
             // buttonKayitSil
             // 
-            buttonKayitSil.Location = new Point(426, 80);
+            buttonKayitSil.Location = new Point(693, 458);
             buttonKayitSil.Name = "buttonKayitSil";
             buttonKayitSil.Size = new Size(75, 47);
             buttonKayitSil.TabIndex = 26;
             buttonKayitSil.Text = "PERSONEL SİL";
             buttonKayitSil.UseVisualStyleBackColor = true;
+            buttonKayitSil.Click += buttonKayitSil_Click;
             // 
             // buttonKayitAra
             // 
-            buttonKayitAra.Location = new Point(503, 80);
+            buttonKayitAra.Location = new Point(398, 458);
             buttonKayitAra.Name = "buttonKayitAra";
             buttonKayitAra.Size = new Size(75, 47);
             buttonKayitAra.TabIndex = 30;
             buttonKayitAra.Text = "PERSONEL ARA";
             buttonKayitAra.UseVisualStyleBackColor = true;
+            buttonKayitAra.Click += buttonKayitAra_Click;
             // 
             // comboBoxHcinsiyet
             // 
             comboBoxHcinsiyet.FormattingEnabled = true;
             comboBoxHcinsiyet.Items.AddRange(new object[] { "Erkek", "Kadın" });
-            comboBoxHcinsiyet.Location = new Point(122, 254);
+            comboBoxHcinsiyet.Location = new Point(123, 230);
             comboBoxHcinsiyet.Name = "comboBoxHcinsiyet";
             comboBoxHcinsiyet.Size = new Size(187, 23);
             comboBoxHcinsiyet.TabIndex = 31;
@@ -260,7 +259,7 @@
             // 
             comboBoxGorev.FormattingEnabled = true;
             comboBoxGorev.Items.AddRange(new object[] { "Yönetici", "Doktor", "Sekreter" });
-            comboBoxGorev.Location = new Point(122, 138);
+            comboBoxGorev.Location = new Point(123, 114);
             comboBoxGorev.Name = "comboBoxGorev";
             comboBoxGorev.Size = new Size(187, 23);
             comboBoxGorev.TabIndex = 32;
@@ -269,17 +268,46 @@
             // comboBoxPolikinlik
             // 
             comboBoxPolikinlik.FormattingEnabled = true;
-            comboBoxPolikinlik.Location = new Point(122, 283);
+            comboBoxPolikinlik.Location = new Point(123, 259);
             comboBoxPolikinlik.Name = "comboBoxPolikinlik";
             comboBoxPolikinlik.Size = new Size(187, 23);
             comboBoxPolikinlik.TabIndex = 33;
+            // 
+            // dateTimePickerP_DogumTarihi
+            // 
+            dateTimePickerP_DogumTarihi.Location = new Point(123, 172);
+            dateTimePickerP_DogumTarihi.Name = "dateTimePickerP_DogumTarihi";
+            dateTimePickerP_DogumTarihi.Size = new Size(187, 23);
+            dateTimePickerP_DogumTarihi.TabIndex = 34;
+            // 
+            // dataGridViewPersonel
+            // 
+            dataGridViewPersonel.BackgroundColor = SystemColors.Control;
+            dataGridViewPersonel.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewPersonel.Location = new Point(14, 362);
+            dataGridViewPersonel.Name = "dataGridViewPersonel";
+            dataGridViewPersonel.Size = new Size(1137, 90);
+            dataGridViewPersonel.TabIndex = 35;
+            // 
+            // buttonButunPersoneller
+            // 
+            buttonButunPersoneller.Location = new Point(479, 458);
+            buttonButunPersoneller.Name = "buttonButunPersoneller";
+            buttonButunPersoneller.Size = new Size(90, 47);
+            buttonButunPersoneller.TabIndex = 36;
+            buttonButunPersoneller.Text = "BÜTÜN PERSONELLER";
+            buttonButunPersoneller.UseVisualStyleBackColor = true;
+            buttonButunPersoneller.Click += buttonButunPersoneller_Click;
             // 
             // FormYonetici
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(894, 501);
+            ClientSize = new Size(1163, 562);
+            Controls.Add(buttonButunPersoneller);
+            Controls.Add(dataGridViewPersonel);
+            Controls.Add(dateTimePickerP_DogumTarihi);
             Controls.Add(comboBoxPolikinlik);
             Controls.Add(comboBoxGorev);
             Controls.Add(comboBoxHcinsiyet);
@@ -291,7 +319,6 @@
             Controls.Add(buttonKayitEkle);
             Controls.Add(textBoxP_Adres);
             Controls.Add(textBoxP_Telefon);
-            Controls.Add(textBoxP_DogumTarihi);
             Controls.Add(textBoxP_Tc);
             Controls.Add(textBoxP_Soyisim);
             Controls.Add(textBoxP_Isim);
@@ -310,6 +337,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormYonetici";
             Load += FormYonetici_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewPersonel).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -330,7 +358,6 @@
         private TextBox textBoxP_Isim;
         private TextBox textBoxP_Soyisim;
         private TextBox textBoxP_Tc;
-        private TextBox textBoxP_DogumTarihi;
         private TextBox textBoxP_Telefon;
         private TextBox textBoxP_Adres;
         private Button buttonKayitEkle;
@@ -342,5 +369,8 @@
         private ComboBox comboBoxHcinsiyet;
         private ComboBox comboBoxGorev;
         private ComboBox comboBoxPolikinlik;
+        private DateTimePicker dateTimePickerP_DogumTarihi;
+        private DataGridView dataGridViewPersonel;
+        private Button buttonButunPersoneller;
     }
 }
