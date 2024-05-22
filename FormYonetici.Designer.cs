@@ -56,6 +56,13 @@
             dateTimePickerP_DogumTarihi = new DateTimePicker();
             dataGridViewPersonel = new DataGridView();
             buttonButunPersoneller = new Button();
+            label2 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            textBoxKullaniciAdi = new TextBox();
+            textBoxKullaniciSifre = new TextBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPersonel).BeginInit();
             SuspendLayout();
             // 
@@ -116,7 +123,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(18, 175);
+            label8.Location = new Point(329, 27);
             label8.Name = "label8";
             label8.Size = new Size(87, 15);
             label8.TabIndex = 7;
@@ -125,7 +132,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(32, 204);
+            label9.Location = new Point(343, 59);
             label9.Name = "label9";
             label9.Size = new Size(73, 15);
             label9.TabIndex = 8;
@@ -134,7 +141,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(47, 233);
+            label10.Location = new Point(358, 88);
             label10.Name = "label10";
             label10.Size = new Size(58, 15);
             label10.TabIndex = 9;
@@ -143,7 +150,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(59, 291);
+            label11.Location = new Point(370, 146);
             label11.Name = "label11";
             label11.Size = new Size(46, 15);
             label11.TabIndex = 10;
@@ -152,7 +159,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(41, 262);
+            label12.Location = new Point(352, 117);
             label12.Name = "label12";
             label12.Size = new Size(64, 15);
             label12.TabIndex = 11;
@@ -181,21 +188,21 @@
             // 
             // textBoxP_Telefon
             // 
-            textBoxP_Telefon.Location = new Point(123, 201);
+            textBoxP_Telefon.Location = new Point(434, 56);
             textBoxP_Telefon.Name = "textBoxP_Telefon";
             textBoxP_Telefon.Size = new Size(187, 23);
             textBoxP_Telefon.TabIndex = 18;
             // 
             // textBoxP_Adres
             // 
-            textBoxP_Adres.Location = new Point(123, 288);
+            textBoxP_Adres.Location = new Point(434, 143);
             textBoxP_Adres.Name = "textBoxP_Adres";
             textBoxP_Adres.Size = new Size(187, 23);
             textBoxP_Adres.TabIndex = 21;
             // 
             // buttonKayitEkle
             // 
-            buttonKayitEkle.Location = new Point(162, 317);
+            buttonKayitEkle.Location = new Point(649, 76);
             buttonKayitEkle.Name = "buttonKayitEkle";
             buttonKayitEkle.Size = new Size(75, 39);
             buttonKayitEkle.TabIndex = 22;
@@ -212,7 +219,7 @@
             // 
             // textBoxP_TcArama
             // 
-            textBoxP_TcArama.Location = new Point(162, 471);
+            textBoxP_TcArama.Location = new Point(158, 350);
             textBoxP_TcArama.Name = "textBoxP_TcArama";
             textBoxP_TcArama.Size = new Size(152, 23);
             textBoxP_TcArama.TabIndex = 24;
@@ -220,7 +227,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(65, 474);
+            label13.Location = new Point(61, 353);
             label13.Name = "label13";
             label13.Size = new Size(91, 15);
             label13.TabIndex = 25;
@@ -228,7 +235,7 @@
             // 
             // buttonKayitSil
             // 
-            buttonKayitSil.Location = new Point(693, 458);
+            buttonKayitSil.Location = new Point(689, 337);
             buttonKayitSil.Name = "buttonKayitSil";
             buttonKayitSil.Size = new Size(75, 47);
             buttonKayitSil.TabIndex = 26;
@@ -238,7 +245,7 @@
             // 
             // buttonKayitAra
             // 
-            buttonKayitAra.Location = new Point(398, 458);
+            buttonKayitAra.Location = new Point(394, 337);
             buttonKayitAra.Name = "buttonKayitAra";
             buttonKayitAra.Size = new Size(75, 47);
             buttonKayitAra.TabIndex = 30;
@@ -250,7 +257,7 @@
             // 
             comboBoxHcinsiyet.FormattingEnabled = true;
             comboBoxHcinsiyet.Items.AddRange(new object[] { "Erkek", "Kadın" });
-            comboBoxHcinsiyet.Location = new Point(123, 230);
+            comboBoxHcinsiyet.Location = new Point(434, 85);
             comboBoxHcinsiyet.Name = "comboBoxHcinsiyet";
             comboBoxHcinsiyet.Size = new Size(187, 23);
             comboBoxHcinsiyet.TabIndex = 31;
@@ -268,14 +275,14 @@
             // comboBoxPolikinlik
             // 
             comboBoxPolikinlik.FormattingEnabled = true;
-            comboBoxPolikinlik.Location = new Point(123, 259);
+            comboBoxPolikinlik.Location = new Point(434, 114);
             comboBoxPolikinlik.Name = "comboBoxPolikinlik";
             comboBoxPolikinlik.Size = new Size(187, 23);
             comboBoxPolikinlik.TabIndex = 33;
             // 
             // dateTimePickerP_DogumTarihi
             // 
-            dateTimePickerP_DogumTarihi.Location = new Point(123, 172);
+            dateTimePickerP_DogumTarihi.Location = new Point(434, 24);
             dateTimePickerP_DogumTarihi.Name = "dateTimePickerP_DogumTarihi";
             dateTimePickerP_DogumTarihi.Size = new Size(187, 23);
             dateTimePickerP_DogumTarihi.TabIndex = 34;
@@ -284,14 +291,14 @@
             // 
             dataGridViewPersonel.BackgroundColor = SystemColors.Control;
             dataGridViewPersonel.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewPersonel.Location = new Point(14, 362);
+            dataGridViewPersonel.Location = new Point(12, 183);
             dataGridViewPersonel.Name = "dataGridViewPersonel";
-            dataGridViewPersonel.Size = new Size(1137, 90);
+            dataGridViewPersonel.Size = new Size(1137, 141);
             dataGridViewPersonel.TabIndex = 35;
             // 
             // buttonButunPersoneller
             // 
-            buttonButunPersoneller.Location = new Point(479, 458);
+            buttonButunPersoneller.Location = new Point(475, 337);
             buttonButunPersoneller.Name = "buttonButunPersoneller";
             buttonButunPersoneller.Size = new Size(90, 47);
             buttonButunPersoneller.TabIndex = 36;
@@ -299,12 +306,78 @@
             buttonButunPersoneller.UseVisualStyleBackColor = true;
             buttonButunPersoneller.Click += buttonButunPersoneller_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(851, 38);
+            label2.Name = "label2";
+            label2.Size = new Size(86, 15);
+            label2.TabIndex = 37;
+            label2.Text = "PERSONEL ID : ";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(968, 35);
+            label14.Name = "label14";
+            label14.Size = new Size(37, 15);
+            label14.TabIndex = 38;
+            label14.Text = "00000";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(841, 64);
+            label15.Name = "label15";
+            label15.Size = new Size(96, 15);
+            label15.TabIndex = 39;
+            label15.Text = "KULLANICI ADI : ";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(832, 88);
+            label16.Name = "label16";
+            label16.Size = new Size(105, 15);
+            label16.TabIndex = 40;
+            label16.Text = "KULLANICI ŞİFRE : ";
+            // 
+            // textBoxKullaniciAdi
+            // 
+            textBoxKullaniciAdi.Location = new Point(968, 61);
+            textBoxKullaniciAdi.Name = "textBoxKullaniciAdi";
+            textBoxKullaniciAdi.Size = new Size(100, 23);
+            textBoxKullaniciAdi.TabIndex = 41;
+            // 
+            // textBoxKullaniciSifre
+            // 
+            textBoxKullaniciSifre.Location = new Point(968, 85);
+            textBoxKullaniciSifre.Name = "textBoxKullaniciSifre";
+            textBoxKullaniciSifre.Size = new Size(100, 23);
+            textBoxKullaniciSifre.TabIndex = 42;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(907, 122);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 41);
+            button1.TabIndex = 43;
+            button1.Text = "KULLANICI OLUŞTUR";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // FormYonetici
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1163, 562);
+            ClientSize = new Size(1163, 477);
+            Controls.Add(button1);
+            Controls.Add(textBoxKullaniciSifre);
+            Controls.Add(textBoxKullaniciAdi);
+            Controls.Add(label16);
+            Controls.Add(label15);
+            Controls.Add(label14);
+            Controls.Add(label2);
             Controls.Add(buttonButunPersoneller);
             Controls.Add(dataGridViewPersonel);
             Controls.Add(dateTimePickerP_DogumTarihi);
@@ -372,5 +445,12 @@
         private DateTimePicker dateTimePickerP_DogumTarihi;
         private DataGridView dataGridViewPersonel;
         private Button buttonButunPersoneller;
+        private Label label2;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private TextBox textBoxKullaniciAdi;
+        private TextBox textBoxKullaniciSifre;
+        private Button button1;
     }
 }
