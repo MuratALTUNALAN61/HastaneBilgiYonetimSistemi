@@ -101,7 +101,7 @@ namespace HBYS
         }
 
         // hasta kayıt arama
-
+            
         private void buttonKayitAra_Click(object sender, EventArgs e)
         {
             SqlCommand kayitAra = new SqlCommand("select * from Hasta where h_tc=@h_tc", baglantiSekreter);

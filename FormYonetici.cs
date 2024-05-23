@@ -129,7 +129,7 @@ namespace HBYS
             SqlCommand doktorEkle = new SqlCommand("insert into Doktorlar(p_id,polikinlik_id,doktor_ad) values(@p_id,@polikinlik_id,@doktor_ad)", baglantiYonetici);
             doktorEkle.Parameters.AddWithValue("@p_id", getirPersonelId());
             doktorEkle.Parameters.AddWithValue("@polikinlik_id", getirPolikinlikId());
-            doktorEkle.Parameters.AddWithValue("@doktor_ad", textBoxP_Isim.Text+" "+textBoxP_Soyisim.Text);
+            doktorEkle.Parameters.AddWithValue("@doktor_ad", textBoxP_Isim.Text + " " + textBoxP_Soyisim.Text);
             return doktorEkle.ExecuteNonQuery();
         }
 
@@ -173,11 +173,43 @@ namespace HBYS
             getirButunPersoneller();
             baglantiYonetici.Close();
         }
-        private void personelSil() 
+        private void personelSil()
         {
-            SqlCommand personelSil=new SqlCommand("update Personel set p_durumu='ayrıldı' where p_tc=@p_tc",baglantiYonetici);
-            personelSil.Parameters.AddWithValue("@p_tc",textBoxP_TcArama.Text);
+            SqlCommand personelSil = new SqlCommand("update Personel set p_durumu='ayrıldı' where p_tc=@p_tc", baglantiYonetici);
+            personelSil.Parameters.AddWithValue("@p_tc", textBoxP_TcArama.Text);
             personelSil.ExecuteScalar();
+        }
+
+        // Kullanıcı oluşturma
+
+        private void buttonKullaniciOlustur_Click(object sender, EventArgs e)
+        {
+            baglantiYonetici.Open();
+
+            baglantiYonetici.Close();
+        }
+        private void kullaniciEkle()
+        {
+
+        }
+
+        // label ıd ekleme
+
+        private int seciliPersonelId()
+        {
+            int personelId=0;
+            if(dataGridViewPersonel.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dataGridViewPersonel.SelectedRows[0];
+                personelId = (int)row.Cells[0].Value;
+                return personelId;
+            }
+            return personelId;
+        }
+
+        private void dataGridViewPersonel_SelectionChanged(object sender, EventArgs e)
+        {
+            labelPersonelId.Text = seciliPersonelId().ToString();
         }
     }
 }

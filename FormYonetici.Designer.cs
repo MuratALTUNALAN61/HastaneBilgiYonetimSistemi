@@ -57,12 +57,12 @@
             dataGridViewPersonel = new DataGridView();
             buttonButunPersoneller = new Button();
             label2 = new Label();
-            label14 = new Label();
+            labelPersonelId = new Label();
             label15 = new Label();
             label16 = new Label();
             textBoxKullaniciAdi = new TextBox();
             textBoxKullaniciSifre = new TextBox();
-            button1 = new Button();
+            buttonKullaniciOlustur = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPersonel).BeginInit();
             SuspendLayout();
             // 
@@ -295,6 +295,7 @@
             dataGridViewPersonel.Name = "dataGridViewPersonel";
             dataGridViewPersonel.Size = new Size(1137, 141);
             dataGridViewPersonel.TabIndex = 35;
+            dataGridViewPersonel.SelectionChanged += dataGridViewPersonel_SelectionChanged;
             // 
             // buttonButunPersoneller
             // 
@@ -315,14 +316,14 @@
             label2.TabIndex = 37;
             label2.Text = "PERSONEL ID : ";
             // 
-            // label14
+            // labelPersonelId
             // 
-            label14.AutoSize = true;
-            label14.Location = new Point(968, 35);
-            label14.Name = "label14";
-            label14.Size = new Size(37, 15);
-            label14.TabIndex = 38;
-            label14.Text = "00000";
+            labelPersonelId.AutoSize = true;
+            labelPersonelId.Location = new Point(968, 35);
+            labelPersonelId.Name = "labelPersonelId";
+            labelPersonelId.Size = new Size(37, 15);
+            labelPersonelId.TabIndex = 38;
+            labelPersonelId.Text = "00000";
             // 
             // label15
             // 
@@ -356,14 +357,15 @@
             textBoxKullaniciSifre.Size = new Size(100, 23);
             textBoxKullaniciSifre.TabIndex = 42;
             // 
-            // button1
+            // buttonKullaniciOlustur
             // 
-            button1.Location = new Point(907, 122);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 41);
-            button1.TabIndex = 43;
-            button1.Text = "KULLANICI OLUŞTUR";
-            button1.UseVisualStyleBackColor = true;
+            buttonKullaniciOlustur.Location = new Point(907, 122);
+            buttonKullaniciOlustur.Name = "buttonKullaniciOlustur";
+            buttonKullaniciOlustur.Size = new Size(75, 41);
+            buttonKullaniciOlustur.TabIndex = 43;
+            buttonKullaniciOlustur.Text = "KULLANICI OLUŞTUR";
+            buttonKullaniciOlustur.UseVisualStyleBackColor = true;
+            buttonKullaniciOlustur.Click += buttonKullaniciOlustur_Click;
             // 
             // FormYonetici
             // 
@@ -371,12 +373,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1163, 477);
-            Controls.Add(button1);
+            Controls.Add(buttonKullaniciOlustur);
             Controls.Add(textBoxKullaniciSifre);
             Controls.Add(textBoxKullaniciAdi);
             Controls.Add(label16);
             Controls.Add(label15);
-            Controls.Add(label14);
+            Controls.Add(labelPersonelId);
             Controls.Add(label2);
             Controls.Add(buttonButunPersoneller);
             Controls.Add(dataGridViewPersonel);
@@ -446,11 +448,11 @@
         private DataGridView dataGridViewPersonel;
         private Button buttonButunPersoneller;
         private Label label2;
-        private Label label14;
+        private Label labelPersonelId;
         private Label label15;
         private Label label16;
         private TextBox textBoxKullaniciAdi;
         private TextBox textBoxKullaniciSifre;
-        private Button button1;
+        private Button buttonKullaniciOlustur;
     }
 }
