@@ -14,6 +14,8 @@ namespace HBYS
     public partial class FormYonetici : Form
     {
         int poliId;
+        int yetkilendirmeId;
+        int kullaniciId;
         public FormYonetici()
         {
             InitializeComponent();
@@ -180,17 +182,79 @@ namespace HBYS
             personelSil.ExecuteScalar();
         }
 
+        // kayıt silme
+
+
         // Kullanıcı oluşturma
 
         private void buttonKullaniciOlustur_Click(object sender, EventArgs e)
         {
             baglantiYonetici.Open();
-
+            int eklenenKullanici=kullaniciEkle();
+            getirYetkiId(eklenenKullanici);
+            getirKullaniciId();
+            int eklenenYetki=yetkiEkle();
+            if(eklenenYetki>0)
+            {
+                MessageBox.Show("Kullanıcı oluşturuldu");
+            }
+            else
+            {
+                MessageBox.Show("Hata oluştu");
+            }
             baglantiYonetici.Close();
         }
-        private void kullaniciEkle()
+        private int kullaniciEkle()
         {
-
+            SqlCommand kullanici = new SqlCommand("insert into Kullanici(personel_id,kullaniciAdi,sifre) values(@personel_id,@kullaniciAdi,@sifre)",baglantiYonetici);
+            kullanici.Parameters.AddWithValue("@personel_id",labelPersonelId.Text);
+            kullanici.Parameters.AddWithValue("@kullaniciAdi", textBoxKullaniciAdi.Text);
+            kullanici.Parameters.AddWithValue("@sifre",textBoxKullaniciSifre.Text);
+            return kullanici.ExecuteNonQuery();
+        }
+        private void getirYetkiId(int eklenenKullanici)
+        {
+            if (eklenenKullanici > 0)
+            {
+                SqlCommand yetkiId = new SqlCommand("select Yetki.yetki_id from Personel join Yetki on Personel.p_gorevi=Yetki.yetki where Personel.p_id=@p_id", baglantiYonetici);
+                yetkiId.Parameters.AddWithValue("@p_id", labelPersonelId.Text);
+                SqlDataReader drYetkiId = yetkiId.ExecuteReader();
+                if(drYetkiId.Read())
+                {
+                    yetkilendirmeId=drYetkiId.GetInt32(0);
+                }
+                else
+                {
+                    MessageBox.Show("Bu görev yetki sahibi değildir");
+                }
+                drYetkiId.Close();
+            }
+            else
+            {
+                MessageBox.Show("Kullanıcı oluşturulurken hata meydana geldi.");
+            }
+        }
+        private void getirKullaniciId()
+        {
+            SqlCommand sqlkullaniciId = new SqlCommand("select kullanici_id from Kullanici where personel_id=@personel_id", baglantiYonetici);
+            sqlkullaniciId.Parameters.AddWithValue("@personel_id",labelPersonelId.Text);
+            SqlDataReader drKullaniciId=sqlkullaniciId.ExecuteReader();
+            if(drKullaniciId.Read())
+            {
+                kullaniciId=drKullaniciId.GetInt32(0);
+            }
+            else
+            {
+                MessageBox.Show("Kullanıcı bulunamadı.");
+            }
+            drKullaniciId.Close();
+        }
+        private int yetkiEkle()
+        {
+            SqlCommand yetkiEkle = new SqlCommand("insert into Kullanici_yetki(y_id,k_id) values(@y_id,@k_id)", baglantiYonetici);
+            yetkiEkle.Parameters.AddWithValue("@y_id", yetkilendirmeId);
+            yetkiEkle.Parameters.AddWithValue("@k_id",kullaniciId);
+            return yetkiEkle.ExecuteNonQuery();
         }
 
         // label ıd ekleme
