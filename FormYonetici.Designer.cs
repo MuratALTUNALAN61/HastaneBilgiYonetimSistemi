@@ -63,6 +63,7 @@
             textBoxKullaniciAdi = new TextBox();
             textBoxKullaniciSifre = new TextBox();
             buttonKullaniciOlustur = new Button();
+            buttonCıkıs = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPersonel).BeginInit();
             SuspendLayout();
             // 
@@ -367,12 +368,23 @@
             buttonKullaniciOlustur.UseVisualStyleBackColor = true;
             buttonKullaniciOlustur.Click += buttonKullaniciOlustur_Click;
             // 
+            // buttonCıkıs
+            // 
+            buttonCıkıs.Location = new Point(971, 367);
+            buttonCıkıs.Name = "buttonCıkıs";
+            buttonCıkıs.Size = new Size(75, 23);
+            buttonCıkıs.TabIndex = 44;
+            buttonCıkıs.Text = "ÇIKIŞ";
+            buttonCıkıs.UseVisualStyleBackColor = true;
+            buttonCıkıs.Click += buttonCıkıs_Click;
+            // 
             // FormYonetici
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1163, 477);
+            Controls.Add(buttonCıkıs);
             Controls.Add(buttonKullaniciOlustur);
             Controls.Add(textBoxKullaniciSifre);
             Controls.Add(textBoxKullaniciAdi);
@@ -454,5 +466,6 @@
         private TextBox textBoxKullaniciAdi;
         private TextBox textBoxKullaniciSifre;
         private Button buttonKullaniciOlustur;
+        private Button buttonCıkıs;
     }
 }

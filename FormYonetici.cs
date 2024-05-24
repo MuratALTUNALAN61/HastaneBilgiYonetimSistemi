@@ -16,6 +16,7 @@ namespace HBYS
         int poliId;
         int yetkilendirmeId;
         int kullaniciId;
+
         public FormYonetici()
         {
             InitializeComponent();
@@ -171,30 +172,91 @@ namespace HBYS
         private void buttonKayitSil_Click(object sender, EventArgs e)
         {
             baglantiYonetici.Open();
-            personelSil();
+            string silinecekPersonelTc = textBoxP_TcArama.Text;
+            personelSil(silinecekPersonelTc);
+
             getirButunPersoneller();
             baglantiYonetici.Close();
         }
-        private void personelSil()
+        private void personelSil(string tc)
         {
-            SqlCommand personelSil = new SqlCommand("update Personel set p_durumu='ayrıldı' where p_tc=@p_tc", baglantiYonetici);
-            personelSil.Parameters.AddWithValue("@p_tc", textBoxP_TcArama.Text);
-            personelSil.ExecuteScalar();
+            int personelId = getirPersonelId(tc);
+            if (personelId > 0)
+            {
+                int kullaniciId = getirKullaniciId(personelId);
+                if (kullaniciId > 0)
+                {
+                    yetkiSil(kullaniciId);
+                    kullaniciSil(kullaniciId);
+                    guncellePersonelDurumu(personelId, "ayrıldı");
+                    MessageBox.Show("Personel silindi");
+                }
+                else
+                {
+                    MessageBox.Show("Kullanici bulunamadı");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Personel bulunamadı.");
+            }
         }
-
-        // kayıt silme
-
+        private void kullaniciSil(int kullaniciId)
+        {
+            SqlCommand cmdKullaniciSil = new SqlCommand("delete from Kullanici where kullanici_id=@k_id", baglantiYonetici);
+            cmdKullaniciSil.Parameters.AddWithValue("@k_id", kullaniciId);
+            cmdKullaniciSil.ExecuteScalar();
+        }
+        private void yetkiSil(int kullaniciId)
+        {
+            SqlCommand cmdYetkiSil = new SqlCommand("delete from Kullanici_yetki where k_id=@k_id", baglantiYonetici);
+            cmdYetkiSil.Parameters.AddWithValue("@k_id", kullaniciId);
+            cmdYetkiSil.ExecuteScalar();
+        }
+        private void guncellePersonelDurumu(int personelId, string durum)
+        {
+            SqlCommand cmdPersonelDurumu = new SqlCommand("update Personel set p_durumu=@durum where p_id=@personelId", baglantiYonetici);
+            cmdPersonelDurumu.Parameters.AddWithValue("@durum", durum);
+            cmdPersonelDurumu.Parameters.AddWithValue("@personelId", personelId);
+            cmdPersonelDurumu.ExecuteScalar();
+        }
+        private int getirKullaniciId(int personelId)
+        {
+            int kullaniciId = 0;
+            SqlCommand cmdKullaniciId = new SqlCommand("select kullanici_id from Kullanici where personel_id=@p_id", baglantiYonetici);
+            cmdKullaniciId.Parameters.AddWithValue("@p_id", personelId);
+            SqlDataReader drKullaniciId = cmdKullaniciId.ExecuteReader();
+            if (drKullaniciId.Read())
+            {
+                kullaniciId = drKullaniciId.GetInt32(0);
+            }
+            drKullaniciId.Close();
+            return kullaniciId;
+        }
+        private int getirPersonelId(string tc)
+        {
+            int personelId = 0;
+            SqlCommand cmdPersonelId = new SqlCommand("select p_id from Personel where p_tc=@p_tc", baglantiYonetici);
+            cmdPersonelId.Parameters.AddWithValue("@p_tc", tc);
+            SqlDataReader drPersonelId = cmdPersonelId.ExecuteReader();
+            if (drPersonelId.Read())
+            {
+                personelId = drPersonelId.GetInt32(0);
+            }
+            drPersonelId.Close();
+            return personelId;
+        }
 
         // Kullanıcı oluşturma
 
         private void buttonKullaniciOlustur_Click(object sender, EventArgs e)
         {
             baglantiYonetici.Open();
-            int eklenenKullanici=kullaniciEkle();
+            int eklenenKullanici = kullaniciEkle();
             getirYetkiId(eklenenKullanici);
             getirKullaniciId();
-            int eklenenYetki=yetkiEkle();
-            if(eklenenYetki>0)
+            int eklenenYetki = yetkiEkle();
+            if (eklenenYetki > 0)
             {
                 MessageBox.Show("Kullanıcı oluşturuldu");
             }
@@ -206,10 +268,10 @@ namespace HBYS
         }
         private int kullaniciEkle()
         {
-            SqlCommand kullanici = new SqlCommand("insert into Kullanici(personel_id,kullaniciAdi,sifre) values(@personel_id,@kullaniciAdi,@sifre)",baglantiYonetici);
-            kullanici.Parameters.AddWithValue("@personel_id",labelPersonelId.Text);
+            SqlCommand kullanici = new SqlCommand("insert into Kullanici(personel_id,kullaniciAdi,sifre) values(@personel_id,@kullaniciAdi,@sifre)", baglantiYonetici);
+            kullanici.Parameters.AddWithValue("@personel_id", labelPersonelId.Text);
             kullanici.Parameters.AddWithValue("@kullaniciAdi", textBoxKullaniciAdi.Text);
-            kullanici.Parameters.AddWithValue("@sifre",textBoxKullaniciSifre.Text);
+            kullanici.Parameters.AddWithValue("@sifre", textBoxKullaniciSifre.Text);
             return kullanici.ExecuteNonQuery();
         }
         private void getirYetkiId(int eklenenKullanici)
@@ -219,9 +281,9 @@ namespace HBYS
                 SqlCommand yetkiId = new SqlCommand("select Yetki.yetki_id from Personel join Yetki on Personel.p_gorevi=Yetki.yetki where Personel.p_id=@p_id", baglantiYonetici);
                 yetkiId.Parameters.AddWithValue("@p_id", labelPersonelId.Text);
                 SqlDataReader drYetkiId = yetkiId.ExecuteReader();
-                if(drYetkiId.Read())
+                if (drYetkiId.Read())
                 {
-                    yetkilendirmeId=drYetkiId.GetInt32(0);
+                    yetkilendirmeId = drYetkiId.GetInt32(0);
                 }
                 else
                 {
@@ -237,11 +299,11 @@ namespace HBYS
         private void getirKullaniciId()
         {
             SqlCommand sqlkullaniciId = new SqlCommand("select kullanici_id from Kullanici where personel_id=@personel_id", baglantiYonetici);
-            sqlkullaniciId.Parameters.AddWithValue("@personel_id",labelPersonelId.Text);
-            SqlDataReader drKullaniciId=sqlkullaniciId.ExecuteReader();
-            if(drKullaniciId.Read())
+            sqlkullaniciId.Parameters.AddWithValue("@personel_id", labelPersonelId.Text);
+            SqlDataReader drKullaniciId = sqlkullaniciId.ExecuteReader();
+            if (drKullaniciId.Read())
             {
-                kullaniciId=drKullaniciId.GetInt32(0);
+                kullaniciId = drKullaniciId.GetInt32(0);
             }
             else
             {
@@ -253,7 +315,7 @@ namespace HBYS
         {
             SqlCommand yetkiEkle = new SqlCommand("insert into Kullanici_yetki(y_id,k_id) values(@y_id,@k_id)", baglantiYonetici);
             yetkiEkle.Parameters.AddWithValue("@y_id", yetkilendirmeId);
-            yetkiEkle.Parameters.AddWithValue("@k_id",kullaniciId);
+            yetkiEkle.Parameters.AddWithValue("@k_id", kullaniciId);
             return yetkiEkle.ExecuteNonQuery();
         }
 
@@ -261,8 +323,8 @@ namespace HBYS
 
         private int seciliPersonelId()
         {
-            int personelId=0;
-            if(dataGridViewPersonel.SelectedRows.Count > 0)
+            int personelId = 0;
+            if (dataGridViewPersonel.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dataGridViewPersonel.SelectedRows[0];
                 personelId = (int)row.Cells[0].Value;
@@ -274,6 +336,15 @@ namespace HBYS
         private void dataGridViewPersonel_SelectionChanged(object sender, EventArgs e)
         {
             labelPersonelId.Text = seciliPersonelId().ToString();
+        }
+
+        // çıkış yap
+
+        private void buttonCıkıs_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
         }
     }
 }
