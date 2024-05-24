@@ -72,10 +72,6 @@ namespace HBYS
                 randevuId = (int)drSiradaki["randevu_id"];
                 hastaId = (int)drSiradaki["h_id"];
             }
-            else
-            {
-                MessageBox.Show("gelecek randevu yok");
-            }
             drSiradaki.Close();
             getirMuayeneKayıt();
         }
@@ -196,7 +192,14 @@ namespace HBYS
             richTextBoxSikayet.Text = "";
             richTextBoxTeshis.Text = "";
             richTextBoxRecete.Text = "";
-            buttonMuayeneKaydet.Enabled=false;
+            buttonMuayeneKaydet.Enabled = false;
+        }
+
+        private void buttonCıkıs_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
         }
     }
 }

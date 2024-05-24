@@ -75,6 +75,7 @@
             textBoxHtc = new TextBox();
             buttonKayitEkle = new Button();
             tabControlSekreter = new TabControl();
+            buttonCıkıs = new Button();
             tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRandevu).BeginInit();
             tabPage5.SuspendLayout();
@@ -87,6 +88,7 @@
             // 
             // tabPage6
             // 
+            tabPage6.BackColor = SystemColors.ActiveCaption;
             tabPage6.Controls.Add(buttonRandevuSil);
             tabPage6.Controls.Add(buttonRandevuHepsiniAra);
             tabPage6.Controls.Add(dataGridViewRandevu);
@@ -99,7 +101,6 @@
             tabPage6.Size = new Size(856, 340);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "Randevu Görüntüleme - Silme";
-            tabPage6.UseVisualStyleBackColor = true;
             // 
             // buttonRandevuSil
             // 
@@ -160,6 +161,7 @@
             // 
             // tabPage5
             // 
+            tabPage5.BackColor = SystemColors.ActiveCaption;
             tabPage5.Controls.Add(groupBoxRandevu);
             tabPage5.Controls.Add(dateTimePickerRancevuTarih);
             tabPage5.Controls.Add(comboBoxRandevuDoktor);
@@ -176,7 +178,6 @@
             tabPage5.Size = new Size(856, 340);
             tabPage5.TabIndex = 4;
             tabPage5.Text = " Randevu Oluşturma";
-            tabPage5.UseVisualStyleBackColor = true;
             // 
             // groupBoxRandevu
             // 
@@ -350,6 +351,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.BackColor = SystemColors.ActiveCaption;
             tabPage2.Controls.Add(buttonKayitSill);
             tabPage2.Controls.Add(buttonKayıtGuncelle);
             tabPage2.Controls.Add(buttonHepsiniGöster);
@@ -363,7 +365,6 @@
             tabPage2.Size = new Size(856, 340);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Hasta Görüntüleme - Güncelleme - Silme";
-            tabPage2.UseVisualStyleBackColor = true;
             // 
             // buttonKayitSill
             // 
@@ -582,6 +583,16 @@
             tabControlSekreter.Size = new Size(864, 371);
             tabControlSekreter.TabIndex = 1;
             // 
+            // buttonCıkıs
+            // 
+            buttonCıkıs.Location = new Point(915, 343);
+            buttonCıkıs.Name = "buttonCıkıs";
+            buttonCıkıs.Size = new Size(75, 36);
+            buttonCıkıs.TabIndex = 2;
+            buttonCıkıs.Text = "ÇIKIŞ";
+            buttonCıkıs.UseVisualStyleBackColor = true;
+            buttonCıkıs.Click += buttonCıkıs_Click;
+            // 
             // FormSekreter
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -589,6 +600,7 @@
             AutoSize = true;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1247, 602);
+            Controls.Add(buttonCıkıs);
             Controls.Add(tabControlSekreter);
             Name = "FormSekreter";
             StartPosition = FormStartPosition.CenterScreen;
@@ -666,5 +678,6 @@
         private Button buttonRandevuAra;
         private TextBox textBoxRandevuAraTc;
         private Label label8;
+        private Button buttonCıkıs;
     }
 }

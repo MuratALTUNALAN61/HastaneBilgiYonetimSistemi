@@ -101,7 +101,7 @@ namespace HBYS
         }
 
         // hasta kayıt arama
-            
+
         private void buttonKayitAra_Click(object sender, EventArgs e)
         {
             SqlCommand kayitAra = new SqlCommand("select * from Hasta where h_tc=@h_tc", baglantiSekreter);
@@ -484,6 +484,13 @@ namespace HBYS
             SqlCommand randevuSil = new SqlCommand("delete from Randevu where randevu_id=@randevu_id", baglantiSekreter);
             randevuSil.Parameters.AddWithValue("@randevu_id", id);
             randevuSil.ExecuteScalar();
+        }
+
+        private void buttonCıkıs_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
         }
     }
 }

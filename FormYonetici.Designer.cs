@@ -370,9 +370,9 @@
             // 
             // buttonCıkıs
             // 
-            buttonCıkıs.Location = new Point(971, 367);
+            buttonCıkıs.Location = new Point(1074, 337);
             buttonCıkıs.Name = "buttonCıkıs";
-            buttonCıkıs.Size = new Size(75, 23);
+            buttonCıkıs.Size = new Size(75, 47);
             buttonCıkıs.TabIndex = 44;
             buttonCıkıs.Text = "ÇIKIŞ";
             buttonCıkıs.UseVisualStyleBackColor = true;

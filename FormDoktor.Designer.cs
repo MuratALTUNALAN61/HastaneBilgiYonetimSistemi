@@ -42,6 +42,7 @@
             label5 = new Label();
             labelHastaSoyad = new Label();
             buttonOncekiHastaBilgi = new Button();
+            buttonCıkıs = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDoktor).BeginInit();
             SuspendLayout();
             // 
@@ -173,12 +174,23 @@
             buttonOncekiHastaBilgi.UseVisualStyleBackColor = true;
             buttonOncekiHastaBilgi.Click += buttonOncekiHastaBilgi_Click;
             // 
+            // buttonCıkıs
+            // 
+            buttonCıkıs.Location = new Point(1047, 405);
+            buttonCıkıs.Name = "buttonCıkıs";
+            buttonCıkıs.Size = new Size(75, 37);
+            buttonCıkıs.TabIndex = 14;
+            buttonCıkıs.Text = "ÇIKIŞ";
+            buttonCıkıs.UseVisualStyleBackColor = true;
+            buttonCıkıs.Click += buttonCıkıs_Click;
+            // 
             // FormDoktor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1190, 585);
+            Controls.Add(buttonCıkıs);
             Controls.Add(buttonOncekiHastaBilgi);
             Controls.Add(labelHastaSoyad);
             Controls.Add(label5);
@@ -218,5 +230,6 @@
         private Label label5;
         private Label labelHastaSoyad;
         private Button buttonOncekiHastaBilgi;
+        private Button buttonCıkıs;
     }
 }
