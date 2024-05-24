@@ -172,6 +172,8 @@
             textBoxP_Isim.Name = "textBoxP_Isim";
             textBoxP_Isim.Size = new Size(187, 23);
             textBoxP_Isim.TabIndex = 12;
+            textBoxP_Isim.TextChanged += textBoxP_Isim_TextChanged;
+            textBoxP_Isim.KeyPress += textBoxP_Isim_KeyPress;
             // 
             // textBoxP_Soyisim
             // 
@@ -179,13 +181,18 @@
             textBoxP_Soyisim.Name = "textBoxP_Soyisim";
             textBoxP_Soyisim.Size = new Size(187, 23);
             textBoxP_Soyisim.TabIndex = 13;
+            textBoxP_Soyisim.TextChanged += textBoxP_Soyisim_TextChanged;
+            textBoxP_Soyisim.KeyPress += textBoxP_Soyisim_KeyPress;
             // 
             // textBoxP_Tc
             // 
             textBoxP_Tc.Location = new Point(123, 85);
+            textBoxP_Tc.MaxLength = 11;
             textBoxP_Tc.Name = "textBoxP_Tc";
             textBoxP_Tc.Size = new Size(187, 23);
             textBoxP_Tc.TabIndex = 14;
+            textBoxP_Tc.TextChanged += textBoxP_Tc_TextChanged;
+            textBoxP_Tc.KeyPress += textBoxP_Tc_KeyPress;
             // 
             // textBoxP_Telefon
             // 
@@ -193,6 +200,7 @@
             textBoxP_Telefon.Name = "textBoxP_Telefon";
             textBoxP_Telefon.Size = new Size(187, 23);
             textBoxP_Telefon.TabIndex = 18;
+            textBoxP_Telefon.KeyPress += textBoxP_Telefon_KeyPress;
             // 
             // textBoxP_Adres
             // 

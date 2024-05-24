@@ -26,11 +26,19 @@ namespace HBYS
 
         private void FormYonetici_Load(object sender, EventArgs e)
         {
+            buttonKayitEkle.Enabled = false;
             comboBoxPolikinlik.Enabled = false;
             baglantiYonetici.Open();
             getirPolikinlik();
             getirButunPersoneller();
             baglantiYonetici.Close();
+        }
+        private void ekleButonErisim()
+        {
+            if ((textBoxP_Isim.Text.Length != 0) && (textBoxP_Soyisim.Text.Length != 0) && (textBoxP_Tc.Text.Length == 11)) 
+            {
+                buttonKayitEkle.Enabled = true;
+            }
         }
         private void getirPolikinlik()
         {
@@ -345,6 +353,41 @@ namespace HBYS
             Form1 form1 = new Form1();
             form1.Show();
             this.Close();
+        }
+
+        private void textBoxP_Isim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar);
+        }
+
+        private void textBoxP_Soyisim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar);
+        }
+
+        private void textBoxP_Tc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void textBoxP_Telefon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void textBoxP_Isim_TextChanged(object sender, EventArgs e)
+        {
+            ekleButonErisim();
+        }
+
+        private void textBoxP_Soyisim_TextChanged(object sender, EventArgs e)
+        {
+            ekleButonErisim();
+        }
+
+        private void textBoxP_Tc_TextChanged(object sender, EventArgs e)
+        {
+            ekleButonErisim();
         }
     }
 }
