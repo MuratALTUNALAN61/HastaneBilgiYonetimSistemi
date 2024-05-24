@@ -229,9 +229,12 @@
             // textBoxP_TcArama
             // 
             textBoxP_TcArama.Location = new Point(158, 350);
+            textBoxP_TcArama.MaxLength = 11;
             textBoxP_TcArama.Name = "textBoxP_TcArama";
             textBoxP_TcArama.Size = new Size(152, 23);
             textBoxP_TcArama.TabIndex = 24;
+            textBoxP_TcArama.TextChanged += textBoxP_TcArama_TextChanged;
+            textBoxP_TcArama.KeyPress += textBoxP_TcArama_KeyPress;
             // 
             // label13
             // 
@@ -358,6 +361,7 @@
             textBoxKullaniciAdi.Name = "textBoxKullaniciAdi";
             textBoxKullaniciAdi.Size = new Size(100, 23);
             textBoxKullaniciAdi.TabIndex = 41;
+            textBoxKullaniciAdi.TextChanged += textBoxKullaniciAdi_TextChanged;
             // 
             // textBoxKullaniciSifre
             // 
@@ -365,6 +369,7 @@
             textBoxKullaniciSifre.Name = "textBoxKullaniciSifre";
             textBoxKullaniciSifre.Size = new Size(100, 23);
             textBoxKullaniciSifre.TabIndex = 42;
+            textBoxKullaniciSifre.TextChanged += textBoxKullaniciSifre_TextChanged;
             // 
             // buttonKullaniciOlustur
             // 

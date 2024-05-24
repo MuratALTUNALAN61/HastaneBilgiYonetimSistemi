@@ -26,7 +26,10 @@ namespace HBYS
 
         private void FormYonetici_Load(object sender, EventArgs e)
         {
-            buttonKayitEkle.Enabled = false;
+            buttonKayitSil.Enabled = false;
+            buttonKayitAra.Enabled = false;
+            buttonKullaniciOlustur.Enabled = false;
+            buttonKayitEkle.Enabled = false; 
             comboBoxPolikinlik.Enabled = false;
             baglantiYonetici.Open();
             getirPolikinlik();
@@ -35,7 +38,7 @@ namespace HBYS
         }
         private void ekleButonErisim()
         {
-            if ((textBoxP_Isim.Text.Length != 0) && (textBoxP_Soyisim.Text.Length != 0) && (textBoxP_Tc.Text.Length == 11)) 
+            if ((textBoxP_Isim.Text.Length != 0) && (textBoxP_Soyisim.Text.Length != 0) && (textBoxP_Tc.Text.Length == 11))
             {
                 buttonKayitEkle.Enabled = true;
             }
@@ -388,6 +391,36 @@ namespace HBYS
         private void textBoxP_Tc_TextChanged(object sender, EventArgs e)
         {
             ekleButonErisim();
+        }
+
+        private void textBoxKullaniciAdi_TextChanged(object sender, EventArgs e)
+        {
+            if ((textBoxKullaniciAdi.Text.Length != 0) && (textBoxKullaniciSifre.Text.Length != 0))
+            {
+                buttonKullaniciOlustur.Enabled = true;
+            }
+        }
+
+        private void textBoxKullaniciSifre_TextChanged(object sender, EventArgs e)
+        {
+            if ((textBoxKullaniciAdi.Text.Length != 0) && (textBoxKullaniciSifre.Text.Length != 0))
+            {
+                buttonKullaniciOlustur.Enabled = true;
+            }
+        }
+
+        private void textBoxP_TcArama_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxP_TcArama.Text.Length == 11)
+            {
+                buttonKayitAra.Enabled = true;
+                buttonKayitSil.Enabled = true;
+            }
+        }
+
+        private void textBoxP_TcArama_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }
