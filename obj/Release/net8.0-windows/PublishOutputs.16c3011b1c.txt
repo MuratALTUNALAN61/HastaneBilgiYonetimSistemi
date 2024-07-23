@@ -1,0 +1,13 @@
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\HBYS.exe
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\HBYS.dll
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\HBYS.deps.json
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\HBYS.runtimeconfig.json
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\HBYS.pdb
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\Interop.WMPLib.dll
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\AxInterop.WMPLib.dll
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\System.Data.SqlClient.dll
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\runtimes\win-arm64\native\sni.dll
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\runtimes\win-x64\native\sni.dll
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\runtimes\win-x86\native\sni.dll
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Murat Altunalan\Desktop\ALTUNALAN HBYS\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
